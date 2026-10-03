@@ -1,0 +1,160 @@
+slug: espresso-dosing-funnel-set
+design: designs/dosing_funnel.scad
+variants:
+- file: dosing_funnel_51mm.stl
+  params:
+    basket: 51
+  checks:
+  - type: outer
+    z: 3
+    expect:
+    - 50
+    - 50
+    tol: 0.15
+  - type: fit
+    z: 3
+    expect: 44.8
+    tol: 0.1
+- file: dosing_funnel_53mm.stl
+  params:
+    basket: 53
+  checks:
+  - type: outer
+    z: 3
+    expect:
+    - 52
+    - 52
+    tol: 0.15
+  - type: fit
+    z: 3
+    expect: 46.8
+    tol: 0.1
+- file: dosing_funnel_54mm.stl
+  params:
+    basket: 54
+  checks:
+  - type: outer
+    z: 3
+    expect:
+    - 53
+    - 53
+    tol: 0.15
+  - type: fit
+    z: 3
+    expect: 47.8
+    tol: 0.1
+- file: dosing_funnel_58mm.stl
+  params:
+    basket: 58
+  checks:
+  - type: outer
+    z: 3
+    expect:
+    - 57
+    - 57
+    tol: 0.15
+  - type: fit
+    z: 3
+    expect: 51.8
+    tol: 0.1
+- file: dosing_funnel_58mm_tall_collar.stl
+  params:
+    basket: 58
+    collar_h: 24
+  checks:
+  - type: outer
+    z: 3
+    expect:
+    - 57
+    - 57
+    tol: 0.15
+  - type: fit
+    z: 3
+    expect: 51.8
+    tol: 0.1
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 40
+- 70
+render_colors:
+- '#3B2A20'
+- '#E8E2D6'
+cover_badge: 51 · 53 · 54 · 58 mm portafilters · no supports
+print_settings:
+- No supports (print standing on the plug ring)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PETG or PLA; hand wash only
+name: Espresso Dosing Funnel for 51, 53, 54 & 58 mm Portafilters – Wide Hopper, No Mess
+price: 1.49
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- espresso
+- dosing funnel
+- portafilter
+- coffee
+- barista
+- 58mm
+- 54mm
+- 51mm
+- coffee accessories
+- no supports
+description: 'A wide hopper that drops into your portafilter basket so ground coffee goes into the basket
+  instead of onto the counter. Five files: four portafilter sizes plus a taller version for the 58 mm.
+
+
+  **Included (5 files)**
+
+
+  - 51 mm portafilter
+
+  - 53 mm portafilter
+
+  - 54 mm portafilter
+
+  - 58 mm portafilter
+
+  - 58 mm with a taller collar (extra room for a heaped dose)
+
+
+  **Print settings**
+
+
+  - No supports: print standing on the plug ring, as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG or PLA. Hand wash only, no dishwasher
+
+
+  **How it fits**
+
+
+  - The plug ring is 1 mm under the nominal size (for example 57 mm for a 58 mm portafilter), so it always
+  drops in without forcing
+
+  - A 45 degree seat rests on the basket edge and centres the funnel
+
+  - The hopper is about 40 mm wider than the basket and leans out at 39 degrees, so grounds slide down
+
+
+  **Check your size first:** "51, 53, 54, 58 mm" are the nominal sizes sold by most machine brands. The
+  inside of the basket can vary by about half a millimetre between brands. If your funnel is loose or
+  tight, message me with the basket diameter and I will adapt the file.
+
+
+  **Not included:** no magnets. This is a simple plug-in funnel.
+
+  '
+i18n:
+  fr:
+    name: Entonnoir de dosage espresso pour porte-filtres 51, 53, 54 et 58 mm
+    summary: Entonnoir large qui se pose dans le panier du porte-filtre. 4 tailles plus une version haute.
+  de:
+    name: Espresso-Dosiertrichter für 51-, 53-, 54- und 58-mm-Siebträger
+    summary: Breiter Trichter für den Siebträgerkorb. 4 Größen plus hohe Version.
