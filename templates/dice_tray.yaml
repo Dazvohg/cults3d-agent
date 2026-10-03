@@ -1,0 +1,116 @@
+keywords:
+- dice
+- dice tray
+- dice tower
+- tabletop
+- rpg
+- dnd
+- board game
+- wargame
+- miniature
+item:
+  slug: hex-dice-tray
+  design: designs/dice_tray.scad
+  variants:
+  - file: dice_tray_160mm_6_dice_slots.stl
+    params:
+      size: 160
+      storage: true
+      storage_mode: outside
+    checks:
+    - type: hole
+      z: 12
+      expect: 26
+      tol: 0.05
+      count: 6
+  - file: dice_tray_160mm_plain.stl
+    params:
+      size: 160
+      storage: false
+  - file: dice_tray_120mm_travel.stl
+    params:
+      size: 120
+      height: 22
+      storage: false
+  - file: dice_tray_190mm_6_slots_inside.stl
+    params:
+      size: 190
+      height: 30
+      storage: true
+      storage_mode: inside
+    checks:
+    - type: hole
+      z: 12
+      expect: 26
+      tol: 0.05
+      count: 6
+  display_rotate:
+  - 0
+  - 0
+  - 180
+  render_colors:
+  - '#3B3F6B'
+  - '#8C1C2B'
+  cover_badge: 6 slots for dice up to 26 mm · felt recess
+  print_settings:
+  - No supports
+  - 0.2 mm layers
+  - 3 walls, 15 % infill
+  - PLA or PETG
+  name: Hexagonal Dice Rolling Tray with Dice Storage – RPG & Board Games
+  price: 1.99
+  currency: USD
+  category: Game
+  subcategory: ''
+  tags:
+  - dice tray
+  - dice
+  - rpg
+  - tabletop
+  - board game
+  - dice storage
+  - rolling tray
+  - gaming accessory
+  - no supports
+  - hexagon
+  description: 'Keep your dice on the table. A hexagonal rolling tray with a shallow
+    recess for a felt or neoprene insert (quieter rolls) and slots to park your dice.
+
+
+    **Included (4 files)**
+
+    - 160 mm with 6 dice slots in two side pockets
+
+    - 160 mm plain
+
+    - 120 mm travel size
+
+    - 190 mm with 6 dice slots inside (compact footprint, fits 220 mm beds)
+
+
+    **Print settings**
+
+    - No supports
+
+    - 0.2 mm layers, 3 walls, 15 % infill
+
+    - Glue in 1 mm felt cut to the recess for a quiet, premium feel
+
+
+    **Sized to real-world standards**
+
+    - Slots 26 × 26 mm: real polyhedral sets measure d6 16–18 mm and d20 23–26 mm
+    (standard acrylic), so every die of a set fits
+
+    - Felt recess 1 mm deep for standard 1 mm craft felt
+
+    '
+  i18n:
+    fr:
+      name: Piste de dés hexagonale avec rangement – jeux de rôle et de société
+      summary: Piste de lancer hexagonale avec creux pour feutrine (lancers silencieux)
+        et emplacements pour ranger vos dés. 4 versions.
+    de:
+      name: Sechseckige Würfelschale mit Würfelablage – Rollenspiel und Brettspiele
+      summary: Sechseckige Würfelschale mit Vertiefung für Filz (leise Würfe) und
+        Fächern zum Abstellen der Würfel. 4 Versionen.

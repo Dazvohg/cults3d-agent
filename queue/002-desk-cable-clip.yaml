@@ -1,0 +1,92 @@
+slug: desk-cable-clip
+design: designs/cable_clip.scad
+variants:
+- file: cable_clip_3slots_4.5mm_usbc.stl
+  params:
+    slots: 3
+    cable_d: 4.5
+- file: cable_clip_1slot_6mm_laptop.stl
+  params:
+    slots: 1
+    cable_d: 6
+- file: cable_clip_5slots_3.5mm_phone.stl
+  params:
+    slots: 5
+    cable_d: 3.5
+- file: cable_clip_2slots_8mm_hdmi.stl
+  params:
+    slots: 2
+    cable_d: 8
+display_rotate:
+- 0
+- 0
+- 0
+render_colors:
+- '#2B2B2E'
+- '#E8E2D6'
+print_settings:
+- No supports
+- 0.2 mm layers
+- 100 % infill
+- PETG or PLA
+name: Snap-In Desk Cable Clips – Tape Mount, 1 to 5 Slots
+price: 0.0
+currency: USD
+category: Tools
+subcategory: ''
+tags:
+- cable management
+- cable clip
+- desk setup
+- cable organizer
+- office
+- usb cable
+- charger
+- tape mount
+- no supports
+- gadget
+description: 'Keep charging cables from falling behind the desk. Stick the flat base
+  with double-sided tape and snap your cables in.
+
+
+  **Included sizes** (by real cable diameter)
+
+  - 3 slots / 4.5 mm: braided and thick USB-C cables
+
+  - 1 slot / 6 mm: laptop chargers
+
+  - 5 slots / 3.5 mm: standard phone cables (USB-C, Lightning)
+
+  - 2 slots / 8 mm: HDMI and monitor cables
+
+
+  **Print settings**
+
+  - Print flat as oriented, no supports
+
+  - 0.2 mm layers, 100 % infill (parts are tiny)
+
+  - PETG recommended for a springier snap; PLA works fine
+
+
+  Need a different cable diameter or slot count? Leave a comment and I will add it.
+
+
+  **Sized to real-world standards**
+
+  - Slot diameters follow common cable jackets: 3.5 mm (phone), 4.5 mm (braided USB-C),
+  6 mm (laptop), 8 mm (HDMI); +0.2 mm so the cable slides
+
+  - Snap mouth = 72 % of the cable diameter: holds firmly, releases without tools
+
+  '
+i18n:
+  fr:
+    name: Clips de câbles pour bureau à clipser – fixation adhésive, 1 à 5 fentes
+    summary: Gardez vos câbles de charge à portée de main. Base plate pour adhésif
+      double face, 4 tailles incluses. Impression sans supports.
+  de:
+    name: Kabelclips für den Schreibtisch zum Einklicken – Klebebefestigung, 1 bis
+      5 Schlitze
+    summary: Ladekabel bleiben griffbereit. Flache Basis für doppelseitiges Klebeband,
+      4 Größen enthalten. Druck ohne Stützstrukturen.

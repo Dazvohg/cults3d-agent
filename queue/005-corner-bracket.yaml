@@ -1,0 +1,173 @@
+slug: gusset-corner-bracket
+design: designs/corner_bracket.scad
+variants:
+- file: bracket_60mm_w30_M4_2holes.stl
+  params:
+    arm: 60
+    width: 30
+    screw: 4
+    holes: 2
+  checks:
+  - type: hole
+    z: 0.5
+    expect: 4.5
+    tol: 0.06
+  - type: hole_max
+    z: 4.98
+    expect: 9.32
+    tol: 0.08
+- file: bracket_40mm_w20_M3.stl
+  params:
+    arm: 40
+    width: 20
+    screw: 3
+    holes: 1
+    t: 4
+  checks:
+  - type: hole
+    z: 0.5
+    expect: 3.4
+    tol: 0.06
+  - type: hole_max
+    z: 3.98
+    expect: 7.08
+    tol: 0.08
+- file: bracket_60mm_w30_M4.stl
+  params:
+    arm: 60
+    width: 30
+    screw: 4
+    holes: 1
+  checks:
+  - type: hole
+    z: 0.5
+    expect: 4.5
+    tol: 0.06
+  - type: hole_max
+    z: 4.98
+    expect: 9.32
+    tol: 0.08
+- file: bracket_80mm_w40_M5_2holes.stl
+  params:
+    arm: 80
+    width: 40
+    screw: 5
+    holes: 2
+    t: 6
+  checks:
+  - type: hole
+    z: 0.5
+    expect: 5.5
+    tol: 0.06
+  - type: hole_max
+    z: 5.98
+    expect: 11.56
+    tol: 0.08
+- file: bracket_100mm_w40_M5_2holes.stl
+  params:
+    arm: 100
+    width: 40
+    screw: 5
+    holes: 2
+    t: 6
+    gusset_t: 4
+  checks:
+  - type: hole
+    z: 0.5
+    expect: 5.5
+    tol: 0.06
+  - type: hole_max
+    z: 5.98
+    expect: 11.56
+    tol: 0.08
+display_rotate:
+- 0
+- 0
+- 0
+render_colors:
+- '#2B2B2E'
+- '#8A8F98'
+cover_badge: M3 · M4 · M5  |  40–100 mm
+print_settings:
+- Print standing on its base, as oriented
+- 4-6 walls
+- 40 % gyroid infill
+- PETG or ASA
+name: Corner Bracket with Side Gussets – Countersunk, M3/M4/M5, 40 to 100 mm
+price: 1.49
+currency: USD
+category: Tools
+subcategory: ''
+tags:
+- bracket
+- corner bracket
+- angle bracket
+- shelf bracket
+- gusset
+- hardware
+- woodworking
+- diy
+- workshop
+- countersunk
+- maker
+description: 'L-shaped corner brackets with a gusset on each side and a free centre
+  channel, so the screwdriver reaches every countersunk hole straight on.
+
+
+  **Included (5 files)**
+
+  - 40 mm, 20 mm wide, 1 hole per arm, M3
+
+  - 60 mm, 30 mm wide, 1 or 2 holes per arm, M4
+
+  - 80 mm, 40 mm wide, 2 holes per arm, M5
+
+  - 100 mm, 40 mm wide, 2 holes per arm, M5
+
+
+  **Oriented for easy printing**
+
+  The files stand on their base: the side gussets become vertical walls, so the only
+  overhangs are small areas around the holes (see the slicer report below). An inner
+  corner fillet spreads the load where brackets usually crack.
+
+
+  **Print settings**
+
+  - As oriented (standing on the base)
+
+  - 0.2 mm layers, 4–6 walls, 40 % gyroid infill
+
+  - PETG or ASA for workshop or outdoor use; PLA for light indoor use
+
+
+  **Please note:** 3D-printed parts vary with printer, material and settings. These
+  brackets are meant for light and medium duty (small shelves, frames, boxes, cable
+  trays). Test your print before loading it, and do not use it for overhead, safety-critical
+  or heavy loads.
+
+
+  **Sized to real-world standards**
+
+  - Countersinks follow ISO 10642 head diameters (M3 6.72 / M4 8.96 / M5 11.2 mm)
+  + 0.4 mm, so heads sit flush
+
+  - Clearance holes per ISO 273 medium series: 3.4 / 4.5 / 5.5 mm. The M4 and M5 holes
+  also take 4 and 5 mm wood screws
+
+  - Holes on the vertical arm are teardrop-shaped at the top so they print round without
+  supports
+
+  '
+i18n:
+  fr:
+    name: Équerre d'angle renforcée – fraisée, M3/M4/M5, 40 à 100 mm
+    summary: Équerres en L avec renforts latéraux et canal central libre pour visser
+      droit. Fichiers orientés pour une impression couchée plus solide.
+  de:
+    name: Winkelverbinder mit Seitenrippen – Senkkopf, M3/M4/M5, 40 bis 100 mm
+    summary: L-Winkel mit seitlichen Rippen und freiem Mittelkanal zum geraden Verschrauben.
+      Dateien liegend ausgerichtet für höhere Festigkeit.
+render_angles:
+- 65
+- 30

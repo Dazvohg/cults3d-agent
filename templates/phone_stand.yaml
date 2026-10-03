@@ -1,0 +1,106 @@
+keywords:
+- phone stand
+- phone holder
+- tablet stand
+- desk accessory
+- iphone
+- smartphone
+- office
+- desk setup
+item:
+  slug: phone-tablet-stand
+  design: designs/phone_stand.scad
+  variants:
+  - file: phone_stand_65deg.stl
+    params:
+      angle: 65
+  - file: phone_stand_55deg_low.stl
+    params:
+      angle: 55
+      back_h: 80
+  - file: phone_stand_75deg_upright.stl
+    params:
+      angle: 75
+  - file: phone_stand_thick_case_18mm.stl
+    params:
+      angle: 65
+      device_t: 18
+  - file: tablet_stand_150mm.stl
+    params:
+      angle: 62
+      width: 150
+      back_h: 120
+      depth: 110
+      device_t: 14
+      t: 6
+  display_rotate:
+  - 0
+  - 0
+  - 180
+  render_colors:
+  - '#E8E2D6'
+  - '#2B2B2E'
+  cover_badge: 3 angles · cable slot · tablet size
+  print_settings:
+  - No supports
+  - 0.2 mm layers
+  - 3 walls, 20 % infill
+  - PLA or PETG
+  name: Phone & Tablet Stand – 3 Viewing Angles, Cable Slot, Thick Case Version
+  price: 1.49
+  currency: USD
+  category: Gadget
+  subcategory: ''
+  tags:
+  - phone stand
+  - phone holder
+  - tablet stand
+  - desk setup
+  - office
+  - smartphone
+  - charging stand
+  - minimalist
+  - no supports
+  - desk accessory
+  description: 'A sturdy phone stand with a charging-cable channel, in three viewing
+    angles, plus a version for thick cases and a wide tablet stand.
+
+
+    **Included (5 files)**
+
+    - Phone stand at 55°, 65° and 75°
+
+    - 65° version with an 18 mm slot for rugged or wallet cases
+
+    - Tablet stand, 150 mm wide
+
+
+    **Print settings**
+
+    - No supports, print as oriented
+
+    - 0.2 mm layers, 3 walls, 20 % infill
+
+
+    **Sized to real-world standards**
+
+    - 13 mm slot: phones are 7.5–9 mm thick (iPhone 16 Pro Max 8.25 mm), 10–13 mm
+    with a normal case
+
+    - 18 mm slot version for rugged cases (OtterBox Defender class, 15–17 mm)
+
+    - Cable channel 10 mm wide: fits USB-C and Lightning cables (3–4.5 mm) with room
+    to spare
+
+    '
+  i18n:
+    fr:
+      name: Support téléphone et tablette – 3 angles, passage de câble, version coque
+        épaisse
+      summary: Support stable avec passage pour le câble de charge, en trois angles,
+        plus une version pour coques épaisses et un support tablette.
+    de:
+      name: Handy- und Tablet-Ständer – 3 Winkel, Kabelführung, Version für dicke
+        Hüllen
+      summary: Stabiler Ständer mit Kabelführung in drei Winkeln, dazu eine Version
+        für dicke Hüllen und ein Tablet-Ständer.

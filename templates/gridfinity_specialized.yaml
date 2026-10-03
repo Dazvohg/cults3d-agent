@@ -1,0 +1,286 @@
+keywords:
+- gridfinity
+- bit holder
+- screwdriver bits
+- battery organizer
+- battery holder
+- workshop
+- tool storage
+- electronics
+diferenciado: true
+item:
+  slug: gridfinity-bit-battery-holders
+  design: designs/gridfinity_bin.scad
+  variants:
+  - file: gf_bits_2x1_1-4in_hex.stl
+    params:
+      gx: 2
+      gy: 1
+      gz: 3
+      insert: bits
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 83.5
+      - 41.5
+      - 25.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 6.75
+      tol: 0.08
+      count: 21
+  - file: gf_bits_1x1_1-4in_hex.stl
+    params:
+      gx: 1
+      gy: 1
+      gz: 3
+      insert: bits
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 41.5
+      - 41.5
+      - 25.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 6.75
+      tol: 0.08
+      count: 9
+  - file: gf_bits_3x2_1-4in_hex.stl
+    params:
+      gx: 3
+      gy: 2
+      gz: 3
+      insert: bits
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 125.5
+      - 83.5
+      - 25.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 6.75
+      tol: 0.08
+      count: 77
+  - file: gf_battery_2x1_AA.stl
+    params:
+      gx: 2
+      gy: 1
+      gz: 6
+      insert: aa
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 83.5
+      - 41.5
+      - 46.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 15.1
+      tol: 0.08
+      count: 8
+  - file: gf_battery_2x2_AA.stl
+    params:
+      gx: 2
+      gy: 2
+      gz: 6
+      insert: aa
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 83.5
+      - 83.5
+      - 46.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 15.1
+      tol: 0.08
+      count: 16
+  - file: gf_battery_2x1_AAA.stl
+    params:
+      gx: 2
+      gy: 1
+      gz: 5
+      insert: aaa
+      scoop: false
+      label: false
+    checks:
+    - type: bbox
+      expect:
+      - 83.5
+      - 41.5
+      - 39.4
+      tol: 0.06
+    - type: outer
+      z: 0.02
+      expect:
+      - 35.6
+      - 35.6
+      tol: 0.1
+    - type: outer
+      z: 2.0
+      expect:
+      - 37.2
+      - 37.2
+      tol: 0.08
+    - type: hole
+      z: 12
+      expect: 11.1
+      tol: 0.08
+      count: 10
+  display_rotate:
+  - 0
+  - 0
+  - 0
+  render_colors:
+  - '#2B2B2E'
+  - '#C8B69A'
+  cover_badge: 1/4" hex bits · AA · AAA
+  print_settings:
+  - 0.2 mm layers
+  - 2 walls, 15 % infill
+  - PLA or PETG
+  name: Gridfinity Compatible Bit & Battery Holders – 1/4" Hex Bits, AA, AAA
+  price: 1.99
+  currency: USD
+  category: Tools
+  subcategory: ''
+  tags:
+  - gridfinity
+  - bit holder
+  - screwdriver bits
+  - hex bits
+  - battery organizer
+  - aa battery
+  - aaa battery
+  - workshop
+  - tool storage
+  description: 'Specialised Gridfinity-compatible holders instead of plain bins: every
+    screwdriver bit and battery stands upright in its own hole, so you see at a glance
+    what is missing.
+
+
+    **Included (6 files)**
+
+    - 1/4" hex bit holders: 1×1 (9 bits), 2×1 (21 bits), 3×2 (77 bits)
+
+    - AA battery holders: 2×1 (8 batteries) and 2×2 (16 batteries), 20 mm deep holes
+
+    - AAA battery holder: 2×1 (10 batteries)
+
+
+    **Details**
+
+    - Standard 42 mm grid and 7 mm height units; no label shelf, so nothing gets in
+    the way of tall bits or batteries
+
+    - Hex holes are sized with clearance for 1/4" (6.35 mm) bits; test one small holder
+    first, since fit depends on your printer
+
+    - Independent design compatible with the open Gridfinity standard (by Zack Freedman);
+    not an official product
+
+
+    **Print settings**
+
+    - 0.2 mm layers, 2 walls, 15 % infill
+
+
+    **Sized to real-world standards**
+
+    - 1/4" hex bits (6.35 mm across flats): hex holes 6.75 mm across flats, 0.4 mm
+    clearance
+
+    - AA batteries (IEC LR6, max Ø 14.5 mm): 15.1 mm holes. AAA (IEC LR03, max Ø 10.5
+    mm): 11.1 mm holes
+
+    - Gridfinity dimensions verified on every file: 41.5 mm per unit, 7 mm height
+    units + 4.4 mm lip, standard foot profile
+
+    '
+  i18n:
+    fr:
+      name: Supports d'embouts et de piles compatibles Gridfinity – embouts 1/4",
+        AA, AAA
+      summary: 'Chaque embout et chaque pile tient debout dans son logement : on voit
+        d''un coup d''œil ce qui manque. 6 fichiers. Design indépendant.'
+    de:
+      name: Gridfinity-kompatible Bit- und Batteriehalter – 1/4"-Bits, AA, AAA
+      summary: Jedes Bit und jede Batterie steht in einem eigenen Loch – man sieht
+        sofort, was fehlt. 6 Dateien. Unabhängiges Design.

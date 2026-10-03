@@ -1,0 +1,107 @@
+keywords:
+- christmas
+- snowflake
+- ornament
+- xmas
+- christmas tree
+- winter
+- holiday decor
+- gift tag
+temporada: navidad
+item:
+  slug: snowflake-ornaments-12
+  design: designs/snowflake.scad
+  variants:
+  - file: snowflake_01.stl
+    params:
+      seed: 1
+  - file: snowflake_02.stl
+    params:
+      seed: 2
+  - file: snowflake_03.stl
+    params:
+      seed: 3
+  - file: snowflake_04.stl
+    params:
+      seed: 5
+  - file: snowflake_05.stl
+    params:
+      seed: 8
+  - file: snowflake_06.stl
+    params:
+      seed: 11
+  - file: snowflake_07.stl
+    params:
+      seed: 13
+  - file: snowflake_08.stl
+    params:
+      seed: 17
+  - file: snowflake_09.stl
+    params:
+      seed: 21
+  - file: snowflake_10.stl
+    params:
+      seed: 34
+  display_rotate:
+  - 0
+  - 0
+  - 0
+  render_colors:
+  - '#9FC3E6'
+  - '#F2F4F7'
+  cover_badge: 10 unique snowflakes · 80 mm
+  print_settings:
+  - No supports
+  - 0.2 mm layers
+  - 100 % infill
+  - White, silver or glitter PLA
+  name: Snowflake Christmas Ornaments – Set of 10 Unique Designs, Fast Print
+  price: 1.99
+  currency: USD
+  category: Home
+  subcategory: ''
+  tags:
+  - christmas
+  - snowflake
+  - christmas ornament
+  - xmas
+  - christmas tree
+  - winter decor
+  - holiday
+  - gift tag
+  - fast print
+  - no supports
+  description: 'Ten different snowflake ornaments with a hanging loop. They are flat,
+    print in minutes and look great in white, silver or glitter filament.
+
+
+    **Included (10 files)**
+
+    - 10 unique 6-fold snowflakes, 80 mm tip to tip, 2.4 mm thick
+
+
+    **Ideas**
+
+    - Christmas tree ornaments, gift tags, window garlands, table confetti
+
+    - Scale them to 50 mm for earrings or to 150 mm for wall decor
+
+
+    **Print settings**
+
+    - Flat, no supports, 0.2 mm layers, 100 % infill
+
+    - About 3–5 g and 10–15 minutes each
+
+    '
+  i18n:
+    fr:
+      name: Décorations de Noël flocons de neige – 10 modèles uniques, impression
+        rapide
+      summary: Dix flocons différents avec attache, plats et rapides à imprimer. Idéal
+        en blanc, argent ou paillettes.
+    de:
+      name: Schneeflocken-Weihnachtsanhänger – 10 einzigartige Designs, schneller
+        Druck
+      summary: Zehn verschiedene Schneeflocken mit Aufhängeöse, flach und schnell
+        gedruckt. Ideal in Weiß, Silber oder Glitzer.

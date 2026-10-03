@@ -1,0 +1,165 @@
+slug: parametric-movement-tray
+design: designs/movement_tray.scad
+variants:
+- file: tray_25mm_5x2.stl
+  params:
+    base_d: 25
+    cols: 5
+    rows: 2
+  checks:
+  - type: hole
+    z: 2.5
+    expect: 25.6
+    tol: 0.06
+    count: 10
+- file: tray_25mm_5x2_magnets_5x2.stl
+  params:
+    base_d: 25
+    cols: 5
+    rows: 2
+    magnet_d: 5.3
+  checks:
+  - type: hole
+    z: 1.6
+    expect: 5.3
+    tol: 0.06
+    count: 10
+- file: tray_28.5mm_5x2.stl
+  params:
+    base_d: 28.5
+    cols: 5
+    rows: 2
+  checks:
+  - type: hole
+    z: 2.5
+    expect: 29.1
+    tol: 0.06
+    count: 10
+- file: tray_32mm_5x2.stl
+  params:
+    base_d: 32
+    cols: 5
+    rows: 2
+  checks:
+  - type: hole
+    z: 2.5
+    expect: 32.6
+    tol: 0.06
+    count: 10
+- file: tray_32mm_5x2_magnets_6x2.stl
+  params:
+    base_d: 32
+    cols: 5
+    rows: 2
+    magnet_d: 6.3
+  checks:
+  - type: hole
+    z: 1.6
+    expect: 6.3
+    tol: 0.06
+    count: 10
+- file: tray_32mm_3x2_skirmish.stl
+  params:
+    base_d: 32
+    cols: 3
+    rows: 2
+    stagger: true
+- file: tray_40mm_3x2.stl
+  params:
+    base_d: 40
+    cols: 3
+    rows: 2
+  checks:
+  - type: hole
+    z: 2.5
+    expect: 40.6
+    tol: 0.06
+    count: 6
+- file: tray_25mm_4x4_regiment.stl
+  params:
+    base_d: 25
+    cols: 4
+    rows: 4
+display_rotate:
+- 0
+- 0
+- 0
+render_colors:
+- '#3E4A3D'
+- '#8A8F98'
+name: Wargame Movement Trays – 25, 28.5, 32 & 40 mm Round Bases (Magnet Ready)
+price: 2.49
+currency: USD
+category: Game
+subcategory: ''
+tags:
+- movement tray
+- wargame
+- tabletop
+- miniatures
+- 32mm base
+- 25mm base
+- 28mm
+- rpg
+- magnet
+- no supports
+- terrain
+- board game
+description: 'Move whole squads in one go and stop knocking miniatures over. Eight
+  ready-to-print trays for the most common round base sizes, with optional magnet
+  pockets.
+
+
+  **Included trays**
+
+  - 25 mm bases: 5×2, 5×2 with pockets for 5×2 mm magnets, 4×4 regiment block
+
+  - 28.5 mm bases (sold as "28 mm"): 5×2
+
+  - 32 mm bases: 5×2, 5×2 with pockets for 6×2 mm magnets, 3×2 staggered skirmish
+  formation
+
+  - 40 mm bases: 3×2
+
+
+  **Details**
+
+  - 0.6 mm clearance so bases drop in and lift out easily
+
+  - Chamfered pockets and rim, finger notches on both sides
+
+  - Magnet version fits 5 × 2 mm neodymium magnets (glue them in)
+
+  - Compatible with any game that uses round bases
+
+
+  **Print settings**
+
+  - No supports, print flat
+
+  - 0.2 mm layers, 3 walls, 15 % infill, about 10–25 g per tray
+
+  - PLA or PETG; a dark or textured bed plate looks great on the table
+
+
+  Need another base size or layout? Leave a comment and I will add it for free.
+
+
+  **Sized to real-world standards**
+
+  - Pockets for the standard round bases used by Games Workshop and most wargames:
+  25, 28.5, 32 and 40 mm
+
+  - Pocket diameters are compensated for polygon facets, so the real clearance is
+  0.6 mm, not less
+
+  '
+i18n:
+  fr:
+    name: Plateaux de mouvement pour wargame – socles ronds 25, 28, 32 et 40 mm (aimants)
+    summary: Déplacez vos escouades d'un coup. 8 plateaux pour les socles ronds les
+      plus courants, avec logements pour aimants en option.
+  de:
+    name: Bewegungstabletts für Tabletop – runde Bases 25, 28, 32 und 40 mm (Magnete)
+    summary: Ganze Trupps auf einmal bewegen. 8 Tabletts für die gängigsten runden
+      Bases, optional mit Magnetaussparungen.

@@ -1,0 +1,77 @@
+slug: hex-desk-organizer
+design: designs/hex_desk_organizer.scad
+variants:
+- file: hex_organizer_5cells.stl
+  params:
+    cells: 5
+- file: hex_organizer_3cells.stl
+  params:
+    cells: 3
+- file: hex_organizer_7cells.stl
+  params:
+    cells: 7
+    cell_flat: 50
+- file: hex_single_cup.stl
+  params:
+    cells: 1
+display_rotate:
+- 0
+- 0
+- 0
+render_colors:
+- '#C8B69A'
+- '#3E4A3D'
+name: Hex Desk Organizer – Modular Honeycomb Pen Holder (1, 3, 5 & 7 cells)
+price: 2.49
+currency: USD
+category: Home
+subcategory: Office
+tags:
+- desk organizer
+- pen holder
+- honeycomb
+- hexagon
+- office
+- storage
+- minimalist
+- desk
+- organizer
+- no supports
+description: 'A clean honeycomb organizer for pens, brushes, tools and makeup. Cells
+  of different heights make everything easy to reach and look great on any desk.
+
+
+  **What you get**
+
+  - 5-cell cluster (188 × 128 × 100 mm)
+
+  - 3-cell cluster
+
+  - 7-cell cluster (smaller 50 mm cells, fits a 220 × 220 bed)
+
+  - Single hex cup, print as many as you like
+
+
+  **Print settings**
+
+  - No supports, no brim needed
+
+  - 0.2 mm layers, 2–3 walls, 10–15 % infill
+
+  - PLA or PETG. Try vase-mode-like multicolor filament for a great look
+
+  - Small bottom chamfer to prevent elephant''s foot
+
+
+  Designed and tested for FDM printers with a 220 × 220 mm bed or larger.
+
+  '
+i18n:
+  fr:
+    name: Organiseur de bureau hexagonal modulaire – pot à crayons nid d'abeille
+    summary: Organiseur en nid d'abeille pour stylos, pinceaux et outils. Cellules
+      de hauteurs différentes, versions 1, 3, 5 et 7 cellules. Impression sans supports.
+  de:
+    name: Modularer Sechseck-Schreibtischorganizer – Stiftehalter in Wabenform
+    summary: Waben-Organizer für Stifte, Pinsel und Werkzeug. Fächer in verschiedenen
+      Höhen, Versionen mit 1, 3, 5 und 7 Fächern. Druck ohne Stützstrukturen.

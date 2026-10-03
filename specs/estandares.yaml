@@ -1,0 +1,55 @@
+# Medidas de referencia del mercado usadas por los diseños (mm).
+# Cada diseño toma de acá su medida nominal y suma el juego para FDM (entre 0.2 y 0.6 mm según la pieza).
+# Los checks de cada ficha (queue/ y templates/) verifican estas medidas sobre el STL generado.
+
+gridfinity:
+  fuente: https://gridfinitylayouttool.com/gridfinity-sizes
+  grilla: 42
+  bin_exterior: 41.5            # 0.25 de juego por lado
+  unidad_alto: 7                # alto total = 7 x unidades (incluye la base) + labio
+  labio: 4.4
+  pie_perfil: "0.8 @45°, 1.8 vertical, 2.15 @45° (contorno 35.6 -> 37.2 -> 41.5; radios 0.8 / 1.6 / 3.75)"
+
+tornillos_avellanados:
+  fuente: https://www.mechahandbook.com/  # tabla ISO 10642; pasos ISO 273
+  cabeza_dk_max: {M3: 6.72, M4: 8.96, M5: 11.2}
+  paso_medio_iso273: {M3: 3.4, M4: 4.5, M5: 5.5}
+  en_diseno: "cabeza = dk + 0.4"
+
+puntas_y_pilas:
+  punta_1_4_hex_entre_caras: 6.35   # en el diseño: 6.75
+  pila_AA_IEC_LR6_max: 14.5         # en el diseño: 15.1
+  pila_AAA_IEC_LR03_max: 10.5       # en el diseño: 11.1
+
+bases_wargame:
+  fuente: https://www.themagnetbaron.com/  # tabla de tamaños de base
+  redondas: [25, 28.5, 32, 40]
+  imanes: ["5x2", "6x2"]
+  en_diseno: "alojamiento = base + 0.6; imán = Ø + 0.3"
+
+macetas_vivero:
+  fuente: https://houseplantguides.com/  # tamaños de maceta
+  borde: [90, 120, 150]
+  alto: "≈ 0.87 x diámetro"
+  juego_cubremaceta: "2-3 cm recomendado; el diseño usa 14 mm en el diámetro, a la altura del borde"
+
+dados:
+  fuente: https://dicedragons.com/  # tamaños de dados
+  d6: "16-18"
+  d20: "23-29"
+  en_diseno: "ranuras de 26 (d20 acrílico estándar)"
+
+velas:
+  tealight_led: 38              # en el diseño: boca de 41
+
+cables:
+  diametros: {telefono: 3.5, usb_c_mallado: 4.5, notebook: 6, hdmi: 8}
+  en_diseno: "+0.2; boca a presión = 72 % del diámetro"
+
+auriculares:
+  fuente: https://en.wikipedia.org/wiki/AirPods_Max
+  airpods_max_alto: 187         # soporte: 230 (y 195 compacto)
+
+celulares:
+  iphone_16_pro_max_espesor: 8.25
+  funda_rugged: "15-17"         # ranura de 18

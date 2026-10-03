@@ -1,0 +1,88 @@
+slug: minimal-headphone-stand
+design: designs/headphone_stand.scad
+variants:
+- file: headphone_stand_230mm.stl
+  params:
+    height: 230
+  bed: 256
+- file: headphone_stand_230mm_wide_60mm.stl
+  params:
+    height: 230
+    extrude: 60
+  bed: 256
+- file: headphone_stand_195mm_compact.stl
+  params:
+    height: 195
+display_rotate:
+- 90
+- 0
+- 0
+render_colors:
+- '#2B2B2E'
+- '#B5654A'
+name: Minimal Headphone Stand – 230 mm & Compact, Prints Flat, No Supports
+price: 1.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- headphone stand
+- headset holder
+- gaming
+- desk setup
+- minimalist
+- headphones
+- stand
+- no supports
+- gamer
+- office
+description: 'A minimalist headphone stand that prints lying flat, so layer lines
+  run along the load path: strong and support-free.
+
+
+  **Features**
+
+  - Arched saddle protects the headband padding
+
+  - End lip keeps headphones from sliding off
+
+  - Triangulated base for stability
+
+  - About 210 mm tall, fits 220 × 220 mm print beds
+
+
+  **Files**
+
+  - 230 mm, 50 mm wide (needs a 256 × 256 mm bed: Bambu Lab A1 / P1S / X1C)
+
+  - 230 mm, 60 mm wide for heavier gaming headsets (256 mm bed)
+
+  - 195 mm compact version for 220 × 220 mm beds (Ender-3 class)
+
+
+  **Print settings**
+
+  - Print flat, no supports
+
+  - 0.2 mm layers, 3–4 walls, 15–20 % gyroid infill
+
+  - PLA or PETG, about 110–130 g of filament
+
+
+  **Sized to real-world standards**
+
+  - Height based on real over-ear headphones: ~185–220 mm tall (AirPods Max 187 mm),
+  so the 230 mm hanger keeps the cups off the desk
+
+  - Saddle 50 or 60 mm wide, wider than common headbands (30–45 mm)
+
+  '
+i18n:
+  fr:
+    name: Support de casque minimaliste – impression à plat, sans supports
+    summary: 'Support de casque imprimé à plat pour des couches orientées dans le
+      sens de l''effort : solide et sans supports. Version standard et version large.'
+  de:
+    name: Minimalistischer Kopfhörerständer – liegend gedruckt, ohne Stützen
+    summary: 'Liegend gedruckt, damit die Schichten der Belastung folgen: stabil und
+      ohne Stützstrukturen. Standard- und breite Version.'

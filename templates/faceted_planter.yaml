@@ -1,0 +1,141 @@
+keywords:
+- planter
+- plant pot
+- pot
+- vase
+- succulent
+- flower pot
+- home decor
+- garden
+item:
+  slug: twisted-faceted-planter
+  design: designs/planter.scad
+  variants:
+  - file: planter_fits_12cm_pot_9sides.stl
+    params:
+      pot: 120
+      sides: 9
+    checks:
+    - type: fit
+      z: 107.4
+      expect: 134
+  - file: saucer_12cm_9sides.stl
+    params:
+      pot: 120
+      sides: 9
+      part: saucer
+  - file: planter_fits_9cm_pot_7sides.stl
+    params:
+      pot: 90
+      sides: 7
+    checks:
+    - type: fit
+      z: 81.3
+      expect: 104
+  - file: saucer_9cm_7sides.stl
+    params:
+      pot: 90
+      sides: 7
+      part: saucer
+  - file: planter_fits_15cm_pot_12sides.stl
+    params:
+      pot: 150
+      sides: 12
+      twist: 20
+    checks:
+    - type: fit
+      z: 133.5
+      expect: 164
+  - file: saucer_15cm_12sides.stl
+    params:
+      pot: 150
+      sides: 12
+      part: saucer
+  - file: planter_fits_12cm_pot_6sides_straight.stl
+    params:
+      pot: 120
+      sides: 6
+      twist: 0
+    checks:
+    - type: fit
+      z: 107.4
+      expect: 134
+  display_rotate:
+  - 0
+  - 0
+  - 0
+  render_colors:
+  - '#E8E2D6'
+  - '#B5654A'
+  cover_badge: Fits 9 · 12 · 15 cm nursery pots
+  print_settings:
+  - No supports
+  - 0.2 mm layers
+  - 3 walls, 10 % infill
+  - PETG for outdoor use
+  name: Twisted Faceted Planter for 9, 12 & 15 cm Nursery Pots – Drainage + Saucer
+  price: 1.99
+  currency: USD
+  category: Home
+  subcategory: ''
+  tags:
+  - planter
+  - plant pot
+  - succulent pot
+  - flower pot
+  - home decor
+  - modern
+  - geometric
+  - drainage
+  - saucer
+  - no supports
+  description: 'A modern twisted geometric planter with a drainage hole, raised drainage
+    channels underneath and a matching saucer for every size.
+
+
+    **Included (7 files)**
+
+    - For 9 cm nursery pots (7 facets) + saucer
+
+    - For 12 cm nursery pots (9 facets) + saucer
+
+    - For 15 cm nursery pots (12 facets) + saucer
+
+    - For 12 cm nursery pots, 6 facets, straight (no twist)
+
+
+    Drop the plant in its nursery pot straight in: no repotting.
+
+
+    **Print settings**
+
+    - No supports
+
+    - 0.2 mm layers, 3 walls, 10 % infill
+
+    - PETG or ASA for outdoor use; PLA or silk PLA indoors
+
+
+    Water-tightness depends on your printer and settings. Use the saucer and avoid
+    over-watering.
+
+
+    **Sized to real-world standards**
+
+    - Designed around standard nursery pots (9, 12 and 15 cm rim): 14 mm of clearance
+    at the narrowest point of the facets, measured at the height where the pot''s
+    rim sits (verified on the mesh: Ø104 / Ø134 / Ø164 mm)
+
+    - Inner depth = 0.87 × pot diameter + 6 mm, the typical height of round nursery
+    pots
+
+    '
+  i18n:
+    fr:
+      name: Pot de fleurs facetté torsadé avec drainage et soucoupe – 3 tailles
+      summary: Pot géométrique moderne avec trou de drainage, canaux sous le pot et
+        soucoupe assortie pour chaque taille.
+    de:
+      name: Gedrehter facettierter Blumentopf mit Abfluss und Untersetzer – 3 Größen
+      summary: Moderner geometrischer Topf mit Abflussloch, Drainagekanälen und passendem
+        Untersetzer für jede Größe.
