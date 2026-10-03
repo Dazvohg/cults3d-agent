@@ -4,58 +4,61 @@
 
 | métrica | valor |
 |---|---|
-| Diseños analizados | 500.0 |
-| Con al menos 1 venta | 500.0 |
-| Ventas totales (descargas pagas) | 150536.0 |
-| Ingreso estimado total (USD) | 2071053.23 |
+| Diseños analizados | 500 |
+| Con al menos 1 venta | 500 |
+| Ventas totales (descargas pagas) | 150,558 |
+| Ingreso estimado total (USD) | 2,069,751.48 |
 | Precio mediano (USD) | 10.15 |
-| Ventas por día (mediana) | 5.0122 |
-| Diseños con IP ajena (excluir) | 89.0 |
-| Tags con >= 5 diseños | 217.0 |
-| Tags saturados de oferta gratis | 0.0 |
+| Ventas por día (mediana) | 5.059 |
+| Diseños con IP ajena (excluir) | 189 |
+| Tags con >= 5 diseños | 217 |
+| Tags saturados de oferta gratis | 0 |
+| Diseños funcionales (los que podemos diseñar) | 75 |
+| Tags diseñables | 34 |
 
 
-## Top 10 nichos por oportunidad
+## Top 10 nichos diseñables (objetos funcionales, sin IP ajena)
 
 | tag | disenos | ventas_por_dia_mediana | precio_mediano_usd | pct_gratis | saturado | indice_oportunidad |
 |---|---|---|---|---|---|---|
-| fun | 5 | 43.77777777777778 | 2.79 | 0.0 | False | 43.77778 |
-| death | 5 | 61.22222222222222 | 3.25 | 0.6 | False | 24.48889 |
-| zombie | 5 | 21.65384615384615 | 16.9 | 0.0 | False | 21.65385 |
-| xmen | 9 | 21.46153846153846 | 20.0 | 0.0 | False | 21.46154 |
-| blade | 5 | 20.61538461538462 | 20.0 | 0.0 | False | 20.61538 |
-| evil | 7 | 16.31746031746032 | 20.0 | 0.0 | False | 16.31746 |
-| comics | 13 | 14.51515151515152 | 20.0 | 0.0 | False | 14.51515 |
-| video | 5 | 13.68965517241379 | 20.0 | 0.0 | False | 13.68966 |
-| stylized | 27 | 13.34375 | 20.0 | 0.0 | False | 13.34375 |
-| thor | 7 | 13.33333333333333 | 15.0 | 0.0 | False | 13.33333 |
+| spooky | 14 | 6.75 | 2.79 | 0 | no | 6.75 |
+| desk | 10 | 6.55 | 2.79 | 0 | no | 6.55 |
+| halloween | 24 | 6.75 | 3.08 | 0.094 | no | 6.115 |
+| party | 6 | 4.868 | 3 | 0 | no | 4.868 |
+| can lid | 6 | 4.868 | 3 | 0 | no | 4.868 |
+| beverage cover | 6 | 4.868 | 3.07 | 0 | no | 4.868 |
+| home | 22 | 4.032 | 2.79 | 0 | no | 4.032 |
+| book nook | 6 | 3.891 | 2.79 | 0 | no | 3.891 |
+| shelf | 18 | 3.891 | 2.79 | 0 | no | 3.891 |
+| soda can cap | 7 | 3.66 | 3 | 0 | no | 3.66 |
 
 
 ## Productos nuevos agregados a la cola
 
-Ninguno esta semana.
+- twisted-faceted-planter
+- phone-tablet-stand
 
 
-## Cola de publicación (6 productos; los primeros 5)
+## Cola de publicación (8 productos; los primeros 5)
 
 - 001-pumpkin-tealight-lantern.yaml: Pumpkin Tealight Lantern – 4 Carved Faces + Stem Lid (Halloween) (USD 1.49)
-- 002-parametric-movement-tray.yaml: Wargame Movement Trays – 25, 28.5, 32 & 40 mm Round Bases (Magnet Ready) (USD 2.49)
-- 003-hex-desk-organizer.yaml: Hex Desk Organizer – Modular Honeycomb Pen Holder (1, 3, 5 & 7 cells) (USD 2.49)
-- 004-desk-cable-clip.yaml: Snap-In Desk Cable Clips – Tape Mount, 1 to 5 Slots (USD 0.0)
-- 005-minimal-headphone-stand.yaml: Minimal Headphone Stand – 230 mm & Compact, Prints Flat, No Supports (USD 1.99)
+- 002-hex-desk-organizer.yaml: Hex Desk Organizer – Modular Honeycomb Pen Holder (1, 3, 5 & 7 cells) (USD 2.49)
+- 003-minimal-headphone-stand.yaml: Minimal Headphone Stand – 230 mm & Compact, Prints Flat, No Supports (USD 1.99)
+- 004-phone-tablet-stand.yaml: Phone & Tablet Stand – 3 Viewing Angles, Cable Slot, Thick Case Version (USD 2.51)
+- 005-twisted-faceted-planter.yaml: Twisted Faceted Planter for 9, 12 & 15 cm Nursery Pots – Drainage + Saucer (USD 2.51)
 
 
 ## Nichos rentables sin plantilla (pasáselos a Claude para diseñar)
 
 | tag | disenos | ventas_por_dia_mediana | precio_mediano_usd | saturado | indice_oportunidad |
 |---|---|---|---|---|---|
-| fun | 5 | 43.77777777777778 | 2.79 | False | 43.77778 |
-| death | 5 | 61.22222222222222 | 3.25 | False | 24.48889 |
-| zombie | 5 | 21.65384615384615 | 16.9 | False | 21.65385 |
-| xmen | 9 | 21.46153846153846 | 20.0 | False | 21.46154 |
-| blade | 5 | 20.61538461538462 | 20.0 | False | 20.61538 |
-| evil | 7 | 16.31746031746032 | 20.0 | False | 16.31746 |
-| comics | 13 | 14.51515151515152 | 20.0 | False | 14.51515 |
-| video | 5 | 13.68965517241379 | 20.0 | False | 13.68966 |
-| stylized | 27 | 13.34375 | 20.0 | False | 13.34375 |
-| thor | 7 | 13.33333333333333 | 15.0 | False | 13.33333 |
+| party | 6 | 4.868 | 3 | no | 4.868 |
+| can lid | 6 | 4.868 | 3 | no | 4.868 |
+| beverage cover | 6 | 4.868 | 3.07 | no | 4.868 |
+| book nook | 6 | 3.891 | 2.79 | no | 3.891 |
+| soda can cap | 7 | 3.66 | 3 | no | 3.66 |
+| reusable can protector | 7 | 3.66 | 3 | no | 3.66 |
+| christmas | 5 | 3.66 | 3 | no | 3.66 |
+| can dust cover | 7 | 3.66 | 3 | no | 3.66 |
+| cancover | 7 | 3.66 | 3 | no | 3.66 |
+| lamp | 7 | 3.125 | 6 | no | 3.125 |
