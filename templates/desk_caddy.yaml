@@ -1,0 +1,184 @@
+keywords:
+- desk organizer
+- pen holder
+- pencil holder
+- office
+- desk accessory
+- phone holder
+- sticky note
+- business card
+- desk caddy
+- stationery
+item:
+  slug: desk-caddy-organizer
+  design: designs/desk_caddy.scad
+  variants:
+  - file: desk_caddy_full_pens_phone_notes.stl
+    params:
+      layout: full
+    checks:
+    - type: hole
+      z: 5
+      expect: 77.4
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 13
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 48
+      tol: 0.1
+      count: 1
+  - file: desk_caddy_full_rugged_case_18mm.stl
+    params:
+      layout: full
+      phone_t: 18
+    checks:
+    - type: hole
+      z: 5
+      expect: 77.4
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 18
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 48
+      tol: 0.1
+      count: 1
+  - file: desk_caddy_work_pens_cards_notes.stl
+    params:
+      layout: work
+    checks:
+    - type: hole
+      z: 5
+      expect: 77.4
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 9
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 48
+      tol: 0.1
+      count: 2
+  - file: desk_caddy_phone_dock_dish_pens.stl
+    params:
+      layout: phone
+    checks:
+    - type: hole
+      z: 5
+      expect: 13
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 40
+      tol: 0.1
+      count: 2
+  - file: desk_caddy_phone_dock_rugged_18mm.stl
+    params:
+      layout: phone
+      phone_t: 18
+    checks:
+    - type: hole
+      z: 5
+      expect: 18
+      tol: 0.1
+      count: 1
+    - type: hole
+      z: 5
+      expect: 40
+      tol: 0.1
+      count: 2
+  display_rotate:
+  - 0
+  - 0
+  - 0
+  render_angles:
+  - 40
+  - 70
+  render_colors:
+  - '#2F4858'
+  - '#E8E2D6'
+  cover_badge: 3 layouts · pens · phone slot · sticky notes · cards
+  print_settings:
+  - No supports
+  - 0.2 mm layers
+  - 3 walls, 10 % infill
+  - PLA or PETG
+  name: Desk Organizer Caddy – Pen Cups, Phone Slot, Sticky Note Pad & Business Card Holder
+  price: 2.99
+  currency: USD
+  category: Gadget
+  subcategory: ''
+  tags:
+  - desk organizer
+  - pen holder
+  - desk caddy
+  - office
+  - phone holder
+  - sticky notes
+  - business cards
+  - desk accessory
+  - no supports
+  - stationery
+  description: 'A desk organizer that keeps pens, your phone, sticky notes and business cards
+    in one tidy block. Three layouts, plus a version of each for rugged phone cases.
+
+
+    **Included (5 files)**
+
+
+    - Full: pen cup, phone slot, sticky-note pad pocket
+
+    - Full, with an 18 mm phone slot for rugged cases
+
+    - Work: two pen cups, sticky-note pad, business-card slot
+
+    - Phone dock: phone slot, small dish for keys or clips, pen cup
+
+    - Phone dock with the 18 mm slot
+
+
+    **Print settings**
+
+
+    - No supports, print as oriented
+
+    - 0.2 mm layers, 3 walls, 10 % infill
+
+    - Walls 1.6 mm, floor 2.4 mm
+
+
+    **Sized to real-world standards**
+
+
+    - Sticky-note pocket 77.4 mm: fits the standard 3 x 3 in (76.2 mm) pad
+
+    - Business-card slot 90 x 9 mm: fits 88.9 x 50.8 mm (3.5 x 2 in) cards, about 30 of them
+
+    - Phone slot 13 mm (phone plus a normal case, 7.5-9 mm phones) or 18 mm for rugged cases;
+    82 mm long, enough for the iPhone 16 Pro Max (77.6 mm wide)
+
+    - Pen cup 48 x 48 mm: about 20 ballpoint pens
+
+    '
+  i18n:
+    fr:
+      name: Organisateur de bureau – pots à stylos, support téléphone, notes adhésives et cartes
+        de visite
+      summary: Un bloc pour ranger stylos, téléphone, notes adhésives et cartes de visite. 3
+        configurations, 5 fichiers.
+    de:
+      name: Schreibtisch-Organizer – Stiftebecher, Handyfach, Haftnotizen und Visitenkarten
+      summary: Ein Block für Stifte, Handy, Haftnotizen und Visitenkarten. 3 Varianten, 5 Dateien.
