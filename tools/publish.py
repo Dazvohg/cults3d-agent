@@ -152,7 +152,9 @@ class Cdn:
         self.repo = repo
         self.s = requests.Session()
         self.s.headers.update({"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"})
-        self.branch = self.s.get(f"https://api.github.com/repos/{repo}").json().get("default_branch", "main")
+        info = self.s.get(f"https://api.github.com/repos/{repo}").json()
+        self.branch = info.get("default_branch", "main")
+        self.private = bool(info.get("private", False))
 
     def put(self, path, local):
         url = f"https://api.github.com/repos/{self.repo}/contents/{path}"
@@ -215,12 +217,37 @@ def main():
         uploaded.append((path, sha))
         (file_urls if p.suffix in (".stl", ".zip", ".3mf") else image_urls).append(url)
     log(f"Uploaded {len(uploaded)} files to {cdn.repo}")
-    time.sleep(10)  # let raw.githubusercontent.com catch up
+
+    def cleanup():
+        for path, sha in uploaded:
+            cdn.delete(path, sha)
+        log("Temporary copies deleted from the CDN repo.")
+
+    # Cults3D downloads these URLs anonymously: check that they are really public before asking it to.
+    if cdn.private:
+        cleanup()
+        sys.exit(f"The repo {cdn.repo} is PRIVATE. Cults3D cannot download from a private repo: "
+                 f"make it public (Settings > General > Danger Zone > Change visibility) and run again.")
+    pendientes = list(file_urls[:10] + image_urls[:10])
+    t0 = time.time()
+    while pendientes and time.time() - t0 < 120:
+        pendientes = [u for u in pendientes
+                      if requests.get(u, headers={"Range": "bytes=0-0"}, timeout=30).status_code not in (200, 206)]
+        if pendientes:
+            time.sleep(10)
+    if pendientes:
+        cleanup()
+        sys.exit(f"{len(pendientes)} CDN files are not reachable anonymously after 2 minutes, e.g. {pendientes[0]}. "
+                 f"Open that link in a private browser window: if it says 404, the repo is private or the branch/path is wrong.")
 
     common = dict(imageUrls=image_urls[:10], fileUrls=file_urls[:10], categoryId=cat_id, subCategoryIds=sub_ids,
                   currency=item.get("currency", "USD"), tags=[t.lower().strip() for t in item["tags"]][:20],
                   ai=os.getenv("MADE_WITH_AI", "1") == "1")
-    creation = cults.create(name=item["name"], description=description, price=price, license=license_code, **common)
+    try:
+        creation = cults.create(name=item["name"], description=description, price=price, license=license_code, **common)
+    except SystemExit:
+        cleanup()
+        raise
     log(f"Created: {creation['url']}")
     com = None
     if commercial:
