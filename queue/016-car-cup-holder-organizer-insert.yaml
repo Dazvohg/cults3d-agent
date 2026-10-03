@@ -1,0 +1,189 @@
+slug: car-cup-holder-organizer-insert
+design: designs/cupholder_organizer.scad
+variants:
+- file: cupholder_organizer_for_66mm_holder.stl
+  params:
+    dia: 66
+  checks:
+  - type: bbox
+    expect:
+    - 65.0
+    - 65.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 65.0
+    - 65.0
+    tol: 0.3
+- file: cupholder_organizer_for_69mm_holder.stl
+  params:
+    dia: 69
+  checks:
+  - type: bbox
+    expect:
+    - 68.0
+    - 68.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 68.0
+    - 68.0
+    tol: 0.3
+- file: cupholder_organizer_for_72mm_holder.stl
+  params:
+    dia: 72
+  checks:
+  - type: bbox
+    expect:
+    - 71.0
+    - 71.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 71.0
+    - 71.0
+    tol: 0.3
+- file: cupholder_organizer_for_75mm_holder.stl
+  params:
+    dia: 75
+  checks:
+  - type: bbox
+    expect:
+    - 74.0
+    - 74.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 74.0
+    - 74.0
+    tol: 0.3
+- file: cupholder_organizer_for_78mm_holder.stl
+  params:
+    dia: 78
+  checks:
+  - type: bbox
+    expect:
+    - 77.0
+    - 77.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 77.0
+    - 77.0
+    tol: 0.3
+- file: cupholder_organizer_for_81mm_holder.stl
+  params:
+    dia: 81
+  checks:
+  - type: bbox
+    expect:
+    - 80.0
+    - 80.0
+    - 80.0
+    tol: 0.5
+  - type: outer
+    z: 20
+    expect:
+    - 80.0
+    - 80.0
+    tol: 0.3
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 65
+render_colors:
+- '#4A4E57'
+- '#C9B79C'
+cover_badge: 6 holder sizes · coins · cards · pens · no supports
+print_settings:
+- No supports (open side up, as oriented)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PETG or ASA
+name: Car Cup Holder Organizer Insert – Coins, Cards and Pens, 6 Sizes 66 to 81 mm (Measure First)
+price: 2.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- car organizer
+- cup holder
+- car accessories
+- coin holder
+- card holder
+- pen holder
+- car console
+- interior organizer
+- cup holder insert
+- no supports
+description: 'A cup-holder insert that turns a drinks holder into a small organizer: a round cup for coins
+  or keys, a slot for cards, and two pockets for a pen and a lip balm. It stands in the holder by itself,
+  no glue or tools.
+
+
+  **Included (6 files, one per cup holder size)**
+
+
+  - For cup holders with an inside diameter of 66, 69, 72, 75, 78 and 81 mm
+
+  - Each insert is 1.0 mm smaller than that number, 80 mm tall
+
+
+  **How to choose the size**
+
+
+  - Measure the inside diameter of your cup holder at the narrowest point. Many are tapered, so measure
+  at the top and about 50 mm down and use the smaller number
+
+  - Take the file with the closest number that is not bigger than your measurement
+
+  - This listing is sized by measurement, not by car model. I could not verify the cup-holder size of
+  specific models from public sources, so I do not claim that it fits any particular car. Message me the
+  measurement and I can make one for it
+
+
+  **What is in the insert**
+
+
+  - Coin or key cup, about 90 % of the radius in diameter
+
+  - Card slot, 56 x 8 mm (a bank card is 54 mm wide and 0.8 mm thick)
+
+  - Two round pockets, 14 mm, for a pen or a lip balm
+
+  - 45 degree lead-in at the bottom so it drops into tapered holders
+
+
+  **Print settings**
+
+
+  - No supports: print standing, open side up, as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG or ASA for a hot car. PLA can soften in a closed car in summer
+
+  '
+i18n:
+  fr:
+    name: Organisateur pour porte-gobelet de voiture – pièces, cartes et stylos, 6 tailles de 66 à 81
+      mm
+    summary: 'Insert pour porte-gobelet : coupelle, fente cartes et deux poches. À choisir selon votre
+      mesure. Sans support.'
+  de:
+    name: Becherhalter-Organizer fürs Auto – Münzen, Karten und Stifte, 6 Größen von 66 bis 81 mm
+    summary: 'Einsatz für den Getränkehalter: Münzschale, Kartenschlitz und zwei Fächer. Größe nach Messung
+      wählen. Ohne Stützen.'
