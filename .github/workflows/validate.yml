@@ -2,6 +2,7 @@ name: Validate queue (runs on every push)
 on:
   push:
     paths: ["queue/**", "designs/**", "tools/**"]
+  workflow_dispatch:   # también se puede correr a mano (Actions -> Run workflow)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,6 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -r requirements.txt
+      - run: echo "BLENDER=noblender" >> $GITHUB_ENV   # aquí solo se validan medidas y archivos; los renders los hace publish.yml
       - name: Build + slicer-verify every queued design (watertight, fits 220 mm bed, supports)
         run: for q in queue/*.yaml; do [ -e "$q" ] || continue; python tools/build.py "$q"; done
       - uses: actions/upload-artifact@v4
