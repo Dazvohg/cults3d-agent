@@ -2,8 +2,8 @@ name: Publish next design to Cults3D
 
 on:
   schedule:
-    # Mondays and Thursdays 13:17 UTC (10:17 Buenos Aires)
-    - cron: "17 13 * * 1,4"
+    # Mon, Tue, Thu, Fri 13:17 UTC (10:17 Buenos Aires): 4 per week. Original schedule: "17 13 * * 1,4" (Mon + Thu)
+    - cron: "17 13 * * 1,2,4,5"
   workflow_dispatch:
     inputs:
       dry_run:
