@@ -1,0 +1,112 @@
+name: Análisis semanal del mercado (agente completo)
+
+# Cada domingo analiza el mercado de Cults3D, revisa tus ventas, agrega productos nuevos a la cola,
+# los verifica (medidas, una sola pieza, cama, slicer) y reordena la cola para que el lunes
+# salga lo más rentable. Deja los reportes en la carpeta reportes/ del repo.
+on:
+  schedule:
+    # Domingos 20:07 hora de Buenos Aires (23:07 UTC)
+    - cron: "7 23 * * 0"
+  workflow_dispatch:
+    inputs:
+      aplicar_precios:
+        description: "Ajustar precios en Cults3D según tus ventas (+10 % estrellas, -20 % los que no convierten)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cults-publish
+  cancel-in-progress: false
+
+jobs:
+  pausa:
+    # si existe el archivo PAUSED en el repo, no se hace nada
+    runs-on: ubuntu-latest
+    outputs:
+      pausado: ${{ steps.p.outputs.pausado }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        run: if [ -f PAUSED ]; then echo "pausado=1" >> "$GITHUB_OUTPUT"; else echo "pausado=0" >> "$GITHUB_OUTPUT"; fi
+
+  semanal:
+    needs: pausa
+    if: needs.pausa.outputs.pausado != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CULTS_USERNAME: ${{ secrets.CULTS_USERNAME }}
+      CULTS_API_KEY: ${{ secrets.CULTS_API_KEY }}
+      BLENDER: noblender   # la verificación no necesita renders (los hace publish.yml al publicar)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar OpenSCAD, PrusaSlicer y Python
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq openscad xvfb prusa-slicer
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: 1. Analizar el mercado (500 pagos + 200 gratis, últimos 90 días)
+        run: python agente.py analizar
+
+      - name: 2. Revisar tus ventas
+        # si todavía no hay ventas o la API cambia ese campo, el análisis sigue igual
+        continue-on-error: true
+        run: |
+          if [ "${{ inputs.aplicar_precios }}" = "true" ] || [ "${{ vars.AUTO_PRECIOS }}" = "1" ]; then
+            python agente.py ventas --aplicar-precios
+          else
+            python agente.py ventas
+          fi
+
+      - name: 3. Productos de temporada, nichos sin cubrir y productos nuevos
+        run: |
+          python agente.py calendario --generar
+          python agente.py priorizar
+          python agente.py generar
+
+      - name: 4. Verificar los productos nuevos (medidas, una pieza, cama, slicer)
+        id: verificar
+        run: |
+          nuevos=""; rechazados=""
+          for q in $(git ls-files --others --exclude-standard queue/); do
+            if python tools/build.py "$q" --out /tmp/verif; then
+              nuevos="$nuevos,$q"
+            else
+              mkdir -p rechazados && mv "$q" rechazados/
+              rechazados="$rechazados,$q"
+            fi
+          done
+          echo "nuevos=${nuevos#,}" >> "$GITHUB_OUTPUT"
+          echo "rechazados=${rechazados#,}" >> "$GITHUB_OUTPUT"
+
+      - name: 5. Reordenar la cola (lo más rentable primero)
+        run: python agente.py priorizar --aplicar
+
+      - name: 6. Reportes
+        run: |
+          python tools/resumen_semanal.py --nuevos "${{ steps.verificar.outputs.nuevos }}" \
+                                          --rechazados "${{ steps.verificar.outputs.rechazados }}"
+          cat reportes/RESUMEN.md >> "$GITHUB_STEP_SUMMARY"
+          for f in cults3d_mercado.xlsx ventas_propias.xlsx nichos_para_disenar.csv nichos_sin_cubrir.csv; do
+            if [ -f "$f" ]; then cp "$f" reportes/; fi
+          done
+          true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reportes-semanales
+          path: reportes/
+
+      - name: Guardar cambios en el repo
+        run: |
+          git config user.name "cults-bot"
+          git config user.email "cults-bot@users.noreply.github.com"
+          for p in queue reportes estrellas.csv rechazados; do if [ -e "$p" ]; then git add -A "$p"; fi; done
+          git diff --cached --quiet || (git commit -m "Análisis semanal: cola y reportes" && git push)
