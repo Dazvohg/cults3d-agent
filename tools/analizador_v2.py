@@ -42,7 +42,35 @@ IP_TERMS = [
     "one piece", "harry potter", "lord of the rings", "god of war", "godofwar", "league of legends",
     "arcane", "barbie", "ben10", "omnitrix", "rick and mor", "deltarune", "risk of rain", "dune",
     "gijoe", "porsche", "volkswagen", "vw", "nissan", "sailorpluto", "sailorscouts",
+    "xmen", "x-men", "thor", "blade", "berserk", "resident evil", "looney tunes", "peaky blinders",
+    "coraline", "strahd", "gta", "grand theft auto", "ghostbusters", "transformers", "predator",
+    "terminator", "stranger things", "game of thrones", "witcher", "elden ring", "dark souls",
+    "fortnite", "overwatch", "diablo", "castlevania", "street fighter", "mortal kombat",
+    "final fantasy", "tomb raider", "sonic", "kirby", "genshin", "fallout", "skyrim", "star trek",
+    "jurassic", "hellboy", "venom", "deadpool", "wolverine", "iron man", "hulk", "joker", "superman",
+    "hello kitty", "my little pony", "tanuki", "rayman", "donkey kong", "metroid",
 ]
+
+# Lo que SÍ podemos diseñar con OpenSCAD: piezas funcionales/paramétricas. Las figuras, bustos y
+# miniaturas (categoría Art, USD 20, de estudios grandes) no son un mercado al que podamos entrar.
+CATEGORIAS_FUNCIONALES = {"home", "gadget", "tool", "various"}
+PALABRAS_FUNCIONALES = [
+    "gridfinity", "organizer", "organiser", "holder", "stand", "planter", "pot", "tray", "dice",
+    "clip", "hook", "bracket", "storage", "box", "mount", "bin", "tool", "drawer", "cable",
+    "headphone", "phone", "vase", "lamp", "coaster", "key", "shelf", "hanger", "dock", "tower",
+    "insert", "magnet", "replacement", "adapter", "handle", "knob", "lantern", "ornament",
+    "snowflake", "tealight", "candle", "basket", "dispenser", "rack", "support", "divider",
+]
+# Tags que describen el tipo de archivo o son relleno: no son nichos.
+TAGS_GENERICOS = {
+    "fun", "death", "evil", "stylized", "video", "video game", "movie", "female", "woman", "figure",
+    "figurine", "figurines", "3dprinted", "3dmodel", "3dprinting", "3dprint", "cults3d", "stl",
+    "fan art", "fanart", "resin", "garage kit", "game art figurine", "action", "cartoon figure",
+    "god", "ghost", "cartoon", "sculpture", "bust", "miniature", "miniatures", "model", "art",
+    "character", "characters", "digital", "stl file", "print", "printable", "3d", "3dprintable",
+    "stl printable model", "printable model", "3d printing", "beginner", "nan", "cats", "cat", "dog", "dogs",
+}
+MIN_DIAS_TASA = 14  # un diseño de 2 días con 400 descargas (lanzamiento de un estudio) no es una tasa diaria real
 
 
 def load_env():
@@ -114,6 +142,15 @@ def es_ip(tag):
     return any(term == t or term in t.split() or (len(term) > 4 and term in t) for term in IP_TERMS)
 
 
+def ip_en_nombre(nombre):
+    """IP en el título: solo palabras completas y términos de 6+ letras o varias palabras
+    (así 'razor blade holder' o 'ultrasonic' no se marcan por error)."""
+    import re
+    n = str(nombre).lower()
+    return any(re.search(rf"(?<![a-z0-9]){re.escape(t)}(?![a-z0-9])", n)
+               for t in IP_TERMS if len(t) >= 6 or " " in t)
+
+
 def analizar(rows, gratis_rows=None):
     hoy = pd.Timestamp.now(tz='UTC')
     df = pd.DataFrame([{
@@ -131,10 +168,16 @@ def analizar(rows, gratis_rows=None):
     if df.empty:
         sys.exit("La API no devolvió diseños para ese período.")
     df["dias_online"] = ((hoy - df["publicado"]).dt.days).clip(lower=1).fillna(1)
-    df["ventas_por_dia"] = df["descargas"] / df["dias_online"]
+    df["ventas_por_dia"] = df["descargas"] / df["dias_online"].clip(lower=MIN_DIAS_TASA)
     df["ingreso_estimado_usd"] = df["descargas"] * df["precio_usd"]
     df["conversion"] = (df["descargas"] / df["vistas"].where(df["vistas"] > 0)).fillna(0)
-    df["tiene_ip_ajena"] = df["tags"].apply(lambda ts: any(es_ip(t) for t in ts))
+    df["tiene_ip_ajena"] = df["tags"].apply(lambda ts: any(es_ip(t) for t in ts)) | \
+        df["nombre"].fillna("").apply(ip_en_nombre)
+    texto = (df["nombre"].fillna("") + " " + df["tags"].apply(" ".join)).str.lower()
+    tiene_kw = texto.apply(lambda t: any(k in t.replace("-", " ").split() or (len(k) > 4 and k in t)
+                                         for k in PALABRAS_FUNCIONALES))
+    cat = df["categoria"].str.lower()
+    df["funcional"] = (~df["tiene_ip_ajena"]) & (cat.isin(CATEGORIAS_FUNCIONALES) | (tiene_kw & (cat != "art")))
 
     def agrupar(frame, col):
         g = frame.groupby(col).agg(
@@ -151,6 +194,11 @@ def analizar(rows, gratis_rows=None):
 
     tags = agrupar(df.explode("tags").dropna(subset=["tags"]).rename(columns={"tags": "tag"}), "tag")
     tags.insert(1, "propiedad_intelectual_ajena", tags["tag"].apply(es_ip))
+    # % de los diseños con ese tag que son funcionales: un nicho "diseñable" es uno de objetos útiles
+    func = df.explode("tags").dropna(subset=["tags"]).groupby("tags")["funcional"].mean()
+    tags["pct_funcional"] = tags["tag"].map(func).fillna(0).round(3)
+    tags["disenable"] = (tags["pct_funcional"] >= 0.5) & ~tags["tag"].isin(TAGS_GENERICOS) & \
+        ~tags["propiedad_intelectual_ajena"]
 
     # Saturación: qué tan presente está cada tag entre los diseños GRATIS más descargados,
     # normalizado por el tamaño de cada muestra. Si la mayoría de lo que se baja en ese nicho es
@@ -174,13 +222,14 @@ def analizar(rows, gratis_rows=None):
             "Diseños analizados", "Con al menos 1 venta", "Ventas totales (descargas pagas)",
             "Ingreso estimado total (USD)", "Precio mediano (USD)", "Ventas por día (mediana)",
             "Diseños con IP ajena (excluir)", f"Tags con >= {MIN_DISENOS} diseños",
-            "Tags saturados de oferta gratis",
+            "Tags saturados de oferta gratis", "Diseños funcionales (los que podemos diseñar)",
+            "Tags diseñables",
         ],
         "valor": [
             len(df), int((df["descargas"] > 0).sum()), int(df["descargas"].sum()),
             round(df["ingreso_estimado_usd"].sum(), 2), df["precio_usd"].median(),
             round(df["ventas_por_dia"].median(), 4), int(df["tiene_ip_ajena"].sum()), len(tags),
-            int(tags["saturado"].sum()),
+            int(tags["saturado"].sum()), int(df["funcional"].sum()), int(tags["disenable"].sum()),
         ],
     })
     df["tags"] = df["tags"].apply(", ".join)
@@ -208,7 +257,7 @@ def main():
         disenos.to_excel(xw, sheet_name="disenos", index=False)
     print(resumen.to_string(index=False))
     print("\nTop 15 oportunidades (sin IP ajena, ordenadas por índice de oportunidad):")
-    print(tags[~tags["propiedad_intelectual_ajena"]].head(15)[
+    print(tags[tags["disenable"]].head(15)[
         ["tag", "disenos", "ventas_por_dia_mediana", "precio_mediano_usd", "pct_gratis", "saturado", "indice_oportunidad"]
     ].to_string(index=False))
     print(f"\nListo: {a.salida}")
