@@ -1,0 +1,81 @@
+name: Publish next design to Cults3D
+
+on:
+  schedule:
+    # Mondays and Thursdays 13:17 UTC (10:17 Buenos Aires)
+    - cron: "17 13 * * 1,4"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (build + preview only, publish nothing)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cults-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install OpenSCAD + PrusaSlicer (slicer verification and 3MF export)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq openscad xvfb prusa-slicer libxi6 libxkbcommon0 libsm6 libgl1 libxxf86vm1 libxfixes3 libxrender1
+
+      - name: Cache Blender
+        id: blender-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/blender
+          key: blender-4.2.3
+
+      - name: Install Blender 4.2 LTS (official build, includes the AI denoiser)
+        if: steps.blender-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/blender
+          curl -sL https://download.blender.org/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz \
+            | tar -xJ -C ~/blender --strip-components=1
+
+      - name: Point the agent to Blender
+        run: echo "BLENDER=$HOME/blender/blender" >> $GITHUB_ENV
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Publish next item in queue/
+        env:
+          CULTS_USERNAME: ${{ secrets.CULTS_USERNAME }}
+          CULTS_API_KEY: ${{ secrets.CULTS_API_KEY }}
+          CDN_REPO: ${{ vars.CDN_REPO }}
+          CDN_TOKEN: ${{ secrets.CDN_TOKEN }}
+          MADE_WITH_AI: ${{ vars.MADE_WITH_AI || '1' }}
+          RENDER_SAMPLES: ${{ vars.RENDER_SAMPLES || '64' }}
+          LICENSE_CODE_COMMERCIAL: ${{ vars.LICENSE_CODE_COMMERCIAL }}
+          LICENSE_CODE: ${{ vars.LICENSE_CODE }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+        run: python tools/publish.py
+
+      - name: Upload renders for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ github.run_number }}
+          path: build/
+          if-no-files-found: ignore
+
+      - name: Save queue state
+        run: |
+          git config user.name "cults-bot"
+          git config user.email "cults-bot@users.noreply.github.com"
+          git add -A queue published inventario_cults3d.csv 2>/dev/null || git add -A queue published
+          git diff --cached --quiet || (git commit -m "Published next design" && git push)
