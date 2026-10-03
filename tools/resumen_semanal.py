@@ -15,13 +15,27 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 
+def fmt(v):
+    """500.0 -> 500 ; 2071053.23 -> 2,071,053.23 ; 0.0312 -> 0.0312"""
+    if type(v).__name__ in ("bool", "bool_"):
+        return "sí" if v else "no"
+    if not isinstance(v, (int, float)):
+        try:
+            v = float(v)
+        except (TypeError, ValueError):
+            return str(v)
+    if float(v).is_integer():
+        return f"{int(v):,}"
+    return f"{v:,.2f}" if abs(v) >= 100 else f"{v:.4g}"
+
+
 def tabla(df, cols, n):
     df = df[[c for c in cols if c in df.columns]].head(n)
     if df.empty:
         return "_(sin datos)_\n"
     filas = ["| " + " | ".join(df.columns) + " |", "|" + "---|" * len(df.columns)]
     for _, r in df.iterrows():
-        filas.append("| " + " | ".join(str(r[c]) for c in df.columns) + " |")
+        filas.append("| " + " | ".join(fmt(r[c]) for c in df.columns) + " |")
     return "\n".join(filas) + "\n"
 
 
