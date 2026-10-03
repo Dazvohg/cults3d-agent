@@ -109,11 +109,13 @@ class Cults:
                 f"using {ok[0]['name']}")
         return (pref or ok[0])["code"]
 
-    def localize(self, creation_id, lang, name, description):
+    def localize(self, creation_id, lang, name, description, price=0.0):
         """Best effort: add a translated title/description. Never stops the publication if the API refuses."""
         lit = json.dumps
+        # Cults validates the whole creation on update: a paid design must send its price again (min 0.5)
+        price_arg = f", price: {price}" if price and price > 0 else ""
         m = f"""mutation {{ updateCreation(id: {lit(creation_id)}, locale: {lang.upper()}, name: {lit(name)},
-                description: {lit(description)}) {{ creation {{ id }} errors }} }}"""
+                description: {lit(description)}{price_arg}) {{ creation {{ id }} errors }} }}"""
         try:
             r = self.s.post(API, json={"query": m}, timeout=60).json()
             errs = r.get("errors") or (r.get("data") or {}).get("updateCreation", {}).get("errors")
@@ -255,7 +257,7 @@ def main():
                            price=com_price, license=cults.resolve_license(True, commercial=True), **common)
         log(f"Created commercial listing: {com['url']}")
     for lang, tr in (item.get("i18n") or {}).items():
-        cults.localize(creation["id"], lang, tr["name"], tr["summary"] + "\n\n" + description)
+        cults.localize(creation["id"], lang, tr["name"], tr["summary"] + "\n\n" + description, price)
 
     # Wait until Cults has fetched every file before deleting the temporary copies.
     slug = urllib.parse.urlparse(creation["url"]).path.rstrip("/").split("/")[-1]
@@ -293,6 +295,7 @@ def main():
                     "PUBLICADO" if list(got) >= list(want) else "PUBLICADO_REVISAR_ARCHIVOS",
                     com["url"] if com else "", com_price if com else ""])
     dest = ROOT / "published" / item_path.name
+    dest.parent.mkdir(exist_ok=True)   # the folder does not exist on a fresh checkout (git does not track empty folders)
     dest.write_text(yaml.safe_dump(item, allow_unicode=True, sort_keys=False))
     item_path.unlink()
     summary = os.getenv("GITHUB_STEP_SUMMARY")
