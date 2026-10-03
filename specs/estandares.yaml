@@ -53,3 +53,17 @@ auriculares:
 celulares:
   iphone_16_pro_max_espesor: 8.25
   funda_rugged: "15-17"         # ranura de 18
+  
+latas_bebida:
+  fuente: https://candimension.com/aluminum-can-dimensions/  # cuerpo 211 = 2 11/16 in; tapa 202 = 2 2/16 in
+  tapa_202_standard_12oz: 54.0   # 2 2/16 in (en el diseño: interior = 54.8)
+  tapa_200_slim: 50.8            # 2 0/16 in (interior 51.6)
+  tapa_204_sleek: 57.2           # 2 4/16 in (interior 58.0)
+  en_diseno: "interior = tapa + 0.8; resalte de encastre de 0.6 mm justo debajo del cierre; agujero de sorbete 8 (sorbete estándar 6)"
+
+
+escritorio:
+  notas_adhesivas: 76.2          # 3 x 3 in; en el diseño: bolsillo 77.4
+  tarjeta_personal_us: [88.9, 50.8]   # 3.5 x 2 in; en el diseño: ranura de 90 x 9 (unas 30 tarjetas)
+  celular_largo_ranura: 82       # iPhone 16 Pro Max: 77.6 de ancho
+  lapicera: "8-11 (bolígrafo); vaso de 48 x 48 para unas 20"
