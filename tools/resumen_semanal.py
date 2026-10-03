@@ -54,7 +54,9 @@ def main():
         tags = pd.read_excel(xlsx, sheet_name="tags")
         if "propiedad_intelectual_ajena" in tags.columns:
             tags = tags[~tags["propiedad_intelectual_ajena"].astype(bool)]
-        out.append("\n## Top 10 nichos por oportunidad\n")
+        if "disenable" in tags.columns:
+            tags = tags[tags["disenable"].astype(bool)]
+        out.append("\n## Top 10 nichos diseñables (objetos funcionales, sin IP ajena)\n")
         out.append(tabla(tags, ["tag", "disenos", "ventas_por_dia_mediana", "precio_mediano_usd",
                                 "pct_gratis", "saturado", "indice_oportunidad"], 10))
 
