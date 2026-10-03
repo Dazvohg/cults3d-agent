@@ -1,0 +1,17 @@
+name: Validate queue (runs on every push)
+on:
+  push:
+    paths: ["queue/**", "designs/**", "tools/**"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq openscad xvfb prusa-slicer
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.txt
+      - name: Build + slicer-verify every queued design (watertight, fits 220 mm bed, supports)
+        run: for q in queue/*.yaml; do [ -e "$q" ] || continue; python tools/build.py "$q"; done
+      - uses: actions/upload-artifact@v4
+        with: {name: previews, path: build/}
