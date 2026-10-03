@@ -26,6 +26,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 def cargar_tags(excel, top):
     tags = pd.read_excel(excel, sheet_name="tags")
     tags = tags[~tags["propiedad_intelectual_ajena"].astype(bool)]
+    if "disenable" in tags:  # solo nichos de objetos funcionales: figuras y miniaturas no son diseñables acá
+        tags = tags[tags["disenable"].astype(bool)]
     orden = ["indice_oportunidad"] if "indice_oportunidad" in tags else ["ventas_por_dia_mediana", "ingreso_estimado_total_usd"]
     tags = tags.sort_values(orden, ascending=False).head(top)
     tags = tags.reset_index(drop=True)
