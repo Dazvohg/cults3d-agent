@@ -1,0 +1,158 @@
+slug: can-lid-cover
+design: designs/can_lid.scad
+variants:
+- file: can_lid_202_standard_solid.stl
+  params:
+    rim_d: 54.0
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+- file: can_lid_202_standard_straw_hole.stl
+  params:
+    rim_d: 54.0
+    straw_d: 8
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+  - type: hole
+    z: 1
+    expect: 8
+    tol: 0.1
+- file: can_lid_200_slim_solid.stl
+  params:
+    rim_d: 50.8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+- file: can_lid_200_slim_straw_hole.stl
+  params:
+    rim_d: 50.8
+    straw_d: 8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+  - type: hole
+    z: 1
+    expect: 8
+    tol: 0.1
+- file: can_lid_204_sleek_solid.stl
+  params:
+    rim_d: 57.2
+  checks:
+  - type: fit
+    z: 3
+    expect: 58.0
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 56.8
+    tol: 0.1
+render_colors:
+- '#2F6F8F'
+- '#E8E2D6'
+cover_badge: 5 lids · standard 202, slim 200, sleek 204 · straw hole
+print_settings:
+- No supports (print flat side down)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- 'PETG or PLA, flexible snap: print in PETG'
+name: Soda Can Lid – Snap-On Cover for Standard, Slim & Sleek Cans, With Straw Hole
+price: 1.49
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- can lid
+- can cover
+- soda can
+- beverage cover
+- drink cover
+- can topper
+- straw hole
+- no supports
+- picnic
+- camping
+description: 'Keep bugs, dust and spills out of your drink. A snap-on cover for aluminium
+  beverage cans, with or without a straw hole.
+
+
+  **Included (5 files)**
+
+
+  - Standard 12 oz can (202 end, 54 mm), solid
+
+  - Standard 12 oz can, 8 mm straw hole
+
+  - Slim / 8 oz can (200 end, 50.8 mm), solid
+
+  - Slim / 8 oz can, 8 mm straw hole
+
+  - Sleek can (204 end, 57.2 mm), solid
+
+
+  **Print settings**
+
+
+  - No supports: print with the flat top on the bed (as oriented)
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG recommended: the snap bead flexes slightly instead of cracking
+
+
+  **Sized to can-end standards**
+
+
+  - Inner diameter = can end size + 0.8 mm for FDM tolerance (202 = 2 2/16 in, 200
+  = 2 0/16 in, 204 = 2 4/16 in)
+
+  - Snap bead sits just under the can seam
+
+  - Straw hole 8 mm: fits standard 6 mm straws
+
+
+  **Note:** can makers vary by a fraction of a millimetre, so check your brand with
+  one lid first. If it is loose or tight, tell me the can and I will adjust it.
+
+  '
+i18n:
+  fr:
+    name: Couvercle de canette – à clipser, pour canettes standard, slim et sleek,
+      avec trou de paille
+    summary: Couvercle à clipser pour canettes en aluminium, avec ou sans trou pour
+      la paille. 5 versions.
+  de:
+    name: Dosendeckel – zum Aufschnappen, für Standard-, Slim- und Sleek-Dosen, mit
+      Strohhalmloch
+    summary: Aufschnappdeckel für Aluminiumdosen, mit oder ohne Strohhalmloch. 5 Versionen.
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 40
+- 70
