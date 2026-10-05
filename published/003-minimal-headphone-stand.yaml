@@ -76,7 +76,29 @@ description: 'A minimalist headphone stand that prints lying flat, so layer line
 
   - Saddle 50 or 60 mm wide, wider than common headbands (30–45 mm)
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - headphone_stand_230mm: 6 h 16 min, 153 g, no supports
+
+  - headphone_stand_230mm_wide_60mm: 7 h 27 min, 181 g, no supports
+
+  - headphone_stand_195mm_compact: 5 h 54 min, 143 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - headphone_stand_230mm: 171 × 244 × 50 mm (6.7 × 9.6 × 2.0 in) - needs a 256 x
+  256 mm bed
+
+  - headphone_stand_230mm_wide_60mm: 171 × 244 × 60 mm (6.7 × 9.6 × 2.4 in) - needs
+  a 256 x 256 mm bed
+
+  - headphone_stand_195mm_compact: 171 × 209 × 50 mm (6.7 × 8.2 × 2.0 in)'
 i18n:
   fr:
     name: Support de casque minimaliste – impression à plat, sans supports
@@ -86,3 +108,13 @@ i18n:
     name: Minimalistischer Kopfhörerständer – liegend gedruckt, ohne Stützen
     summary: 'Liegend gedruckt, damit die Schichten der Belastung folgen: stabil und
       ohne Stützstrukturen. Standard- und breite Version.'
+print_settings:
+- No supports
+cults_id: Q3JlYXRpb24vbWluaW1hbC1oZWFkcGhvbmUtc3RhbmQtMjMwLW1tLWNvbXBhY3QtcHJpbnRzLWZsYXQtbm8tc3VwcG9ydHMtYWR2YW5jZWR1cmJhbmRlc2lnbmxhYm9yYXRvcjE
+cults_url: https://cults3d.com/en/3d-model/gadget/minimal-headphone-stand-230-mm-compact-prints-flat-no-supports-advancedurbandesignlaborator1
+published_at: '2026-10-05T11:15:38Z'
+license_code: cults_pu
+assets_confirmed:
+- 4
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/minimal-headphone-stand-230-mm-compact-prints-flat-no-supports-commercia
