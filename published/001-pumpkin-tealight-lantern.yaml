@@ -47,6 +47,7 @@ render_colors:
 grid_camera: 0,0,0,75,0,0,0
 cover_badge: 4 faces · LED tealight · lid
 print_settings:
+- Supports needed on 4 of 6 files
 - 0.2 mm layers
 - 2 walls, 10 % infill
 - Orange PLA, or white for a brighter glow
@@ -97,7 +98,39 @@ description: 'A ribbed pumpkin lantern for standard LED tealights. Four face sty
 
   - Lid plug 40.2 mm: 0.4 mm gap per side, sits without wobbling
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - pumpkin_classic_face: 3 h 34 min, 76 g, supports needed
+
+  - pumpkin_happy_face: 3 h 34 min, 77 g, supports needed
+
+  - pumpkin_spooky_face: 3 h 31 min, 77 g, minimal supports (2.6 % of material)
+
+  - pumpkin_cat_face: 3 h 35 min, 77 g, supports needed
+
+  - pumpkin_lid_stem: 27 min, 9 g, no supports
+
+  - pumpkin_small_classic: 2 h 13 min, 39 g, supports needed
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - pumpkin_classic_face: 89.9 × 86.5 × 71 mm (3.5 × 3.4 × 2.8 in)
+
+  - pumpkin_happy_face: 89.9 × 86.5 × 71 mm (3.5 × 3.4 × 2.8 in)
+
+  - pumpkin_spooky_face: 89.9 × 86.5 × 71 mm (3.5 × 3.4 × 2.8 in)
+
+  - pumpkin_cat_face: 89.9 × 86.5 × 71 mm (3.5 × 3.4 × 2.8 in)
+
+  - pumpkin_lid_stem: 50 × 50 × 26.7 mm (2.0 × 2.0 × 1.1 in)
+
+  - pumpkin_small_classic: 69.9 × 67.3 × 56 mm (2.8 × 2.6 × 2.2 in)'
 i18n:
   fr:
     name: Lanterne citrouille pour bougie LED – 4 visages + couvercle (Halloween)
@@ -108,3 +141,11 @@ i18n:
     summary: Gerippter Kürbis für LED-Teelichter, 4 Gesichter, Deckel mit Stiel und
       kleine Version. Nur LED-Teelichter verwenden.
 temporada: halloween
+cults_id: Q3JlYXRpb24vcHVtcGtpbi10ZWFsaWdodC1sYW50ZXJuLTQtY2FydmVkLWZhY2VzLXN0ZW0tbGlkLWhhbGxvd2Vlbi1hZHZhbmNlZHVyYmFuZGVzaWdubGFib3JhdG9yMQ
+cults_url: https://cults3d.com/en/3d-model/home/pumpkin-tealight-lantern-4-carved-faces-stem-lid-halloween-advancedurbandesignlaborator1
+published_at: '2026-10-05T09:48:00Z'
+license_code: cults_pu
+assets_confirmed:
+- 7
+- 5
+commercial_url: https://cults3d.com/en/3d-model/home/pumpkin-tealight-lantern-4-carved-faces-stem-lid-halloween-commercial-li-advancedurbandesignlaborator1
