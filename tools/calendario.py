@@ -94,6 +94,11 @@ def generar(hoy=None):
     """Crea en queue/ las plantillas de temporada cuya ventana está abierta y no están aún en cola/publicadas."""
     existentes = {yaml.safe_load(p.read_text(encoding="utf-8"))["slug"]
                   for p in list((ROOT / "queue").glob("*.yaml")) + list((ROOT / "published").glob("*.yaml"))}
+    inv = ROOT / "inventario_cults3d.csv"
+    if inv.exists():   # lo ya publicado no vuelve a entrar a la cola
+        import csv
+        with open(inv, encoding="utf-8", newline="") as f:
+            existentes |= {r.get("slug") for r in csv.DictReader(f)}
     siguiente = max([int(p.name[:3]) for p in (ROOT / "queue").glob("[0-9][0-9][0-9]-*.yaml")] or [0]) + 1
     creados = []
     for p in sorted((ROOT / "templates").glob("*.yaml")):
