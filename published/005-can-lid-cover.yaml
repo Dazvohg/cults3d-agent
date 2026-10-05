@@ -76,7 +76,7 @@ render_colors:
 - '#E8E2D6'
 cover_badge: 5 lids · standard 202, slim 200, sleek 204 · straw hole
 print_settings:
-- No supports (print flat side down)
+- No supports
 - 0.2 mm layers
 - 3 walls, 15 % infill
 - 'PETG or PLA, flexible snap: print in PETG'
@@ -138,7 +138,35 @@ description: 'Keep bugs, dust and spills out of your drink. A snap-on cover for 
   **Note:** can makers vary by a fraction of a millimetre, so check your brand with
   one lid first. If it is loose or tight, tell me the can and I will adjust it.
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - can_lid_202_standard_solid: 21 min, 10 g, no supports
+
+  - can_lid_202_standard_straw_hole: 22 min, 10 g, no supports
+
+  - can_lid_200_slim_solid: 19 min, 10 g, no supports
+
+  - can_lid_200_slim_straw_hole: 20 min, 9 g, no supports
+
+  - can_lid_204_sleek_solid: 22 min, 11 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - can_lid_202_standard_solid: 58 × 58 × 14 mm (2.3 × 2.3 × 0.6 in)
+
+  - can_lid_202_standard_straw_hole: 58 × 58 × 14 mm (2.3 × 2.3 × 0.6 in)
+
+  - can_lid_200_slim_solid: 54.8 × 54.8 × 14 mm (2.2 × 2.2 × 0.6 in)
+
+  - can_lid_200_slim_straw_hole: 54.8 × 54.8 × 14 mm (2.2 × 2.2 × 0.6 in)
+
+  - can_lid_204_sleek_solid: 61.2 × 61.2 × 14 mm (2.4 × 2.4 × 0.6 in)'
 i18n:
   fr:
     name: Couvercle de canette – à clipser, pour canettes standard, slim et sleek,
@@ -149,6 +177,21 @@ i18n:
     name: Dosendeckel – zum Aufschnappen, für Standard-, Slim- und Sleek-Dosen, mit
       Strohhalmloch
     summary: Aufschnappdeckel für Aluminiumdosen, mit oder ohne Strohhalmloch. 5 Versionen.
+  es:
+    name: Tapa para latas – tapa a presión para latas estándar, slim y sleek, con
+      agujero para sorbete
+    summary: Tapa a presión para latas de aluminio, con o sin agujero para sorbete.
+      5 versiones.
+  zh:
+    name: 易拉罐盖 – 适用标准、细长和修长罐的卡扣盖,带吸管孔
+    summary: 铝罐卡扣盖,可选带吸管孔或不带。共5个版本。
+  ja:
+    name: 缶のフタ – 標準缶・スリム缶・スリーク缶対応のスナップオンカバー(ストロー穴付き)
+    summary: アルミ缶用のスナップオン式カバー。ストロー穴ありとなしを選べ、5バージョンを収録。
+  ar:
+    name: غطاء علبة المشروبات – غطاء يُثبَّت بالضغط للعلب القياسية والنحيفة والرفيعة،
+      مع فتحة للمصاصة
+    summary: غطاء يُثبَّت بالضغط لعلب الألمنيوم، مع فتحة للمصاصة أو بدونها. 5 إصدارات.
 display_rotate:
 - 0
 - 0
@@ -156,3 +199,11 @@ display_rotate:
 render_angles:
 - 40
 - 70
+cults_id: Q3JlYXRpb24vc29kYS1jYW4tbGlkLXNuYXAtb24tY292ZXItZm9yLXN0YW5kYXJkLXNsaW0tc2xlZWstY2Fucy13aXRoLXN0cmF3LWhvbGU
+cults_url: https://cults3d.com/en/3d-model/gadget/soda-can-lid-snap-on-cover-for-standard-slim-sleek-cans-with-straw-hole
+published_at: '2026-10-05T12:50:31Z'
+license_code: cults_pu
+assets_confirmed:
+- 6
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/soda-can-lid-snap-on-cover-for-standard-slim-sleek-cans-with-straw-hole-advancedurbandesignlaborator1
