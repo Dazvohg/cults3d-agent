@@ -83,7 +83,35 @@ description: 'A sturdy phone stand with a charging-cable channel, in three viewi
   - Cable channel 10 mm wide: fits USB-C and Lightning cables (3–4.5 mm) with room
   to spare
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - phone_stand_65deg: 3 h 42 min, 93 g, no supports
+
+  - phone_stand_55deg_low: 3 h 11 min, 80 g, no supports
+
+  - phone_stand_75deg_upright: 3 h 57 min, 98 g, no supports
+
+  - phone_stand_thick_case_18mm: 3 h 34 min, 90 g, no supports
+
+  - tablet_stand_150mm: 10 h 19 min, 256 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - phone_stand_65deg: 85 × 80 × 86.6 mm (3.3 × 3.1 × 3.4 in)
+
+  - phone_stand_55deg_low: 85 × 80 × 70.5 mm (3.3 × 3.1 × 2.8 in)
+
+  - phone_stand_75deg_upright: 85 × 80 × 91.9 mm (3.3 × 3.1 × 3.6 in)
+
+  - phone_stand_thick_case_18mm: 85 × 80 × 86.6 mm (3.3 × 3.1 × 3.4 in)
+
+  - tablet_stand_150mm: 110 × 150 × 112 mm (4.3 × 5.9 × 4.4 in)'
 i18n:
   fr:
     name: Support téléphone et tablette – 3 angles, passage de câble, version coque
@@ -94,3 +122,11 @@ i18n:
     name: Handy- und Tablet-Ständer – 3 Winkel, Kabelführung, Version für dicke Hüllen
     summary: Stabiler Ständer mit Kabelführung in drei Winkeln, dazu eine Version
       für dicke Hüllen und ein Tablet-Ständer.
+cults_id: Q3JlYXRpb24vcGhvbmUtdGFibGV0LXN0YW5kLTMtdmlld2luZy1hbmdsZXMtY2FibGUtc2xvdC10aGljay1jYXNlLXZlcnNpb24
+cults_url: https://cults3d.com/en/3d-model/gadget/phone-tablet-stand-3-viewing-angles-cable-slot-thick-case-version
+published_at: '2026-10-05T11:36:41Z'
+license_code: cults_pu
+assets_confirmed:
+- 6
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/phone-tablet-stand-3-viewing-angles-cable-slot-thick-case-version-commer
