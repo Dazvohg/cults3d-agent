@@ -35,7 +35,7 @@ WAIT_MAX_S = 15 * 60
 
 
 def log(msg):
-    print(f"[{dt.datetime.utcnow():%H:%M:%S}] {msg}", flush=True)
+    print(f"[{dt.datetime.now(dt.UTC):%H:%M:%S}] {msg}", flush=True)
 
 
 # ---------------------------------------------------------- listing extras
@@ -113,7 +113,7 @@ class Cults:
         """Best effort: add a translated title/description. Never stops the publication if the API refuses."""
         lit = json.dumps
         # Cults validates the whole creation on update: a paid design must send its price again (min 0.5)
-        price_arg = f", price: {price}" if price and price > 0 else ""
+        price_arg = f", downloadPrice: {price}" if price and price > 0 else ""
         m = f"""mutation {{ updateCreation(id: {lit(creation_id)}, locale: {lang.upper()}, name: {lit(name)},
                 description: {lit(description)}{price_arg}) {{ creation {{ id }} errors }} }}"""
         try:
@@ -211,7 +211,7 @@ def main():
     cat_id, sub_ids = cults.resolve_category(item.get("category"), item.get("subcategory"))
     license_code = cults.resolve_license(price > 0)
 
-    stamp = dt.datetime.utcnow().strftime("%Y%m%d%H%M%S")
+    stamp = dt.datetime.now(dt.UTC).strftime("%Y%m%d%H%M%S")
     uploaded, file_urls, image_urls = [], [], []
     for p in b["files"] + b["images"]:
         path = f"tmp/{item['slug']}-{stamp}/{p.name}"
@@ -279,7 +279,7 @@ def main():
         log(f"WARNING: Cults shows {got} of {want} files after 15 min - temporary copies kept for review.")
 
     item.update({"cults_id": creation["id"], "cults_url": creation["url"],
-                 "published_at": dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                 "published_at": dt.datetime.now(dt.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
                  "license_code": license_code, "assets_confirmed": list(got),
                  "commercial_url": com["url"] if com else None})
     inv = ROOT / "inventario_cults3d.csv"
@@ -295,7 +295,7 @@ def main():
                     "PUBLICADO" if list(got) >= list(want) else "PUBLICADO_REVISAR_ARCHIVOS",
                     com["url"] if com else "", com_price if com else ""])
     dest = ROOT / "published" / item_path.name
-    dest.parent.mkdir(exist_ok=True)   # the folder does not exist on a fresh checkout (git does not track empty folders)
+    dest.parent.mkdir(parents=True, exist_ok=True)   # the folder does not exist on a fresh checkout (git does not track empty folders)
     dest.write_text(yaml.safe_dump(item, allow_unicode=True, sort_keys=False))
     item_path.unlink()
     summary = os.getenv("GITHUB_STEP_SUMMARY")
