@@ -47,7 +47,25 @@ Same files as the personal edition, plus the right to **sell physical prints** o
 Crediting the design in your listings is appreciated.
 
 """
-LANG_TITLES = {"fr": "Français", "de": "Deutsch", "es": "Español", "it": "Italiano"}
+LANG_TITLES = {"fr": "Français", "de": "Deutsch", "es": "Español", "it": "Italiano",
+               "zh": "中文", "ja": "日本語", "ar": "العربية"}
+LOCALE_CANDIDATES = {"zh": ["ZH", "ZH_CN", "ZH_HANS", "ZH_HANS_CN"], "ja": ["JA", "JP"], "ar": ["AR"]}
+
+
+def merge_extra_translations(item):
+    """Add zh/ja/ar summaries from specs/traducciones.yaml for the languages the item doesn't already have."""
+    f = ROOT / "specs" / "traducciones.yaml"
+    if not f.exists():
+        return
+    try:
+        extra = (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get(item.get("slug"), {})
+    except Exception as e:  # noqa: BLE001
+        log(f"traducciones.yaml unreadable, skipped: {e}")
+        return
+    i18n = item.setdefault("i18n", {})
+    for lang, tr in extra.items():
+        if lang not in i18n and tr and tr.get("name") and tr.get("summary"):
+            i18n[lang] = tr
 
 
 def with_translations(item):
@@ -114,18 +132,52 @@ class Cults:
         return (pref or ok[0])["code"]
 
     def localize(self, creation_id, lang, name, description, price=0.0):
-        """Best effort: add a translated title/description. Never stops the publication if the API refuses."""
+        """Best effort: add a translated title/description. Never stops the publication if the API refuses.
+        Cults validates the whole creation on update and wants the price again (min 0.5) for a paid design; the
+        argument is called downloadPrice (as in createCreation). If the API does not accept it we retry without."""
         lit = json.dumps
-        # Cults validates the whole creation on update: a paid design must send its price again (min 0.5)
-        price_arg = f", price: {price}" if price and price > 0 else ""
-        m = f"""mutation {{ updateCreation(id: {lit(creation_id)}, locale: {lang.upper()}, name: {lit(name)},
-                description: {lit(description)}{price_arg}) {{ creation {{ id }} errors }} }}"""
-        try:
-            r = self.s.post(API, json={"query": m}, timeout=60).json()
-            errs = r.get("errors") or (r.get("data") or {}).get("updateCreation", {}).get("errors")
-            log(f"  {lang.upper()} translation: {'OK' if not errs else f'not accepted ({errs})'}")
-        except Exception as e:  # noqa: BLE001
-            log(f"  {lang.upper()} translation skipped: {e}")
+        variants = [f", downloadPrice: {price}", ""] if price and price > 0 else [""]
+        for loc in self.locales_for(lang):
+            for price_arg in variants:
+                m = f"""mutation {{ updateCreation(id: {lit(creation_id)}, locale: {loc}, name: {lit(name)},
+                    description: {lit(description)}{price_arg}) {{ creation {{ id }} errors }} }}"""
+                try:
+                    r = self.s.post(API, json={"query": m}, timeout=60).json()
+                except Exception as e:  # noqa: BLE001
+                    log(f"  {lang.upper()} translation skipped: {e}")
+                    return
+                raw = json.dumps(r.get("errors") or "")
+                errs = r.get("errors") or (r.get("data") or {}).get("updateCreation", {}).get("errors")
+                if errs and "argumentNotAccepted" in raw and price_arg:
+                    continue   # this API version does not take that argument: try without it
+                if errs and ("enum" in raw.lower() or "locale" in raw.lower() and "argumentLiteralsIncompatible" in raw):
+                    break      # this locale value does not exist: try the next candidate
+                log(f"  {lang.upper()} translation ({loc}): {'OK' if not errs else f'not accepted ({errs})'}")
+                return
+        log(f"  {lang.upper()} translation skipped: Cults has no matching language (summary stays in the English text)")
+
+    def supported_locales(self):
+        """Locale enum values Cults accepts on updateCreation (cached). Empty set if introspection fails."""
+        if getattr(self, "_locs", None) is None:
+            self._locs = set()
+            try:
+                t = self.s.post(API, json={"query": '{ __type(name:"Mutation"){ fields{ name args{ name type{ name kind '
+                                                    'ofType{ name } } } } } }'}, timeout=60).json()
+                fields = t["data"]["__type"]["fields"]
+                arg = next(a for f in fields if f["name"] == "updateCreation" for a in f["args"] if a["name"] == "locale")
+                tn = arg["type"]["name"] or arg["type"]["ofType"]["name"]
+                e = self.s.post(API, json={"query": f'{{ __type(name:"{tn}"){{ enumValues{{ name }} }} }}'},
+                                timeout=60).json()
+                self._locs = {v["name"] for v in e["data"]["__type"]["enumValues"]}
+                log(f"Cults languages available: {sorted(self._locs)}")
+            except Exception as ex:  # noqa: BLE001
+                log(f"Could not introspect Cults languages ({ex}); will try candidates one by one")
+        return self._locs
+
+    def locales_for(self, lang):
+        cands = LOCALE_CANDIDATES.get(lang, [lang.upper()])
+        sup = self.supported_locales()
+        return [c for c in cands if c in sup] if sup else cands
 
     def create(self, **kw):
         # Arguments are inlined as literals (JSON strings are valid GraphQL strings), so we
@@ -299,6 +351,7 @@ def main():
 
     commercial = price > 0 and item.get("commercial", True)
     com_price = float(item.get("commercial_price", COMMERCIAL_PRICE))
+    merge_extra_translations(item)
     description = with_translations(item)
     if DRY:
         log("DRY_RUN=1 -> payload preview only:")
@@ -315,7 +368,6 @@ def main():
 
     stamp = dt.datetime.utcnow().strftime("%Y%m%d%H%M%S")
     uploaded, file_urls, image_urls = [], [], []
-
     def small_image(p):
         """Renders are re-saved as JPEG (about 10x smaller than PNG): Cults downloads them faster and fails less."""
         if p.suffix.lower() != ".png":
