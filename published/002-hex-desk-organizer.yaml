@@ -65,7 +65,31 @@ description: 'A clean honeycomb organizer for pens, brushes, tools and makeup. C
 
   Designed and tested for FDM printers with a 220 × 220 mm bed or larger.
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - hex_organizer_5cells: 7 h 17 min, 202 g, no supports
+
+  - hex_organizer_3cells: 4 h 24 min, 129 g, no supports
+
+  - hex_organizer_7cells: 8 h 31 min, 220 g, no supports
+
+  - hex_single_cup: 1 h 52 min, 59 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - hex_organizer_5cells: 188 × 127.6 × 100 mm (7.4 × 5.0 × 3.9 in)
+
+  - hex_organizer_3cells: 126 × 127.6 × 100 mm (5.0 × 5.0 × 3.9 in)
+
+  - hex_organizer_7cells: 158 × 152.4 × 110 mm (6.2 × 6.0 × 4.3 in)
+
+  - hex_single_cup: 64 × 73.9 × 100 mm (2.5 × 2.9 × 3.9 in)'
 i18n:
   fr:
     name: Organiseur de bureau hexagonal modulaire – pot à crayons nid d'abeille
@@ -75,3 +99,13 @@ i18n:
     name: Modularer Sechseck-Schreibtischorganizer – Stiftehalter in Wabenform
     summary: Waben-Organizer für Stifte, Pinsel und Werkzeug. Fächer in verschiedenen
       Höhen, Versionen mit 1, 3, 5 und 7 Fächern. Druck ohne Stützstrukturen.
+print_settings:
+- No supports
+cults_id: Q3JlYXRpb24vaGV4LWRlc2stb3JnYW5pemVyLW1vZHVsYXItaG9uZXljb21iLXBlbi1ob2xkZXItMS0zLTUtNy1jZWxscw
+cults_url: https://cults3d.com/en/3d-model/home/hex-desk-organizer-modular-honeycomb-pen-holder-1-3-5-7-cells
+published_at: '2026-10-05T10:35:41Z'
+license_code: cults_pu
+assets_confirmed:
+- 5
+- 5
+commercial_url: https://cults3d.com/en/3d-model/home/hex-desk-organizer-modular-honeycomb-pen-holder-1-3-5-7-cells-commerci
