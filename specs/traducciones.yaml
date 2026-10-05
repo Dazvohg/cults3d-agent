@@ -1,0 +1,275 @@
+# Traducciones extra (español, chino simplificado, japonés, árabe) por slug. publish.py las suma al producto si faltan.
+# Hechas con IA, sin revisión de hablantes nativos: conviene revisarlas, sobre todo el árabe.
+hex-desk-organizer:
+  es:
+    name: Organizador de escritorio hexagonal – portalápices modular de panal (1, 3, 5 y 7 celdas)
+    summary: Organizador de panal para lápices, pinceles y herramientas. Celdas de distintas alturas, en versiones de 1, 3, 5 y 7 celdas. Se imprime sin soportes.
+  zh:
+    name: 六边形桌面收纳盒 – 模块化蜂窝笔筒(1、3、5、7格)
+    summary: 蜂窝式笔筒,可收纳笔、画笔和工具。格子高度不同,提供1、3、5、7格版本。无需支撑即可打印。
+  ja:
+    name: ハニカム型デスクオーガナイザー – モジュール式ペン立て(1・3・5・7セル)
+    summary: ペン、筆、工具を収納できるハニカム型オーガナイザー。高さの違うセルを用意し、1・3・5・7セル版を収録。サポートなしで印刷できます。
+  ar:
+    name: منظم مكتب سداسي – حامل أقلام معياري على شكل خلية نحل (1 و3 و5 و7 خلايا)
+    summary: منظم على شكل خلية نحل للأقلام والفرش والأدوات. خلايا بارتفاعات مختلفة ونسخ بـ 1 و3 و5 و7 خلايا. يُطبع بدون دعامات.
+desk-cable-clip:
+  es:
+    name: Clips de cable de escritorio a presión – cinta adhesiva, de 1 a 5 ranuras
+    summary: Mantén los cables de carga al alcance de la mano. Base plana para cinta doble faz, 4 tamaños incluidos. Se imprime sin soportes.
+  zh:
+    name: 桌面卡扣式理线夹 – 胶带固定,1至5个槽位
+    summary: 让充电线随手可取。扁平底座可贴双面胶,含4种尺寸。无需支撑即可打印。
+  ja:
+    name: スナップイン式デスクケーブルクリップ – 両面テープ固定、1〜5スロット
+    summary: 充電ケーブルを手元にキープ。両面テープを貼れる平らなベースで、4サイズを収録。サポートなしで印刷できます。
+  ar:
+    name: مشابك كابلات للمكتب بتثبيت سريع – لاصق مزدوج، من 1 إلى 5 فتحات
+    summary: أبقِ كابلات الشحن في متناول يدك. قاعدة مسطحة للشريط اللاصق مزدوج الوجه، وتتضمن 4 مقاسات. تُطبع بدون دعامات.
+minimal-headphone-stand:
+  es:
+    name: Soporte minimalista para auriculares – 230 mm y versión compacta, impresión plana, sin soportes
+    summary: 'Se imprime acostado, con las capas alineadas a la carga: resistente y sin soportes. Incluye versión estándar y versión ancha.'
+  zh:
+    name: 极简耳机架 – 230毫米与紧凑款,平放打印,无需支撑
+    summary: 平放打印,层纹顺应受力方向,结实且无需支撑。含标准版和加宽版。
+  ja:
+    name: ミニマルヘッドホンスタンド – 230mm&コンパクト、平置き印刷、サポート不要
+    summary: 積層方向が荷重に沿うよう平置きで印刷でき、丈夫でサポートも不要。標準版とワイド版を収録。
+  ar:
+    name: حامل سماعات بسيط – 230 مم ونسخة مدمجة، يُطبع مسطحًا بدون دعامات
+    summary: يُطبع بشكل مسطح لتتوافق طبقات الطباعة مع اتجاه الحمل، فيكون متينًا وبلا دعامات. نسخة قياسية وأخرى عريضة.
+parametric-movement-tray:
+  es:
+    name: Bandejas de movimiento para wargames – bases redondas de 25, 28.5, 32 y 40 mm (listas para imanes)
+    summary: Mueve escuadrones enteros de una vez. 8 bandejas para las bases redondas más comunes, con huecos opcionales para imanes.
+  zh:
+    name: 战棋移动托盘 – 适用25、28.5、32、40毫米圆形底座(可装磁铁)
+    summary: 一次移动整个小队。8款托盘适配最常见的圆形底座,可选磁铁槽。
+  ja:
+    name: ウォーゲーム用ムーブメントトレイ – 25・28.5・32・40mm丸ベース対応(マグネット対応)
+    summary: 部隊をまとめて移動。最も一般的な丸ベース向けに8種類のトレイを用意し、マグネット用の穴はオプションです。
+  ar:
+    name: صواني حركة لألعاب المعارك – قواعد دائرية 25 و28.5 و32 و40 مم (جاهزة للمغناطيس)
+    summary: حرّك فرقًا كاملة دفعة واحدة. 8 صواني لأشهر القواعد الدائرية، مع تجاويف اختيارية للمغناطيس.
+gusset-corner-bracket:
+  es:
+    name: Escuadra con nervios laterales – avellanado, M3/M4/M5, de 40 a 100 mm
+    summary: Escuadras en L con nervios laterales y un canal central libre para atornillar derecho. Los archivos vienen orientados para imprimir acostados y lograr más resistencia.
+  zh:
+    name: 带侧加强筋的角码 – 沉头孔,M3/M4/M5,40至100毫米
+    summary: L形角码带侧面加强筋和空出的中央通道,方便垂直拧入螺丝。文件按平放方向摆好,打印更结实。
+  ja:
+    name: サイドリブ付きコーナーブラケット – 皿穴、M3/M4/M5、40〜100mm
+    summary: 側面リブ付きのL字ブラケット。中央を空けてまっすぐネジ止めできます。強度が出るよう横向きに配置したファイルです。
+  ar:
+    name: زاوية تثبيت بدعامات جانبية – ثقوب غاطسة، M3/M4/M5، من 40 إلى 100 مم
+    summary: زوايا على شكل L بأضلاع تقوية جانبية وقناة مركزية حرة لتثبيت البراغي بشكل مستقيم. الملفات موجهة للطباعة مسطحة لمتانة أعلى.
+can-lid-cover:
+  es:
+    name: Tapa para latas – tapa a presión para latas estándar, slim y sleek, con agujero para sorbete
+    summary: Tapa a presión para latas de aluminio, con o sin agujero para sorbete. 5 versiones.
+  zh:
+    name: 易拉罐盖 – 适用标准、细长和修长罐的卡扣盖,带吸管孔
+    summary: 铝罐卡扣盖,可选带吸管孔或不带。共5个版本。
+  ja:
+    name: 缶のフタ – 標準缶・スリム缶・スリーク缶対応のスナップオンカバー(ストロー穴付き)
+    summary: アルミ缶用のスナップオン式カバー。ストロー穴ありとなしを選べ、5バージョンを収録。
+  ar:
+    name: غطاء علبة المشروبات – غطاء يُثبَّت بالضغط للعلب القياسية والنحيفة والرفيعة، مع فتحة للمصاصة
+    summary: غطاء يُثبَّت بالضغط لعلب الألمنيوم، مع فتحة للمصاصة أو بدونها. 5 إصدارات.
+desk-caddy-organizer:
+  es:
+    name: Organizador de escritorio – portalápices, ranura para celular, notas adhesivas y tarjetas
+    summary: Un solo bloque para ordenar lápices, celular, notas adhesivas y tarjetas de presentación. 3 configuraciones y 5 archivos.
+  zh:
+    name: 桌面收纳盒 – 笔筒、手机槽、便利贴和名片座
+    summary: 一个收纳笔、手机、便利贴和名片的整体座。3种配置,5个文件。
+  ja:
+    name: デスクオーガナイザーキャディ – ペン立て、スマホスロット、付箋・名刺ホルダー
+    summary: ペン、スマホ、付箋、名刺をまとめて収納できるブロック。3構成、5ファイル。
+  ar:
+    name: منظم مكتب – أكواب أقلام، فتحة للهاتف، حامل ملاحظات لاصقة وبطاقات أعمال
+    summary: كتلة واحدة لتنظيم الأقلام والهاتف والملاحظات اللاصقة وبطاقات الأعمال. 3 تكوينات و5 ملفات.
+ac-hose-adapter-set:
+  es:
+    name: Adaptadores para manguera de aire acondicionado portátil – reductores y acoples 130, 150 mm y 4 in
+    summary: Cinco acoples y reductores para la manguera de escape de un aire acondicionado portátil. Mide tu manguera antes de imprimir.
+  zh:
+    name: 移动空调排气管转接套装 – 130毫米、150毫米及4英寸干衣机排气管变径与直通接头
+    summary: 五个适用于移动空调排气管的变径和直通接头。打印前请先测量您的软管。
+  ja:
+    name: ポータブルエアコン排気ホース用アダプターセット – 130mm・150mm・4インチ乾燥機ダクト対応のレデューサーとカップリング
+    summary: ポータブルエアコンの排気ホース用に、レデューサーとカップリングを5点収録。印刷前にホースのサイズを測ってください。
+  ar:
+    name: طقم محولات خرطوم عادم المكيف المتنقل – مخفضات ووصلات لـ 130 مم و150 مم وفتحة المجفف 4 بوصات
+    summary: خمس وصلات ومخفضات لخرطوم عادم المكيف المتنقل. قِس الخرطوم لديك قبل الطباعة.
+espresso-dosing-funnel-set:
+  es:
+    name: Embudo dosificador para espresso – portafiltros de 51, 53, 54 y 58 mm, boca ancha sin derrames
+    summary: Embudo de boca ancha que se apoya en la canasta del portafiltro. 4 tamaños más una versión alta.
+  zh:
+    name: 意式咖啡粉碗填粉漏斗 – 适用51、53、54、58毫米手柄,宽口防洒
+    summary: 宽口漏斗,放入手柄粉碗中使用。共4种尺寸,另有加高版。
+  ja:
+    name: エスプレッソ用ドージングファネル – 51・53・54・58mmポルタフィルター対応、広口で散らかりません
+    summary: ポルタフィルターのバスケットに載せる広口ファネル。4サイズと背の高いバージョンを収録。
+  ar:
+    name: قمع تعبئة القهوة للإسبريسو – لحوامل 51 و53 و54 و58 مم، فوهة واسعة بلا فوضى
+    summary: قمع واسع يوضع في سلة حامل القهوة. 4 مقاسات بالإضافة إلى نسخة طويلة.
+weather-station-radiation-shield:
+  es:
+    name: Escudo de radiación pasivo para estación meteorológica – láminas para DHT22 y DS18B20
+    summary: Protección pasiva contra el sol y la lluvia para sensores de temperatura. 5 archivos; la varilla roscada M4 no está incluida.
+  zh:
+    name: 气象站传感器被动式防辐射罩 – 适用DHT22和DS18B20的百叶堆叠结构
+    summary: 为温度传感器遮挡阳光和雨水的被动式防护罩。共5个文件,M4螺杆需自备。
+  ja:
+    name: 気象観測用センサーの受動型放射シールド – DHT22・DS18B20対応のルーバー積層構造
+    summary: 日差しと雨から温度センサーを守る受動型シールド。5ファイル入り、M4ねじ棒は付属しません。
+  ar:
+    name: درع إشعاع سلبي لمستشعرات محطة الطقس – أكوام شرائح لـ DHT22 وDS18B20
+    summary: حماية سلبية من الشمس والمطر لمستشعرات الحرارة. 5 ملفات، القضبان المسننة M4 غير مرفقة.
+desk-side-pocket-organizer:
+  es:
+    name: Bolsillos laterales para escritorio – celular, lápices, control y llaves (cinta o tornillos)
+    summary: Cinco bolsillos para pegar en el costado o debajo del escritorio, con cinta adhesiva o tornillos. Se imprimen sin soportes.
+  zh:
+    name: 桌边挂袋收纳套装 – 手机、笔、遥控器和钥匙(胶带或螺丝固定)
+    summary: 五个可贴在桌子侧面或底部的收纳袋,用胶带或螺丝固定。无需支撑即可打印。
+  ja:
+    name: デスクサイドポケットオーガナイザーセット – スマホ・ペン・リモコン・鍵(両面テープまたはネジ固定)
+    summary: デスクの側面や下に取り付ける5種類のポケット。両面テープまたはネジで固定できます。サポートなしで印刷できます。
+  ar:
+    name: طقم جيوب جانبية للمكتب – هاتف وأقلام وجهاز تحكم ومفاتيح (تثبيت بلاصق أو براغي)
+    summary: خمسة جيوب تُثبَّت على جانب المكتب أو أسفله بشريط لاصق أو براغي. تُطبع بدون دعامات.
+ventducts-modular-bayonet-duct-system:
+  es:
+    name: VentDucts conductos modulares con bayoneta – 100, 125 y 150 mm, rectos, reductores y tapas
+    summary: 'Conductos que se traban con un giro: tramos rectos, reductores y tapas en 3 diámetros. Se imprimen sin soportes.'
+  zh:
+    name: VentDucts 模块化旋锁风管系统 – 100、125、150毫米(4、5、6英寸)直管、变径管和堵盖
+    summary: 旋转锁紧式风管:直管、变径管和堵盖,提供3种直径。无需支撑即可打印。
+  ja:
+    name: VentDucts モジュラー式ツイストロックダクトシステム – 100・125・150mm(4・5・6インチ)ストレート、レデューサー、キャップ
+    summary: 回して固定するダクトパーツ。ストレート、レデューサー、キャップを3種類の径で収録。サポートなしで印刷できます。
+  ar:
+    name: VentDucts نظام مجاري هواء معياري بقفل دوراني – 100 و125 و150 مم (4 و5 و6 بوصات) مستقيم ومخفض وغطاء
+    summary: 'مجاري هواء تُقفل بالتدوير: قطع مستقيمة ومخفضات وأغطية بثلاثة أقطار. تُطبع بدون دعامات.'
+ev-charging-cable-lock-collar:
+  es:
+    name: Collar para cable de carga de auto eléctrico – 8 diámetros de 12 a 26 mm, con ojales (disuasión)
+    summary: Abrazadera de dos mitades con dos ojales para candado o cadena. Es una disuasión visible, no una cerradura de seguridad real. Se imprime sin soportes.
+  zh:
+    name: 电动车充电线锁扣 – 8种线径12至26毫米,带挂锁孔(仅作警示)
+    summary: 两件式卡箍,带两个挂锁或链条孔。起到可见的警示作用,并非真正的锁。无需支撑即可打印。
+  ja:
+    name: EV充電ケーブルロックカラー – 12〜26mmの8サイズ、南京錠用アイレット付き(目に見える抑止効果)
+    summary: 南京錠やチェーンを通せるアイレットが2つ付いた2分割クランプ。見せて抑止するもので、本物の鍵ではありません。サポートなしで印刷できます。
+  ar:
+    name: طوق قفل لكابل شحن السيارات الكهربائية – 8 مقاسات من 12 إلى 26 مم مع حلقات للقفل (ردع مرئي)
+    summary: مشبك من قطعتين مع حلقتين لقفل أو سلسلة. رادع مرئي فقط وليس قفلًا حقيقيًا. يُطبع بدون دعامات.
+car-cup-holder-organizer-insert:
+  es:
+    name: Organizador para portavasos de auto – monedas, tarjetas y lápices, 6 tamaños 66–81 mm
+    summary: 'Inserto para portavasos: vaso para monedas, ranura para tarjetas y dos bolsillos pequeños. Elige el tamaño según tu medida real. Se imprime sin soportes.'
+  zh:
+    name: 汽车杯架收纳插件 – 零钱、卡片和笔,6种尺寸66至81毫米(请先测量)
+    summary: 杯架插件:零钱杯、卡槽和两个小袋。请按您的实测尺寸选择。无需支撑即可打印。
+  ja:
+    name: 車用カップホルダーオーガナイザーインサート – 小銭・カード・ペン、66〜81mmの6サイズ(先に採寸してください)
+    summary: カップホルダー用インサート。小銭カップ、カードスロット、小さなポケット2つ付き。実測サイズで選んでください。サポートなしで印刷できます。
+  ar:
+    name: إدراج منظم لحامل الأكواب في السيارة – عملات وبطاقات وأقلام، 6 مقاسات من 66 إلى 81 مم (قِس أولًا)
+    summary: 'إدراج لحامل الأكواب: كوب للعملات وفتحة للبطاقات وجيبان. اختر المقاس حسب قياسك. يُطبع بدون دعامات.'
+christmas-cookie-cutters-5:
+  es:
+    name: Cortadores de galletas navideños – árbol, estrella, campana, jengibre y esfera (5 piezas)
+    summary: Cinco cortadores de galletas navideños con borde ancho para presionar con comodidad. Se imprimen sin soportes.
+  zh:
+    name: 圣诞饼干模具套装 – 圣诞树、星星、铃铛、姜饼人和彩球(5个模具)
+    summary: 五个圣诞饼干模具,带宽边,方便按压。无需支撑即可打印。
+  ja:
+    name: クリスマスクッキー型セット – ツリー、星、ベル、ジンジャーブレッドマン、オーナメント(5種類)
+    summary: 押しやすい広いフチ付きのクリスマスクッキー型5点。サポートなしで印刷できます。
+  ar:
+    name: طقم قوالب بسكويت الميلاد – شجرة ونجمة وجرس ورجل الزنجبيل وكرة زينة (5 قوالب)
+    summary: خمسة قوالب بسكويت للميلاد بحافة عريضة للضغط بسهولة. تُطبع بدون دعامات.
+hex-dice-tray:
+  es:
+    name: Bandeja de dados hexagonal con almacenamiento – para rol y juegos de mesa
+    summary: Bandeja hexagonal con hueco para pegar fieltro (tiradas silenciosas) y lugares para guardar dados. 4 versiones.
+  zh:
+    name: 六边形骰盘带骰子收纳 – 适用跑团与桌游
+    summary: 六边形掷骰盘,带可贴毛毡的凹槽(静音掷骰)和骰子收纳位。共4个版本。
+  ja:
+    name: 六角形ダイストレイ(ダイス収納付き) – TRPG・ボードゲーム用
+    summary: フェルトを貼れるくぼみ(静かに振れる)とダイス置き場付きの六角形トレイ。4バージョン。
+  ar:
+    name: صينية نرد سداسية مع تخزين للنرد – للعب الأدوار وألعاب الطاولة
+    summary: صينية رمي سداسية بتجويف للقماش اللباد (رمي هادئ) وأماكن لتخزين النرد. 4 إصدارات.
+twisted-faceted-planter:
+  es:
+    name: Maceta facetada y retorcida – para macetas de vivero de 9, 12 y 15 cm, con drenaje y plato
+    summary: Maceta geométrica moderna con agujero de drenaje, canales en la base y un plato a medida para cada tamaño.
+  zh:
+    name: 扭转切面花盆 – 适用9、12、15厘米育苗盆,带排水孔和托盘
+    summary: 现代几何花盆,带排水孔、盆底导流槽,每种尺寸配有相匹配的托盘。
+  ja:
+    name: ツイストファセットプランター – 9・12・15cmの育苗ポット用、排水穴と受け皿付き
+    summary: 排水穴、底の水路、サイズごとの受け皿が付いたモダンな幾何学デザインの鉢。
+  ar:
+    name: وعاء نباتات هندسي ملتوي – لأصص المشاتل 9 و12 و15 سم، مع تصريف وصحن
+    summary: وعاء هندسي عصري بفتحة تصريف وقنوات أسفل الوعاء وصحن مناسب لكل مقاس.
+gridfinity-bins-pack:
+  es:
+    name: Cajas compatibles con Gridfinity – 8 tamaños con pala, soporte para etiquetas y divisores
+    summary: Pack inicial de cajas compatibles con Gridfinity para cajones y mesas de trabajo, con pala frontal y portaetiquetas. Diseño independiente.
+  zh:
+    name: Gridfinity 兼容收纳盒 – 8种尺寸,带铲口、标签架和隔板
+    summary: 适用于抽屉和工作台的 Gridfinity 兼容收纳盒入门包,带前方铲口和标签架。独立设计。
+  ja:
+    name: Gridfinity互換ビン – 8サイズ、スクープ・ラベル棚・仕切り付き
+    summary: 引き出しや作業台向けのGridfinity互換ビン入門パック。前面のスクープとラベルホルダー付き。独立したデザインです。
+  ar:
+    name: صناديق متوافقة مع Gridfinity – 8 مقاسات مع مجرفة ورف للملصقات وفواصل
+    summary: حزمة بداية لصناديق متوافقة مع Gridfinity للأدراج وطاولات العمل، بتجويف أمامي وحامل للملصقات. تصميم مستقل.
+gridfinity-bit-battery-holders:
+  es:
+    name: Soportes compatibles con Gridfinity para puntas y pilas – puntas hex de 1/4 in, AA y AAA
+    summary: Cada punta y cada pila va de pie en su propio agujero, así se ve de un vistazo lo que falta. 6 archivos. Diseño independiente.
+  zh:
+    name: Gridfinity 兼容批头与电池架 – 1/4英寸六角批头、AA、AAA
+    summary: 每个批头和电池都立在自己的孔位中,缺了什么一眼就能看出。共6个文件。独立设计。
+  ja:
+    name: Gridfinity互換ビット&電池ホルダー – 1/4インチ六角ビット、単3、単4
+    summary: ビットも電池も専用の穴に立てて収納でき、足りないものが一目でわかります。6ファイル。独立したデザインです。
+  ar:
+    name: حاملات رؤوس ومفكات وبطاريات متوافقة مع Gridfinity – رؤوس سداسية 1/4 بوصة وAA وAAA
+    summary: كل رأس وكل بطارية تقف في ثقبها الخاص فترى فورًا ما ينقص. 6 ملفات. تصميم مستقل.
+phone-tablet-stand:
+  es:
+    name: Soporte para celular y tablet – 3 ángulos de visión, ranura para cable, versión para fundas gruesas
+    summary: Soporte estable con paso para el cable de carga, en tres ángulos, más una versión para fundas gruesas y un soporte para tablet.
+  zh:
+    name: 手机与平板支架 – 3种观看角度,带线缆槽,含厚保护壳版本
+    summary: 稳固的支架,带充电线通道,提供三个角度,另有适合厚保护壳的版本和平板支架。
+  ja:
+    name: スマホ&タブレットスタンド – 3段階の角度、ケーブルスロット、厚手ケース対応版
+    summary: 充電ケーブルを通せる安定したスタンド。3つの角度に加え、厚手ケース用バージョンとタブレットスタンドを収録。
+  ar:
+    name: حامل هاتف وجهاز لوحي – 3 زوايا عرض، فتحة للكابل، نسخة للأغطية السميكة
+    summary: حامل ثابت بممر لكابل الشحن بثلاث زوايا، مع نسخة للأغطية السميكة وحامل للجهاز اللوحي.
+snowflake-ornaments-12:
+  es:
+    name: Adornos de copos de nieve para Navidad – 10 diseños únicos, impresión rápida
+    summary: Diez copos de nieve distintos con agujero para colgar, planos y rápidos de imprimir. Ideales en filamento blanco, plateado o con brillos.
+  zh:
+    name: 雪花圣诞挂饰 – 10款不同造型,快速打印
+    summary: 十款不同的雪花,带挂孔,扁平易打印。白色、银色或闪粉材料最合适。
+  ja:
+    name: スノーフレークのクリスマスオーナメント – 10種類のユニークなデザイン、短時間で印刷
+    summary: 吊り下げ用の穴付きで異なる10種類の雪の結晶。平らで素早く印刷できます。白、シルバー、ラメ入りフィラメントがおすすめです。
+  ar:
+    name: زينة ثلج لعيد الميلاد – 10 تصاميم فريدة، طباعة سريعة
+    summary: عشر ندفات ثلج مختلفة بحلقة تعليق، مسطحة وسريعة الطباعة. مثالية باللون الأبيض أو الفضي أو اللامع.
