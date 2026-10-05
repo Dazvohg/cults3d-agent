@@ -35,7 +35,7 @@ WAIT_MAX_S = 15 * 60
 
 
 def log(msg):
-    print(f"[{dt.datetime.now(dt.UTC):%H:%M:%S}] {msg}", flush=True)
+    print(f"[{dt.datetime.utcnow():%H:%M:%S}] {msg}", flush=True)
 
 
 # ---------------------------------------------------------- listing extras
@@ -113,7 +113,7 @@ class Cults:
         """Best effort: add a translated title/description. Never stops the publication if the API refuses."""
         lit = json.dumps
         # Cults validates the whole creation on update: a paid design must send its price again (min 0.5)
-        price_arg = f", downloadPrice: {price}" if price and price > 0 else ""
+        price_arg = f", price: {price}" if price and price > 0 else ""
         m = f"""mutation {{ updateCreation(id: {lit(creation_id)}, locale: {lang.upper()}, name: {lit(name)},
                 description: {lit(description)}{price_arg}) {{ creation {{ id }} errors }} }}"""
         try:
@@ -178,6 +178,21 @@ def main():
         log("PAUSED file present - nothing published.")
         return
     queue = sorted((ROOT / "queue").glob("*.yaml"))
+    # Never publish twice something that is already in the inventory (e.g. a seasonal template that re-entered the queue).
+    inv_file = ROOT / "inventario_cults3d.csv"
+    if inv_file.exists():
+        import csv
+        with open(inv_file, encoding="utf-8", newline="") as f:
+            ya = {r.get("slug") for r in csv.DictReader(f)}
+        for q in list(queue):
+            it = yaml.safe_load(q.read_text(encoding="utf-8")) or {}
+            if it.get("slug") in ya:
+                log(f"{q.name} is already published (inventory) - moved to published/ without publishing again.")
+                dest = ROOT / "published" / q.name
+                dest.parent.mkdir(exist_ok=True)
+                dest.write_text(q.read_text(encoding="utf-8"), encoding="utf-8")
+                q.unlink()
+                queue.remove(q)
     if not queue:
         log("Queue is empty - add designs to queue/.")
         return
@@ -211,7 +226,7 @@ def main():
     cat_id, sub_ids = cults.resolve_category(item.get("category"), item.get("subcategory"))
     license_code = cults.resolve_license(price > 0)
 
-    stamp = dt.datetime.now(dt.UTC).strftime("%Y%m%d%H%M%S")
+    stamp = dt.datetime.utcnow().strftime("%Y%m%d%H%M%S")
     uploaded, file_urls, image_urls = [], [], []
     for p in b["files"] + b["images"]:
         path = f"tmp/{item['slug']}-{stamp}/{p.name}"
@@ -245,15 +260,24 @@ def main():
     common = dict(imageUrls=image_urls[:10], fileUrls=file_urls[:10], categoryId=cat_id, subCategoryIds=sub_ids,
                   currency=item.get("currency", "USD"), tags=[t.lower().strip() for t in item["tags"]][:20],
                   ai=os.getenv("MADE_WITH_AI", "1") == "1")
-    try:
-        creation = cults.create(name=item["name"], description=description, price=price, license=license_code, **common)
-    except SystemExit:
-        cleanup()
-        raise
+    def create_retry(**kw):
+        """Cults fetches the URLs itself and now and then fails on one of them (GitHub raw rate limit): retry."""
+        for attempt in range(1, 5):
+            try:
+                return cults.create(**kw)
+            except SystemExit as e:
+                if "Could not download" in str(e.code) and attempt < 4:
+                    log(f"Cults could not download one file (attempt {attempt}/4): {e.code} - waiting 60 s and retrying")
+                    time.sleep(60)
+                    continue
+                cleanup()
+                raise
+
+    creation = create_retry(name=item["name"], description=description, price=price, license=license_code, **common)
     log(f"Created: {creation['url']}")
     com = None
     if commercial:
-        com = cults.create(name=(item["name"] + COMMERCIAL_SUFFIX)[:120], description=COMMERCIAL_TERMS + description,
+        com = create_retry(name=(item["name"] + COMMERCIAL_SUFFIX)[:120], description=COMMERCIAL_TERMS + description,
                            price=com_price, license=cults.resolve_license(True, commercial=True), **common)
         log(f"Created commercial listing: {com['url']}")
     for lang, tr in (item.get("i18n") or {}).items():
@@ -279,7 +303,7 @@ def main():
         log(f"WARNING: Cults shows {got} of {want} files after 15 min - temporary copies kept for review.")
 
     item.update({"cults_id": creation["id"], "cults_url": creation["url"],
-                 "published_at": dt.datetime.now(dt.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                 "published_at": dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
                  "license_code": license_code, "assets_confirmed": list(got),
                  "commercial_url": com["url"] if com else None})
     inv = ROOT / "inventario_cults3d.csv"
@@ -295,7 +319,7 @@ def main():
                     "PUBLICADO" if list(got) >= list(want) else "PUBLICADO_REVISAR_ARCHIVOS",
                     com["url"] if com else "", com_price if com else ""])
     dest = ROOT / "published" / item_path.name
-    dest.parent.mkdir(parents=True, exist_ok=True)   # the folder does not exist on a fresh checkout (git does not track empty folders)
+    dest.parent.mkdir(exist_ok=True)   # the folder does not exist on a fresh checkout (git does not track empty folders)
     dest.write_text(yaml.safe_dump(item, allow_unicode=True, sort_keys=False))
     item_path.unlink()
     summary = os.getenv("GITHUB_STEP_SUMMARY")
