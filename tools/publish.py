@@ -59,15 +59,19 @@ def with_translations(item):
 
 
 # ---------------------------------------------------------------- Cults API
+class CreateTimeout(Exception):
+    """Cults did not answer createCreation in time: the design may or may not have been created."""
+
+
 class Cults:
     def __init__(self, user, key):
         tok = base64.b64encode(f"{user}:{key}".encode()).decode()
         self.s = requests.Session()
         self.s.headers.update({"Authorization": f"Basic {tok}", "Content-Type": "application/json"})
 
-    def q(self, query, variables=None, tries=5):
+    def q(self, query, variables=None, tries=5, timeout=60):
         for i in range(tries):
-            r = self.s.post(API, json={"query": query, "variables": variables or {}}, timeout=60)
+            r = self.s.post(API, json={"query": query, "variables": variables or {}}, timeout=timeout)
             if r.status_code == 429 or r.status_code >= 500:
                 time.sleep(2 ** i * 5)
                 continue
@@ -137,10 +141,21 @@ class Cults:
             downloadPrice: {float(kw['price'])}, currency: {cur}, licenseCode: {lit(kw['license'])},
             tagNames: {lit(kw['tags'])}, madeWithAi: {lit(bool(kw['ai']))}
           ) {{ creation {{ id url(locale: EN) }} errors }} }}"""
-        res = self.q(m)["createCreation"]
+        try:   # Cults downloads every file while it answers: it can take minutes
+            res = self.q(m, tries=1, timeout=300)["createCreation"]
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            raise CreateTimeout(str(e)) from e
         if res.get("errors"):
             sys.exit(f"Cults3D refused the design: {res['errors']}")
         return res["creation"]
+
+    def find_by_name(self, name):
+        """Latest own creation with exactly this name (used to avoid duplicates after a timeout)."""
+        res = self.q("""{ myself { creationsBatch(limit: 40, offset: 0) { results { id name(locale: EN) url(locale: EN) } } } }""")
+        for c in res["myself"]["creationsBatch"]["results"]:
+            if (c.get("name") or "").strip() == name.strip():
+                return {"id": c["id"], "url": c["url"]}
+        return None
 
     def assets(self, slug):
         d = self.q("""query($slug:String!){ creation(slug:$slug){ blueprints{ id } illustrations{ id } } }""",
@@ -240,6 +255,11 @@ def main():
             cdn.delete(path, sha)
         log("Temporary copies deleted from the CDN repo.")
 
+    def mirror(raw_url):
+        """Same file through the jsDelivr CDN (GitHub raw sometimes refuses Cults' downloader)."""
+        rest = raw_url.split("raw.githubusercontent.com/", 1)[1].split("/", 3)   # user, repo, branch, path
+        return f"https://cdn.jsdelivr.net/gh/{rest[0]}/{rest[1]}@{rest[2]}/{rest[3]}"
+
     # Cults3D downloads these URLs anonymously: check that they are really public before asking it to.
     if cdn.private:
         cleanup()
@@ -260,18 +280,43 @@ def main():
     common = dict(imageUrls=image_urls[:10], fileUrls=file_urls[:10], categoryId=cat_id, subCategoryIds=sub_ids,
                   currency=item.get("currency", "USD"), tags=[t.lower().strip() for t in item["tags"]][:20],
                   ai=os.getenv("MADE_WITH_AI", "1") == "1")
+
     def create_retry(**kw):
-        """Cults fetches the URLs itself and now and then fails on one of them (GitHub raw rate limit): retry."""
+        """Cults fetches the URLs itself and now and then fails on one of them: retry, switching host after the 1st failure.
+        If Cults times out we first look for the design by name, because it may have been created anyway."""
         for attempt in range(1, 5):
             try:
                 return cults.create(**kw)
+            except CreateTimeout as e:
+                log(f"Cults did not answer in time (attempt {attempt}/4): {e}")
+                found = cults.find_by_name(kw["name"])
+                if found:
+                    log(f"It was created anyway: {found['url']}")
+                    return found
+                if attempt == 4:
+                    cleanup()
+                    sys.exit("Cults did not answer and the design was not created. Run Publish again later.")
+                time.sleep(60)
             except SystemExit as e:
                 if "Could not download" in str(e.code) and attempt < 4:
-                    log(f"Cults could not download one file (attempt {attempt}/4): {e.code} - waiting 60 s and retrying")
-                    time.sleep(60)
+                    log(f"Cults could not download one file (attempt {attempt}/4): {e.code} - waiting 60 s and retrying "
+                        f"from the jsDelivr mirror")
+                    kw["imageUrls"] = [mirror(u) for u in image_urls[:10]]
+                    kw["fileUrls"] = [mirror(u) for u in file_urls[:10]]
+                    for u in kw["imageUrls"] + kw["fileUrls"]:   # warm up the mirror so Cults finds the files ready
+                        for _ in range(6):
+                            try:
+                                if requests.get(u, headers={"Range": "bytes=0-0"}, timeout=30).status_code in (200, 206):
+                                    break
+                            except requests.RequestException:
+                                pass
+                            time.sleep(5)
+                    time.sleep(30)
                     continue
                 cleanup()
                 raise
+        cleanup()
+        sys.exit("Cults could not create the design after 4 attempts.")
 
     creation = create_retry(name=item["name"], description=description, price=price, license=license_code, **common)
     log(f"Created: {creation['url']}")
