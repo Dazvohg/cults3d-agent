@@ -187,6 +187,78 @@ class Cdn:
         self.s.delete(url, json={"message": f"cleanup {path}", "sha": sha, "branch": self.branch}, timeout=60)
 
 
+# ------------------------------------------------------- resilient create
+def mirror(raw_url):
+    """Same file through the jsDelivr CDN (GitHub raw sometimes refuses Cults' downloader)."""
+    rest = raw_url.split("raw.githubusercontent.com/", 1)[1].split("/", 3)   # user, repo, branch, path
+    return f"https://cdn.jsdelivr.net/gh/{rest[0]}/{rest[1]}@{rest[2]}/{rest[3]}"
+
+
+def raw_of(url):
+    """Inverse of mirror(): the raw.githubusercontent URL of a file, whichever host the URL uses."""
+    if "cdn.jsdelivr.net/gh/" in url:
+        user, repo_branch, path = url.split("cdn.jsdelivr.net/gh/", 1)[1].split("/", 2)
+        repo, branch = repo_branch.split("@", 1)
+        return f"https://raw.githubusercontent.com/{user}/{repo}/{branch}/{path}"
+    return url
+
+
+def make_creator(cults, cleanup, file_urls, image_urls, sleep=time.sleep, warm=True):
+    """Returns (create_retry, dropped). Cults fetches the URLs itself and its downloader is flaky, so:
+    - an image that cannot be downloaded is dropped (the listing still goes out with the others);
+    - a design file that cannot be downloaded is retried, then served from the jsDelivr mirror;
+    - after any timeout or 'Unexpected error' the design is looked up by name first: it may exist already."""
+    import re
+    dropped = set()   # raw URLs of images Cults could not download
+
+    def create_retry(**kw):
+        kw["imageUrls"] = [u for u in kw["imageUrls"] if raw_of(u) not in dropped]
+        use_mirror = False
+        for attempt in range(1, 9):
+            try:
+                return cults.create(**kw)
+            except (CreateTimeout, SystemExit) as e:
+                msg = str(e.code) if isinstance(e, SystemExit) else f"timeout {e}"
+                transient = isinstance(e, CreateTimeout) or "Could not download" in msg or "Unexpected error" in msg
+                if not transient or attempt == 8:
+                    cleanup()
+                    if isinstance(e, SystemExit):
+                        raise
+                    sys.exit("Cults did not answer and the design was not created. Run Publish again later.")
+                log(f"Cults problem (attempt {attempt}/8): {msg[:300]}")
+                found = cults.find_by_name(kw["name"])
+                if found:
+                    log(f"It was created anyway: {found['url']}")
+                    return found
+                m = re.search(r"Could not download URL (\S+?)['\"\]]", msg)
+                failed = raw_of(m.group(1)) if m else None
+                if failed and failed in [raw_of(u) for u in image_urls]:
+                    if len(kw["imageUrls"]) > 1 and failed != raw_of(image_urls[0]):   # the cover is never dropped
+                        dropped.add(failed)
+                        kw["imageUrls"] = [u for u in kw["imageUrls"] if raw_of(u) != failed]
+                        log(f"Dropping the image Cults cannot download; {len(kw['imageUrls'])} images left")
+                        sleep(5)
+                        continue
+                elif failed and attempt >= 2 and not use_mirror:   # a design file keeps failing: use the mirror
+                    use_mirror = True
+                    kw["fileUrls"] = [mirror(raw_of(u)) for u in file_urls[:10]]
+                    kw["imageUrls"] = [mirror(raw_of(u)) for u in kw["imageUrls"]]
+                    if warm:
+                        for u in kw["fileUrls"] + kw["imageUrls"]:
+                            for _ in range(6):
+                                try:
+                                    if requests.get(u, headers={"Range": "bytes=0-0"}, timeout=30).status_code in (200, 206):
+                                        break
+                                except requests.RequestException:
+                                    pass
+                                sleep(5)
+                sleep(20 if failed else 45)
+        cleanup()
+        sys.exit("Cults could not create the design after 8 attempts.")
+
+    return create_retry, dropped
+
+
 # ------------------------------------------------------------------- main
 def main():
     if (ROOT / "PAUSED").exists():
@@ -243,7 +315,21 @@ def main():
 
     stamp = dt.datetime.utcnow().strftime("%Y%m%d%H%M%S")
     uploaded, file_urls, image_urls = [], [], []
-    for p in b["files"] + b["images"]:
+
+    def small_image(p):
+        """Renders are re-saved as JPEG (about 10x smaller than PNG): Cults downloads them faster and fails less."""
+        if p.suffix.lower() != ".png":
+            return p
+        try:
+            from PIL import Image
+            out = p.with_suffix(".jpg")
+            Image.open(p).convert("RGB").save(out, "JPEG", quality=88, optimize=True)
+            return out
+        except Exception as e:  # noqa: BLE001
+            log(f"Could not convert {p.name} to JPEG ({e}); uploading the PNG")
+            return p
+
+    for p in b["files"] + [small_image(i) for i in b["images"]]:
         path = f"tmp/{item['slug']}-{stamp}/{p.name}"
         sha, url = cdn.put(path, p)
         uploaded.append((path, sha))
@@ -254,11 +340,6 @@ def main():
         for path, sha in uploaded:
             cdn.delete(path, sha)
         log("Temporary copies deleted from the CDN repo.")
-
-    def mirror(raw_url):
-        """Same file through the jsDelivr CDN (GitHub raw sometimes refuses Cults' downloader)."""
-        rest = raw_url.split("raw.githubusercontent.com/", 1)[1].split("/", 3)   # user, repo, branch, path
-        return f"https://cdn.jsdelivr.net/gh/{rest[0]}/{rest[1]}@{rest[2]}/{rest[3]}"
 
     # Cults3D downloads these URLs anonymously: check that they are really public before asking it to.
     if cdn.private:
@@ -280,43 +361,7 @@ def main():
     common = dict(imageUrls=image_urls[:10], fileUrls=file_urls[:10], categoryId=cat_id, subCategoryIds=sub_ids,
                   currency=item.get("currency", "USD"), tags=[t.lower().strip() for t in item["tags"]][:20],
                   ai=os.getenv("MADE_WITH_AI", "1") == "1")
-
-    def create_retry(**kw):
-        """Cults fetches the URLs itself and now and then fails on one of them: retry, switching host after the 1st failure.
-        If Cults times out we first look for the design by name, because it may have been created anyway."""
-        for attempt in range(1, 5):
-            try:
-                return cults.create(**kw)
-            except CreateTimeout as e:
-                log(f"Cults did not answer in time (attempt {attempt}/4): {e}")
-                found = cults.find_by_name(kw["name"])
-                if found:
-                    log(f"It was created anyway: {found['url']}")
-                    return found
-                if attempt == 4:
-                    cleanup()
-                    sys.exit("Cults did not answer and the design was not created. Run Publish again later.")
-                time.sleep(60)
-            except SystemExit as e:
-                if "Could not download" in str(e.code) and attempt < 4:
-                    log(f"Cults could not download one file (attempt {attempt}/4): {e.code} - waiting 60 s and retrying "
-                        f"from the jsDelivr mirror")
-                    kw["imageUrls"] = [mirror(u) for u in image_urls[:10]]
-                    kw["fileUrls"] = [mirror(u) for u in file_urls[:10]]
-                    for u in kw["imageUrls"] + kw["fileUrls"]:   # warm up the mirror so Cults finds the files ready
-                        for _ in range(6):
-                            try:
-                                if requests.get(u, headers={"Range": "bytes=0-0"}, timeout=30).status_code in (200, 206):
-                                    break
-                            except requests.RequestException:
-                                pass
-                            time.sleep(5)
-                    time.sleep(30)
-                    continue
-                cleanup()
-                raise
-        cleanup()
-        sys.exit("Cults could not create the design after 4 attempts.")
+    create_retry, dropped = make_creator(cults, cleanup, file_urls, image_urls)
 
     creation = create_retry(name=item["name"], description=description, price=price, license=license_code, **common)
     log(f"Created: {creation['url']}")
@@ -330,7 +375,7 @@ def main():
 
     # Wait until Cults has fetched every file before deleting the temporary copies.
     slug = urllib.parse.urlparse(creation["url"]).path.rstrip("/").split("/")[-1]
-    want = (len(file_urls[:10]), len(image_urls[:10]))
+    want = (len(file_urls[:10]), max(1, len(image_urls[:10]) - len(dropped)))
     t0, got = time.time(), (0, 0)
     while time.time() - t0 < WAIT_MAX_S:
         got = cults.assets(slug)
