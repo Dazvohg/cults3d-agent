@@ -119,7 +119,44 @@ description: 'A modern twisted geometric planter with a drainage hole, raised dr
   - Inner depth = 0.87 × pot diameter + 6 mm, the typical height of round nursery
   pots
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - planter_fits_12cm_pot_9sides: 4 h 30 min, 146 g, no supports
+
+  - saucer_12cm_9sides: 1 h 22 min, 47 g, no supports
+
+  - planter_fits_9cm_pot_7sides: 2 h 52 min, 91 g, no supports
+
+  - saucer_9cm_7sides: 59 min, 33 g, no supports
+
+  - planter_fits_15cm_pot_12sides: 6 h 15 min, 215 g, no supports
+
+  - saucer_15cm_12sides: 1 h 49 min, 62 g, no supports
+
+  - planter_fits_12cm_pot_6sides_straight: 4 h 50 min, 155 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - planter_fits_12cm_pot_9sides: 147 × 144.7 × 113.4 mm (5.8 × 5.7 × 4.5 in)
+
+  - saucer_12cm_9sides: 131.3 × 133.3 × 14 mm (5.2 × 5.2 × 0.6 in)
+
+  - planter_fits_9cm_pot_7sides: 118 × 119 × 87.3 mm (4.6 × 4.7 × 3.4 in)
+
+  - saucer_9cm_7sides: 108.3 × 111 × 14 mm (4.3 × 4.4 × 0.6 in)
+
+  - planter_fits_15cm_pot_12sides: 173.6 × 173.6 × 139.5 mm (6.8 × 6.8 × 5.5 in)
+
+  - saucer_15cm_12sides: 157 × 157 × 14 mm (6.2 × 6.2 × 0.6 in)
+
+  - planter_fits_12cm_pot_6sides_straight: 161.9 × 140.2 × 113.4 mm (6.4 × 5.5 × 4.5
+  in)'
 i18n:
   fr:
     name: Pot de fleurs facetté torsadé avec drainage et soucoupe – 3 tailles
@@ -129,3 +166,25 @@ i18n:
     name: Gedrehter facettierter Blumentopf mit Abfluss und Untersetzer – 3 Größen
     summary: Moderner geometrischer Topf mit Abflussloch, Drainagekanälen und passendem
       Untersetzer für jede Größe.
+  es:
+    name: Maceta facetada y retorcida – para macetas de vivero de 9, 12 y 15 cm, con
+      drenaje y plato
+    summary: Maceta geométrica moderna con agujero de drenaje, canales en la base
+      y un plato a medida para cada tamaño.
+  zh:
+    name: 扭转切面花盆 – 适用9、12、15厘米育苗盆,带排水孔和托盘
+    summary: 现代几何花盆,带排水孔、盆底导流槽,每种尺寸配有相匹配的托盘。
+  ja:
+    name: ツイストファセットプランター – 9・12・15cmの育苗ポット用、排水穴と受け皿付き
+    summary: 排水穴、底の水路、サイズごとの受け皿が付いたモダンな幾何学デザインの鉢。
+  ar:
+    name: وعاء نباتات هندسي ملتوي – لأصص المشاتل 9 و12 و15 سم، مع تصريف وصحن
+    summary: وعاء هندسي عصري بفتحة تصريف وقنوات أسفل الوعاء وصحن مناسب لكل مقاس.
+cults_id: Q3JlYXRpb24vdHdpc3RlZC1mYWNldGVkLXBsYW50ZXItZm9yLTktMTItMTUtY20tbnVyc2VyeS1wb3RzLWRyYWluYWdlLXNhdWNlcg
+cults_url: https://cults3d.com/en/3d-model/home/twisted-faceted-planter-for-9-12-15-cm-nursery-pots-drainage-saucer
+published_at: '2026-10-06T19:06:24Z'
+license_code: cults_pu
+assets_confirmed:
+- 8
+- 4
+commercial_url: https://cults3d.com/en/3d-model/home/twisted-faceted-planter-for-9-12-15-cm-nursery-pots-drainage-saucer-com
