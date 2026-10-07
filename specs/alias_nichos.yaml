@@ -1,0 +1,10 @@
+# Nichos del mercado que ya cubre un producto nuestro aunque los tags no coincidan.
+# Formato: tag del mercado: slug del producto (en queue/ o published/) que lo cubre.
+# priorizar.py no los vuelve a listar como "nichos sin cubrir".
+party: can-animal-lid-pack
+cancover: can-animal-lid-pack
+reusable can protector: can-animal-lid-pack
+can dust cover: can-animal-lid-pack
+soda can cap: can-animal-lid-pack
+beverage cover: can-animal-lid-pack
+can cover: can-animal-lid-pack
