@@ -101,6 +101,13 @@ def main():
             cubiertos |= tokens(t)
         cubiertos |= tokens(it.get("name", ""))
     sin = tags[~tags["tag"].apply(lambda t: bool(tokens(t)) and tokens(t) <= cubiertos)]
+    # Alias: nichos que cubre un producto nuestro aunque los tags no coincidan (specs/alias_nichos.yaml)
+    alias_f = ROOT / "specs" / "alias_nichos.yaml"
+    if alias_f.exists():
+        alias = yaml.safe_load(alias_f.read_text(encoding="utf-8")) or {}
+        slugs = {it.get("slug") for it in todos}
+        cubre = {" ".join(sorted(tokens(k))) for k, v in alias.items() if v in slugs}
+        sin = sin[~sin["tag"].apply(lambda t: " ".join(sorted(tokens(t))) in cubre)]
     cols = ["tag", "disenos", "ventas_por_dia_mediana", "precio_mediano_usd", "ingreso_estimado_total_usd",
             "pct_gratis", "saturado", "indice_oportunidad"]
     sin = sin[[c for c in cols if c in sin.columns]]
