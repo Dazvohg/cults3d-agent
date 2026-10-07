@@ -1,3 +1,4 @@
+
 # Traducciones extra (español, chino simplificado, japonés, árabe) por slug. publish.py las suma al producto si faltan.
 # Hechas con IA, sin revisión de hablantes nativos: conviene revisarlas, sobre todo el árabe.
 hex-desk-organizer:
@@ -273,3 +274,23 @@ snowflake-ornaments-12:
   ar:
     name: زينة ثلج لعيد الميلاد – 10 تصاميم فريدة، طباعة سريعة
     summary: عشر ندفات ثلج مختلفة بحلقة تعليق، مسطحة وسريعة الطباعة. مثالية باللون الأبيض أو الفضي أو اللامع.
+can-animal-lid-pack:
+  es:
+    name: Tapas de lata con animales – gato, rana, murciélago y oso (3 tamaños de lata, sin soportes)
+    summary: Tapa a presión para latas con cara de animal en la parte superior. Cuatro animales, tres tamaños de lata (202, 200, 204), 12 archivos STL. Se imprime sin soportes.
+  zh:
+    name: 动物易拉罐盖套装 – 猫、青蛙、蝙蝠和熊(3种罐径,无需支撑)
+    summary: 顶部带动物脸的卡扣式易拉罐盖。4种动物,3种罐径(202、200、204),共12个STL文件。无需支撑即可打印。
+  ja:
+    name: 動物の缶カバーセット – ネコ、カエル、コウモリ、クマ(3サイズ対応、サポート不要)
+    summary: 上面に動物の顔が付いたスナップオン式の缶カバー。4種類の動物と3種類の缶サイズ(202・200・204)、STLファイル12点。サポートなしで印刷できます。
+  ar:
+    name: أغطية علب بحيوانات – قطة وضفدع وخفاش ودب (3 مقاسات للعلب، بدون دعامات)
+    summary: غطاء يُثبَّت بالضغط للعلب بوجه حيوان في الأعلى. أربعة حيوانات وثلاثة مقاسات للعلب (202 و200 و204)، 12 ملف STL. يُطبع بدون دعامات.
+
+
+
+
+
+
+
