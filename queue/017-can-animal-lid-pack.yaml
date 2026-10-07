@@ -1,0 +1,248 @@
+slug: can-animal-lid-pack
+design: designs/can_animal.scad
+variants:
+- file: can_lid_cat_202_standard.stl
+  params:
+    animal: cat
+    rim_d: 54.0
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+- file: can_lid_cat_200_slim.stl
+  params:
+    animal: cat
+    rim_d: 50.8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+- file: can_lid_cat_204_sleek.stl
+  params:
+    animal: cat
+    rim_d: 57.2
+  checks:
+  - type: fit
+    z: 3
+    expect: 58.0
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 56.8
+    tol: 0.1
+- file: can_lid_frog_202_standard.stl
+  params:
+    animal: frog
+    rim_d: 54.0
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+- file: can_lid_frog_200_slim.stl
+  params:
+    animal: frog
+    rim_d: 50.8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+- file: can_lid_frog_204_sleek.stl
+  params:
+    animal: frog
+    rim_d: 57.2
+  checks:
+  - type: fit
+    z: 3
+    expect: 58.0
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 56.8
+    tol: 0.1
+- file: can_lid_bat_202_standard.stl
+  params:
+    animal: bat
+    rim_d: 54.0
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+- file: can_lid_bat_200_slim.stl
+  params:
+    animal: bat
+    rim_d: 50.8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+- file: can_lid_bat_204_sleek.stl
+  params:
+    animal: bat
+    rim_d: 57.2
+  checks:
+  - type: fit
+    z: 3
+    expect: 58.0
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 56.8
+    tol: 0.1
+- file: can_lid_bear_202_standard.stl
+  params:
+    animal: bear
+    rim_d: 54.0
+  checks:
+  - type: fit
+    z: 3
+    expect: 54.8
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 53.6
+    tol: 0.1
+- file: can_lid_bear_200_slim.stl
+  params:
+    animal: bear
+    rim_d: 50.8
+  checks:
+  - type: fit
+    z: 3
+    expect: 51.6
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 50.4
+    tol: 0.1
+- file: can_lid_bear_204_sleek.stl
+  params:
+    animal: bear
+    rim_d: 57.2
+  checks:
+  - type: fit
+    z: 3
+    expect: 58.0
+    tol: 0.1
+  - type: fit
+    z: 6
+    expect: 56.8
+    tol: 0.1
+render_colors:
+- '#6FA06B'
+- '#E8E2D6'
+cover_badge: 4 animals · 3 can sizes · no supports
+print_settings:
+- No supports (print with the animal face on the bed)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- 'PETG recommended: the snap bead flexes slightly instead of cracking'
+name: Animal Can Cover Pack – Cat, Frog, Bat & Bear Soda Can Lids (3 Can Sizes, No Supports)
+price: 2.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- can cover
+- can lid
+- soda can
+- beverage cover
+- can dust cover
+- reusable can protector
+- drink cover
+- cat
+- frog
+- bat
+- bear
+- party
+- picnic
+- no supports
+description: 'Turn any soda can into a little animal. A snap-on cover that keeps bugs, dust and spills
+  out of your drink, with a cat, frog, bat or bear face on top. Four animals, three can sizes.
+
+
+  **Included (12 STL files, ready to print)**
+
+
+  - Cat, frog, bat and bear
+
+  - Each one for standard 12 oz cans (202 end, 54 mm), slim 8 oz cans (200 end, 50.8 mm) and sleek cans
+  (204 end, 57.2 mm)
+
+  - Plus a print-ready 3MF bundle
+
+
+  **Print settings**
+
+
+  - No supports: print with the animal face on the bed (as oriented)
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG recommended: the snap bead flexes slightly instead of cracking
+
+  - Single colour is fine; the face is engraved lines, so no multi-colour setup is needed
+
+
+  **Sized to can-end standards**
+
+
+  - Inner diameter = can end size + 0.8 mm for FDM tolerance (202 = 2 2/16 in, 200 = 2 0/16 in, 204 =
+  2 4/16 in)
+
+  - Snap bead sits just under the can seam
+
+  - The ears, wings and frog eyes are flat parts in the same plane as the lid top, so everything prints
+  without supports
+
+
+  **Note:** can makers vary by a fraction of a millimetre, so check your brand with one lid first. If
+  it is loose or tight, tell me the can and I will adjust it. The wings of the bat are about 103 mm wide
+  in total.
+
+  '
+i18n:
+  fr:
+    name: Couvercles de canette animaux – chat, grenouille, chauve-souris et ours (3 tailles, sans support)
+    summary: 'Couvercle à clipser pour canettes avec un visage d''animal : chat, grenouille, chauve-souris
+      ou ours. Trois tailles de canette (202, 200, 204), 12 fichiers STL, impression sans support.'
+  de:
+    name: Tier-Dosendeckel – Katze, Frosch, Fledermaus und Bär (3 Dosengrößen, ohne Stützen)
+    summary: 'Aufschnappdeckel für Getränkedosen mit Tiergesicht: Katze, Frosch, Fledermaus oder Bär.
+      Drei Dosengrößen (202, 200, 204), 12 STL-Dateien, ohne Stützen druckbar.'
+display_rotate:
+- 180
+- 0
+- 180
+render_angles:
+- 35
+- 60
