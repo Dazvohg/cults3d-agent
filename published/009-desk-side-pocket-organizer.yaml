@@ -1,0 +1,207 @@
+slug: desk-side-pocket-organizer
+design: designs/desk_pocket.scad
+variants:
+- file: desk_pocket_phone_82x13.stl
+  params:
+    pocket_w: 82
+    pocket_d: 13
+    pocket_h: 60
+  checks:
+  - type: hole
+    z: 5
+    expect: 13.0
+    tol: 0.1
+    count: 1
+- file: desk_pocket_phone_rugged_82x18.stl
+  params:
+    pocket_w: 82
+    pocket_d: 18
+    pocket_h: 60
+  checks:
+  - type: hole
+    z: 5
+    expect: 18.0
+    tol: 0.1
+    count: 1
+- file: desk_pocket_pen_cup_48.stl
+  params:
+    pocket_w: 48
+    pocket_d: 48
+    pocket_h: 90
+  checks:
+  - type: hole
+    z: 5
+    expect: 48.0
+    tol: 0.1
+    count: 1
+- file: desk_pocket_tray_remote_120x45.stl
+  params:
+    pocket_w: 120
+    pocket_d: 45
+    pocket_h: 35
+  checks:
+  - type: hole
+    z: 5
+    expect: 45.0
+    tol: 0.1
+    count: 1
+- file: desk_pocket_mini_keys_60x30.stl
+  params:
+    pocket_w: 60
+    pocket_d: 30
+    pocket_h: 40
+  checks:
+  - type: hole
+    z: 5
+    expect: 30.0
+    tol: 0.1
+    count: 1
+display_rotate:
+- 0
+- 0
+- 180
+render_angles:
+- 35
+- 65
+render_colors:
+- '#4F6D7A'
+- '#E8E2D6'
+cover_badge: 5 pockets · adhesive or screw mount · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PETG or PLA
+name: Desk Side Pocket Organizer Set – Phone, Pens, Remote and Keys (Adhesive Tape
+  or Screw Mount)
+price: 2.49
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- under desk organizer
+- desk organizer
+- wall pocket
+- phone holder
+- pen holder
+- remote holder
+- adhesive mount
+- desk accessory
+- cable organizer
+- no supports
+description: 'Five pockets that stick to the side or underside of a desk, a shelf
+  or a wall, so phone, pens, remote and keys stay off the table. Each has a flat back
+  for double-sided tape and two screw holes with a counterbore.
+
+
+  **Included (5 files)**
+
+
+  - Phone pocket, 82 x 13 mm slot (phone with a normal case)
+
+  - Phone pocket for rugged cases, 82 x 18 mm slot
+
+  - Pen cup, 48 x 48 mm, 90 mm tall (about 20 pens)
+
+  - Wide tray for remotes, glasses or cables, 120 x 45 mm, 35 mm tall
+
+  - Small pocket for keys or earbuds, 60 x 30 mm, 40 mm tall
+
+
+  **Print settings**
+
+
+  - No supports: print standing, as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG or PLA
+
+
+  **How to mount**
+
+
+  - Adhesive: clean the surface, stick strong double-sided foam tape (not included)
+  on the flat back, press for 30 seconds
+
+  - Screws: two screw holes with a counterbore for 4 mm screws (not included). Use
+  screws for heavy loads
+
+  - Adhesive strength depends on the tape and the surface. Test it with a light load
+  first and do not hang anything heavy or fragile
+
+
+  **Sizes**
+
+
+  - Walls 1.6 mm, floor 2.4 mm, mounting plate 3.2 mm
+
+  - Phone slots: 13 mm for a phone plus normal case (7.5-9 mm phones), 18 mm for rugged
+  cases (15-17 mm); 82 mm wide fits the iPhone 16 Pro Max (77.6 mm wide)
+
+  - Every pocket is open at the top and stands on its own floor in the printer
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - desk_pocket_phone_82x13: 1 h 41 min, 44 g, no supports
+
+  - desk_pocket_phone_rugged_82x18: 1 h 44 min, 45 g, no supports
+
+  - desk_pocket_pen_cup_48: 2 h 10 min, 55 g, no supports
+
+  - desk_pocket_tray_remote_120x45: 1 h 58 min, 55 g, no supports
+
+  - desk_pocket_mini_keys_60x30: 1 h 11 min, 30 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - desk_pocket_phone_82x13: 85.2 × 19.4 × 86 mm (3.4 × 0.8 × 3.4 in)
+
+  - desk_pocket_phone_rugged_82x18: 85.2 × 24.4 × 86 mm (3.4 × 1.0 × 3.4 in)
+
+  - desk_pocket_pen_cup_48: 51.2 × 54.4 × 116 mm (2.0 × 2.1 × 4.6 in)
+
+  - desk_pocket_tray_remote_120x45: 123.2 × 51.4 × 61 mm (4.9 × 2.0 × 2.4 in)
+
+  - desk_pocket_mini_keys_60x30: 63.2 × 36.4 × 66 mm (2.5 × 1.4 × 2.6 in)'
+i18n:
+  fr:
+    name: Organisateur de bureau à poches – téléphone, stylos, télécommande et clés
+      (adhésif ou vis)
+    summary: Cinq poches à fixer sur le côté ou sous un bureau avec du ruban adhésif
+      ou des vis. Sans support.
+  de:
+    name: Schreibtisch-Taschen-Organizer – Handy, Stifte, Fernbedienung und Schlüssel
+      (Klebeband oder Schrauben)
+    summary: Fünf Taschen zum Befestigen an Tisch oder Wand mit Klebeband oder Schrauben.
+      Ohne Stützen druckbar.
+  es:
+    name: Bolsillos laterales para escritorio – celular, lápices, control y llaves
+      (cinta o tornillos)
+    summary: Cinco bolsillos para pegar en el costado o debajo del escritorio, con
+      cinta adhesiva o tornillos. Se imprimen sin soportes.
+  zh:
+    name: 桌边挂袋收纳套装 – 手机、笔、遥控器和钥匙(胶带或螺丝固定)
+    summary: 五个可贴在桌子侧面或底部的收纳袋,用胶带或螺丝固定。无需支撑即可打印。
+  ja:
+    name: デスクサイドポケットオーガナイザーセット – スマホ・ペン・リモコン・鍵(両面テープまたはネジ固定)
+    summary: デスクの側面や下に取り付ける5種類のポケット。両面テープまたはネジで固定できます。サポートなしで印刷できます。
+  ar:
+    name: طقم جيوب جانبية للمكتب – هاتف وأقلام وجهاز تحكم ومفاتيح (تثبيت بلاصق أو
+      براغي)
+    summary: خمسة جيوب تُثبَّت على جانب المكتب أو أسفله بشريط لاصق أو براغي. تُطبع
+      بدون دعامات.
+cults_id: Q3JlYXRpb24vZGVzay1zaWRlLXBvY2tldC1vcmdhbml6ZXItc2V0LXBob25lLXBlbnMtcmVtb3RlLWFuZC1rZXlzLWFkaGVzaXZlLXRhcGUtb3I
+cults_url: https://cults3d.com/en/3d-model/gadget/desk-side-pocket-organizer-set-phone-pens-remote-and-keys-adhesive-tape-or
+published_at: '2026-10-07T10:50:52Z'
+license_code: cults_pu
+assets_confirmed:
+- 6
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/desk-side-pocket-organizer-set-phone-pens-remote-and-keys-adhesive-tape-or-advancedurbandesignlaborator1
