@@ -1,0 +1,267 @@
+slug: ev-charging-cable-lock-collar
+design: designs/cable_lock_collar.scad
+variants:
+- file: ev_cable_lock_collar_for_12mm_cable.stl
+  parts: 2
+  params:
+    cable: 12
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 71.4
+    - 88.0
+    - 11.7
+    tol: 0.3
+- file: ev_cable_lock_collar_for_14mm_cable.stl
+  parts: 2
+  params:
+    cable: 14
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 73.4
+    - 88.0
+    - 12.7
+    tol: 0.3
+- file: ev_cable_lock_collar_for_16mm_cable.stl
+  parts: 2
+  params:
+    cable: 16
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 75.8
+    - 88.0
+    - 13.9
+    tol: 0.3
+- file: ev_cable_lock_collar_for_18mm_cable.stl
+  parts: 2
+  params:
+    cable: 18
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 78.6
+    - 88.0
+    - 15.3
+    tol: 0.3
+- file: ev_cable_lock_collar_for_20mm_cable.stl
+  parts: 2
+  params:
+    cable: 20
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 81.4
+    - 88.0
+    - 16.7
+    tol: 0.3
+- file: ev_cable_lock_collar_for_22mm_cable.stl
+  parts: 2
+  params:
+    cable: 22
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 84.3
+    - 88.0
+    - 18.1
+    tol: 0.3
+- file: ev_cable_lock_collar_for_24mm_cable.stl
+  parts: 2
+  params:
+    cable: 24
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 87.1
+    - 88.0
+    - 19.5
+    tol: 0.3
+- file: ev_cable_lock_collar_for_26mm_cable.stl
+  parts: 2
+  params:
+    cable: 26
+    pair: 1
+  checks:
+  - type: bbox
+    expect:
+    - 89.9
+    - 88.0
+    - 21.0
+    tol: 0.3
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 65
+render_colors:
+- '#3C4A57'
+- '#D9D4C7'
+cover_badge: 8 cable sizes · padlock eyes · visible deterrent · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 5 walls, 30 % infill
+- PETG or ASA
+name: EV Charging Cable Lock Collar – 8 Cable Sizes 12 to 26 mm with Padlock Eyes
+  (Visible Deterrent)
+price: 2.49
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- ev charger
+- charging cable
+- cable lock
+- padlock
+- anti theft
+- cable clamp
+- electric car
+- home charging
+- wallbox
+- no supports
+description: 'A two-part clamp that grips the cable and gives you two eyes for a padlock
+  or a chain. Fix it to the cable near the plug and chain it to a post, a ring or
+  the charger bracket, and a casual thief has to stop and cut it.
+
+
+  **Please read this first**
+
+
+  - This is a plastic part. It is a visible deterrent, NOT a security lock. A determined
+  person cuts it in seconds. The real protection is the steel chain and padlock that
+  you add
+
+  - It does not lock the plug into the car. It holds the cable
+
+
+  **Included (8 files, one per cable size)**
+
+
+  - Cable diameters 12, 14, 16, 18, 20, 22, 24 and 26 mm
+
+  - Each file has both halves on one plate. Print it once and you have the full collar
+
+
+  **You also need (not included)**
+
+
+  - 2 bolts M5 x 35 mm with nuts (the head sits in a round pocket, the nut in a hex
+  pocket)
+
+  - A padlock or a chain. The eyes are 13 mm wide, so a shackle up to 10 mm passes
+  through
+
+
+  **How to choose the size**
+
+
+  - Measure the outside diameter of your cable with calipers, or wrap a string once
+  around it and divide the length by 3.14
+
+  - Take the file with the same number. The bore is 0.6 mm smaller than the cable
+  so that the halves grip the jacket
+
+  - A strip of rubber from a bicycle inner tube between cable and collar gives more
+  grip
+
+  - Cable sizes vary a lot between brands and between 16 A and 32 A cables. This listing
+  does NOT claim a fit for any car or charger model. Message me your measurement if
+  it is between sizes
+
+
+  **Print settings**
+
+
+  - No supports: flat on the bed, outer side up, as oriented
+
+  - 0.2 mm layers, 5 walls, 30 % infill
+
+  - PETG or ASA for outdoors. PLA is not recommended in the sun
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - ev_cable_lock_collar_for_12mm_cable: 1 h 19 min, 26 g, no supports
+
+  - ev_cable_lock_collar_for_14mm_cable: 1 h 21 min, 27 g, no supports
+
+  - ev_cable_lock_collar_for_16mm_cable: 1 h 24 min, 29 g, no supports
+
+  - ev_cable_lock_collar_for_18mm_cable: 1 h 28 min, 30 g, no supports
+
+  - ev_cable_lock_collar_for_20mm_cable: 1 h 32 min, 32 g, no supports
+
+  - ev_cable_lock_collar_for_22mm_cable: 1 h 37 min, 34 g, no supports
+
+  - ev_cable_lock_collar_for_24mm_cable: 1 h 41 min, 36 g, no supports
+
+  - ev_cable_lock_collar_for_26mm_cable: 1 h 45 min, 37 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - ev_cable_lock_collar_for_12mm_cable: 71.4 × 88 × 11.7 mm (2.8 × 3.5 × 0.5 in)
+
+  - ev_cable_lock_collar_for_14mm_cable: 73.4 × 88 × 12.7 mm (2.9 × 3.5 × 0.5 in)
+
+  - ev_cable_lock_collar_for_16mm_cable: 75.8 × 88 × 13.9 mm (3.0 × 3.5 × 0.5 in)
+
+  - ev_cable_lock_collar_for_18mm_cable: 78.6 × 88 × 15.3 mm (3.1 × 3.5 × 0.6 in)
+
+  - ev_cable_lock_collar_for_20mm_cable: 81.4 × 88 × 16.7 mm (3.2 × 3.5 × 0.7 in)
+
+  - ev_cable_lock_collar_for_22mm_cable: 84.3 × 88 × 18.1 mm (3.3 × 3.5 × 0.7 in)
+
+  - ev_cable_lock_collar_for_24mm_cable: 87.1 × 88 × 19.5 mm (3.4 × 3.5 × 0.8 in)
+
+  - ev_cable_lock_collar_for_26mm_cable: 89.9 × 88 × 21 mm (3.5 × 3.5 × 0.8 in)'
+i18n:
+  fr:
+    name: Collier antivol pour câble de recharge de voiture électrique – 8 diamètres,
+      œillets pour cadenas
+    summary: Collier en deux parties avec deux œillets pour cadenas ou chaîne. Dissuasion
+      visible, pas une serrure. Sans support.
+  de:
+    name: Kabel-Sicherungsschelle für Ladekabel von Elektroautos – 8 Größen, Ösen
+      für Vorhängeschloss
+    summary: Zweiteilige Schelle mit zwei Ösen für Schloss oder Kette. Sichtbare Abschreckung,
+      kein echtes Schloss. Ohne Stützen.
+  es:
+    name: Collar para cable de carga de auto eléctrico – 8 diámetros de 12 a 26 mm,
+      con ojales (disuasión)
+    summary: Abrazadera de dos mitades con dos ojales para candado o cadena. Es una
+      disuasión visible, no una cerradura de seguridad real. Se imprime sin soportes.
+  zh:
+    name: 电动车充电线锁扣 – 8种线径12至26毫米,带挂锁孔(仅作警示)
+    summary: 两件式卡箍,带两个挂锁或链条孔。起到可见的警示作用,并非真正的锁。无需支撑即可打印。
+  ja:
+    name: EV充電ケーブルロックカラー – 12〜26mmの8サイズ、南京錠用アイレット付き(目に見える抑止効果)
+    summary: 南京錠やチェーンを通せるアイレットが2つ付いた2分割クランプ。見せて抑止するもので、本物の鍵ではありません。サポートなしで印刷できます。
+  ar:
+    name: طوق قفل لكابل شحن السيارات الكهربائية – 8 مقاسات من 12 إلى 26 مم مع حلقات
+      للقفل (ردع مرئي)
+    summary: مشبك من قطعتين مع حلقتين لقفل أو سلسلة. رادع مرئي فقط وليس قفلًا حقيقيًا.
+      يُطبع بدون دعامات.
+cults_id: Q3JlYXRpb24vZXYtY2hhcmdpbmctY2FibGUtbG9jay1jb2xsYXItOC1jYWJsZS1zaXplcy0xMi10by0yNi1tbS13aXRoLXBhZGxvY2stZXllcy12aXM
+cults_url: https://cults3d.com/en/3d-model/gadget/ev-charging-cable-lock-collar-8-cable-sizes-12-to-26-mm-with-padlock-eyes-vis
+published_at: '2026-10-08T15:51:38Z'
+license_code: cults_pu
+assets_confirmed:
+- 9
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/ev-charging-cable-lock-collar-8-cable-sizes-12-to-26-mm-with-padlock-eyes-vis-advancedurbandesignlaborator1
