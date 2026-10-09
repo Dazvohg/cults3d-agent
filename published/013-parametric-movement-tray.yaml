@@ -153,7 +153,47 @@ description: 'Move whole squads in one go and stop knocking miniatures over. Eig
   - Pocket diameters are compensated for polygon facets, so the real clearance is
   0.6 mm, not less
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - tray_25mm_5x2: 47 min, 20 g, no supports
+
+  - tray_25mm_5x2_magnets_5x2: 1 h 08 min, 25 g, no supports
+
+  - tray_28.5mm_5x2: 57 min, 25 g, no supports
+
+  - tray_32mm_5x2: 1 h 07 min, 30 g, no supports
+
+  - tray_32mm_5x2_magnets_6x2: 1 h 35 min, 38 g, no supports
+
+  - tray_32mm_3x2_skirmish: 47 min, 22 g, no supports
+
+  - tray_40mm_3x2: 57 min, 27 g, no supports
+
+  - tray_25mm_4x4_regiment: 1 h 11 min, 31 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - tray_25mm_5x2: 138.8 × 58.4 × 3.4 mm (5.5 × 2.3 × 0.1 in)
+
+  - tray_25mm_5x2_magnets_5x2: 138.8 × 58.4 × 4.8 mm (5.5 × 2.3 × 0.2 in)
+
+  - tray_28.5mm_5x2: 156.3 × 65.4 × 3.4 mm (6.2 × 2.6 × 0.1 in)
+
+  - tray_32mm_5x2: 173.8 × 72.4 × 3.4 mm (6.8 × 2.9 × 0.1 in)
+
+  - tray_32mm_5x2_magnets_6x2: 173.8 × 72.4 × 4.8 mm (6.8 × 2.9 × 0.2 in)
+
+  - tray_32mm_3x2_skirmish: 123.1 × 72.4 × 3.4 mm (4.8 × 2.9 × 0.1 in)
+
+  - tray_40mm_3x2: 130.2 × 88.4 × 3.4 mm (5.1 × 3.5 × 0.1 in)
+
+  - tray_25mm_4x4_regiment: 112 × 112 × 3.4 mm (4.4 × 4.4 × 0.1 in)'
 i18n:
   fr:
     name: Plateaux de mouvement pour wargame – socles ronds 25, 28, 32 et 40 mm (aimants)
@@ -163,3 +203,28 @@ i18n:
     name: Bewegungstabletts für Tabletop – runde Bases 25, 28, 32 und 40 mm (Magnete)
     summary: Ganze Trupps auf einmal bewegen. 8 Tabletts für die gängigsten runden
       Bases, optional mit Magnetaussparungen.
+  es:
+    name: Bandejas de movimiento para wargames – bases redondas de 25, 28.5, 32 y
+      40 mm (listas para imanes)
+    summary: Mueve escuadrones enteros de una vez. 8 bandejas para las bases redondas
+      más comunes, con huecos opcionales para imanes.
+  zh:
+    name: 战棋移动托盘 – 适用25、28.5、32、40毫米圆形底座(可装磁铁)
+    summary: 一次移动整个小队。8款托盘适配最常见的圆形底座,可选磁铁槽。
+  ja:
+    name: ウォーゲーム用ムーブメントトレイ – 25・28.5・32・40mm丸ベース対応(マグネット対応)
+    summary: 部隊をまとめて移動。最も一般的な丸ベース向けに8種類のトレイを用意し、マグネット用の穴はオプションです。
+  ar:
+    name: صواني حركة لألعاب المعارك – قواعد دائرية 25 و28.5 و32 و40 مم (جاهزة للمغناطيس)
+    summary: حرّك فرقًا كاملة دفعة واحدة. 8 صواني لأشهر القواعد الدائرية، مع تجاويف
+      اختيارية للمغناطيس.
+print_settings:
+- No supports
+cults_id: Q3JlYXRpb24vd2FyZ2FtZS1tb3ZlbWVudC10cmF5cy0yNS0yOC01LTMyLTQwLW1tLXJvdW5kLWJhc2VzLW1hZ25ldC1yZWFkeQ
+cults_url: https://cults3d.com/en/3d-model/game/wargame-movement-trays-25-28-5-32-40-mm-round-bases-magnet-ready
+published_at: '2026-10-09T18:58:27Z'
+license_code: cults_pu
+assets_confirmed:
+- 9
+- 5
+commercial_url: https://cults3d.com/en/3d-model/game/wargame-movement-trays-25-28-5-32-40-mm-round-bases-magnet-ready-comme
