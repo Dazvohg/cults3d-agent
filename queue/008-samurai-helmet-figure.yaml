@@ -10,7 +10,7 @@ variants:
     expect:
     - 128
     - 128
-    - 77
+    - 74
     tol: 0.6
 - file: samurai_helmet_80mm_plain.stl
   params:
