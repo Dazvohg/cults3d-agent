@@ -23,6 +23,8 @@ module crescent() {
     translate([0, -r*0.55, base_h + 27 + r*0.55]) rotate([90, 0, 0])
         linear_extrude(height = 3, center = true)
             difference() { circle(r = r*0.55); translate([0, -r*0.18]) circle(r = r*0.47); }
+    // stem fusing the crescent to the dome (otherwise the two tips can float free of the bowl)
+    translate([-2.5, -r*0.55 - 1.5, base_h + 27 + r*0.4]) cube([5, 3, r*0.55 + r*0.35 - r*0.4 + r*0.0]);
 }
 union() {
     // round base plate

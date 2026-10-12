@@ -31,7 +31,7 @@ render_angles:
 render_colors:
 - '#3B3F6B'
 - '#8C1C2B'
-cover_badge: Zig-zag ramps · rolling tray · d20-safe gap · no supports
+cover_badge: Zig-zag ramps · rolling tray · d20-safe gap
 print_settings:
 - No supports
 - 0.2 mm layers
@@ -68,7 +68,7 @@ description: 'A dice tower that actually works for big dice. Every ramp leaves a
 
   **Print settings**
 
-  - No supports: ramps are 45 degrees and the exit window is a gable
+  - Ramps are 45 degrees and the exit window is a gable, so support needs are minimal (see the slicer notes below)
 
   - 0.2 mm layers, 3 walls, 15 % infill
 
