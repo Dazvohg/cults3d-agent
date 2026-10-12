@@ -1,0 +1,257 @@
+slug: ac-hose-adapter-set
+design: designs/hose_adapter.scad
+variants:
+- file: ac_hose_adapter_150mm_to_130mm_reducer.stl
+  params:
+    d_a: 150
+    d_b: 130
+  checks:
+  - type: outer
+    z: 8
+    expect:
+    - 150
+    - 150
+    tol: 0.15
+  - type: outer
+    z: 56.5
+    expect:
+    - 130
+    - 130
+    tol: 0.15
+  - type: fit
+    z: 89.5
+    expect: 125.4
+    tol: 0.1
+- file: ac_hose_adapter_130mm_to_102mm_dryer_vent_4in.stl
+  params:
+    d_a: 130
+    d_b: 102
+  checks:
+  - type: outer
+    z: 8
+    expect:
+    - 130
+    - 130
+    tol: 0.15
+  - type: outer
+    z: 61.5
+    expect:
+    - 102
+    - 102
+    tol: 0.15
+  - type: fit
+    z: 94.5
+    expect: 97.4
+    tol: 0.1
+- file: ac_hose_adapter_150mm_to_102mm_dryer_vent_4in.stl
+  params:
+    d_a: 150
+    d_b: 102
+  checks:
+  - type: outer
+    z: 8
+    expect:
+    - 150
+    - 150
+    tol: 0.15
+  - type: outer
+    z: 74.0
+    expect:
+    - 102
+    - 102
+    tol: 0.15
+  - type: fit
+    z: 107.0
+    expect: 97.4
+    tol: 0.1
+- file: ac_hose_adapter_130mm_coupler.stl
+  params:
+    d_a: 130
+    d_b: 130
+  checks:
+  - type: outer
+    z: 8
+    expect:
+    - 130
+    - 130
+    tol: 0.15
+  - type: outer
+    z: 44
+    expect:
+    - 130
+    - 130
+    tol: 0.15
+  - type: fit
+    z: 77
+    expect: 125.4
+    tol: 0.1
+- file: ac_hose_adapter_150mm_coupler.stl
+  params:
+    d_a: 150
+    d_b: 150
+  checks:
+  - type: outer
+    z: 8
+    expect:
+    - 150
+    - 150
+    tol: 0.15
+  - type: outer
+    z: 44
+    expect:
+    - 150
+    - 150
+    tol: 0.15
+  - type: fit
+    z: 77
+    expect: 145.4
+    tol: 0.1
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 40
+- 70
+render_colors:
+- '#D9D9D4'
+- '#3A4A5A'
+cover_badge: 5 sizes · 130 / 150 mm hose · 4 in dryer vent · measure first
+print_settings:
+- No supports
+- 0.2 mm layers
+- 4 walls, 15 % infill
+- PETG recommended (warm exhaust air); PLA softens above ~55 C
+name: Portable AC Exhaust Hose Adapter Set – 130 mm, 150 mm and 4 in Dryer Vent Reducers
+  and Couplers
+price: 1.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- portable air conditioner
+- ac hose adapter
+- exhaust hose
+- hose reducer
+- dryer vent
+- 130mm
+- 150mm
+- hose coupler
+- window kit
+- no supports
+description: 'Connect a portable air-conditioner exhaust hose to a different hose,
+  a window kit or a 4 in dryer-vent duct. Five adapters with grip ridges on each end.
+
+
+  **Included (5 files)**
+
+
+  - 150 mm to 130 mm reducer
+
+  - 130 mm to 102 mm (4 in dryer vent) reducer
+
+  - 150 mm to 102 mm (4 in dryer vent) reducer
+
+  - 130 mm straight coupler (joins two hoses)
+
+  - 150 mm straight coupler
+
+
+  **Measure your hose first (2 minutes)**
+
+
+  The number in each file name is the OUTER diameter of that end. Hoses are sold as
+  "5 in" or "5.9 in", but fittings vary by brand. Measure the INSIDE diameter of your
+  hose end (calipers, or wrap a string around the inside and divide the length by
+  3.14) and pick the file whose size matches it within about 2 mm: flexible hose stretches
+  a little. If your hose is a different size, message me with the measurement and
+  I will adapt the file.
+
+
+  **Print settings**
+
+
+  - No supports: print standing on the large end, as oriented
+
+  - 0.2 mm layers, 4 walls, 15 % infill
+
+  - PETG recommended: exhaust air is warm. Plain PLA softens above about 55 C
+
+
+  **Dimensions**
+
+
+  - Wall 2.2 mm, spigots 40 mm long, 1 mm grip ridges on each end
+
+  - Cone transition about 39 degrees from vertical, so it prints without supports
+
+  - Largest part: 152 mm wide, fits a 220 mm bed
+
+
+  **Not a sealed fitting:** these are friction fits. For a tighter seal, wrap the
+  joint with aluminium tape.
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - ac_hose_adapter_150mm_to_130mm_reducer: 2 h 53 min, 108 g, no supports
+
+  - ac_hose_adapter_130mm_to_102mm_dryer_vent_4in: 2 h 31 min, 94 g, no supports
+
+  - ac_hose_adapter_150mm_to_102mm_dryer_vent_4in: 3 h 05 min, 116 g, no supports
+
+  - ac_hose_adapter_130mm_coupler: 2 h 23 min, 87 g, no supports
+
+  - ac_hose_adapter_150mm_coupler: 2 h 51 min, 101 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - ac_hose_adapter_150mm_to_130mm_reducer: 152 × 152 × 92.5 mm (6.0 × 6.0 × 3.6 in)
+
+  - ac_hose_adapter_130mm_to_102mm_dryer_vent_4in: 132 × 132 × 97.5 mm (5.2 × 5.2
+  × 3.8 in)
+
+  - ac_hose_adapter_150mm_to_102mm_dryer_vent_4in: 152 × 152 × 110 mm (6.0 × 6.0 ×
+  4.3 in)
+
+  - ac_hose_adapter_130mm_coupler: 132 × 132 × 80 mm (5.2 × 5.2 × 3.1 in)
+
+  - ac_hose_adapter_150mm_coupler: 152 × 152 × 80 mm (6.0 × 6.0 × 3.1 in)'
+i18n:
+  fr:
+    name: Adaptateurs de tuyau de climatiseur mobile – 130 mm, 150 mm et conduit sèche-linge
+      4 po
+    summary: Cinq réducteurs et raccords pour tuyau d’évacuation de climatiseur mobile.
+      Mesurez votre tuyau avant d’imprimer.
+  de:
+    name: Adapter für Abluftschlauch mobiler Klimaanlagen – 130 mm, 150 mm und 4-Zoll-Trocknerrohr
+    summary: Fünf Reduzierstücke und Kupplungen für den Abluftschlauch. Schlauch vorher
+      ausmessen.
+  es:
+    name: Adaptadores para manguera de aire acondicionado portátil – reductores y
+      acoples 130, 150 mm y 4 in
+    summary: Cinco acoples y reductores para la manguera de escape de un aire acondicionado
+      portátil. Mide tu manguera antes de imprimir.
+  zh:
+    name: 移动空调排气管转接套装 – 130毫米、150毫米及4英寸干衣机排气管变径与直通接头
+    summary: 五个适用于移动空调排气管的变径和直通接头。打印前请先测量您的软管。
+  ja:
+    name: ポータブルエアコン排気ホース用アダプターセット – 130mm・150mm・4インチ乾燥機ダクト対応のレデューサーとカップリング
+    summary: ポータブルエアコンの排気ホース用に、レデューサーとカップリングを5点収録。印刷前にホースのサイズを測ってください。
+  ar:
+    name: طقم محولات خرطوم عادم المكيف المتنقل – مخفضات ووصلات لـ 130 مم و150 مم وفتحة
+      المجفف 4 بوصات
+    summary: خمس وصلات ومخفضات لخرطوم عادم المكيف المتنقل. قِس الخرطوم لديك قبل الطباعة.
+cults_id: Q3JlYXRpb24vcG9ydGFibGUtYWMtZXhoYXVzdC1ob3NlLWFkYXB0ZXItc2V0LTEzMC1tbS0xNTAtbW0tYW5kLTQtaW4tZHJ5ZXItdmVudC1yZWR1Y2U
+cults_url: https://cults3d.com/en/3d-model/gadget/portable-ac-exhaust-hose-adapter-set-130-mm-150-mm-and-4-in-dryer-vent-reduce
+published_at: '2026-10-12T20:54:45Z'
+license_code: cults_pu
+assets_confirmed:
+- 6
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/portable-ac-exhaust-hose-adapter-set-130-mm-150-mm-and-4-in-dryer-vent-reduce-advancedurbandesignlaborator1
