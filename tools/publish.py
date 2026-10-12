@@ -419,7 +419,7 @@ def main():
     log(f"Created: {creation['url']}")
     com = None
     if commercial:
-        com = create_retry(name=(item["name"] + COMMERCIAL_SUFFIX)[:120], description=COMMERCIAL_TERMS + description,
+        com = create_retry(name=item["name"][:120 - len(COMMERCIAL_SUFFIX)].rstrip() + COMMERCIAL_SUFFIX, description=COMMERCIAL_TERMS + description,
                            price=com_price, license=cults.resolve_license(True, commercial=True), **common)
         log(f"Created commercial listing: {com['url']}")
     for lang, tr in (item.get("i18n") or {}).items():
