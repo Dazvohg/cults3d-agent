@@ -1,0 +1,229 @@
+slug: weather-station-radiation-shield
+design: designs/radiation_shield.scad
+variants:
+- file: shield_louver_plate_print_5.stl
+  params:
+    part: plate
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 4.5
+    tol: 0.1
+    count: 3
+  - type: bbox
+    expect:
+    - 116
+    - 116
+    - 38.29
+    tol: 0.2
+- file: shield_cap_roof_print_1.stl
+  params:
+    part: cap
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 4.5
+    tol: 0.1
+    count: 3
+  - type: bbox
+    expect:
+    - 116
+    - 116
+    - 62.13
+    tol: 0.2
+- file: shield_spacers_x18_print_1.stl
+  params:
+    part: spacers
+  parts: 18
+  checks:
+  - type: hole
+    z: 6
+    expect: 4.5
+    tol: 0.1
+    count: 18
+- file: shield_base_for_DHT22_sensor.stl
+  params:
+    part: base_dht22
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 4.5
+    tol: 0.1
+    count: 3
+  - type: hole
+    z: 6
+    expect: 15.7
+    tol: 0.1
+    count: 1
+- file: shield_base_for_DS18B20_probe_6mm.stl
+  params:
+    part: base_probe
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 4.5
+    tol: 0.1
+    count: 3
+  - type: hole
+    z: 1.5
+    expect: 6.4
+    tol: 0.1
+    count: 1
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 70
+render_colors:
+- '#F2F2EE'
+- '#3A4A5A'
+cover_badge: Louver stack · DHT22 or DS18B20 base · M4 rods · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- White or light grey ASA or PETG outdoors; PLA deforms in the sun
+name: Passive Radiation Shield for Weather Station Sensors – Louver Stack for DHT22
+  and DS18B20
+price: 2.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- radiation shield
+- weather station
+- stevenson screen
+- solar shield
+- dht22
+- ds18b20
+- temperature sensor
+- esp32
+- agro iot
+- no supports
+description: 'A passive solar radiation shield for outdoor temperature and humidity
+  sensors. Louver plates stacked on three threaded rods keep direct sun and rain off
+  the sensor while letting air flow through, so the reading follows the air instead
+  of the sun.
+
+
+  **Included (5 files)**
+
+
+  - Louver plate: print 5 (the file holds 1 plate)
+
+  - Cap (roof): print 1
+
+  - Spacers: 18 sleeves on one plate, print 1
+
+  - Base for a DHT22 / AM2302 sensor (6 mm cable hole through the floor)
+
+  - Base for a 6 mm DS18B20 stainless probe
+
+
+  **You also need**
+
+
+  - 3 x M4 threaded rod, 100 mm
+
+  - 6 x M4 nuts and 6 x M4 washers
+
+  - A zip tie or sealant to fix the sensor
+
+
+  **Print settings**
+
+
+  - No supports: every part prints as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - Print in white or light grey ASA or PETG. Dark or plain PLA absorbs sun and softens
+  outdoors
+
+  - Whole kit: about 11 hours of printing and 290 g of filament (5 plates, cap, spacers
+  and one base)
+
+
+  **Dimensions**
+
+
+  - 116 mm wide, about 90 mm tall once stacked (rod ends sticking out a little more)
+
+  - Plate pitch 14 mm, cones at 50 degrees, 40 mm central chimney for the sensor
+
+  - DHT22 pocket 15.7 x 25.6 mm for the 15.1 x 25 x 7.7 mm sensor body
+
+  - Probe hole 6.4 mm for a 6 mm stainless probe
+
+  - Rod holes 4.5 mm for M4
+
+
+  **Honest note:** this is a passive louver design. It reduces solar heating of the
+  sensor, but I have not measured it against a reference thermometer, so do not use
+  it for certified measurements. Mount it in open air, away from walls and roofs.
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - shield_louver_plate_print_5: 1 h 19 min, 40 g, no supports
+
+  - shield_cap_roof_print_1: 1 h 33 min, 46 g, no supports
+
+  - shield_spacers_x18_print_1: 1 h 27 min, 8 g, no supports
+
+  - shield_base_for_DHT22_sensor: 1 h 14 min, 33 g, no supports
+
+  - shield_base_for_DS18B20_probe_6mm: 1 h 17 min, 33 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - shield_louver_plate_print_5: 116 × 116 × 38.3 mm (4.6 × 4.6 × 1.5 in)
+
+  - shield_cap_roof_print_1: 116 × 116 × 62.1 mm (4.6 × 4.6 × 2.4 in)
+
+  - shield_spacers_x18_print_1: 63 × 30 × 10.3 mm (2.5 × 1.2 × 0.4 in)
+
+  - shield_base_for_DHT22_sensor: 116 × 116 × 10 mm (4.6 × 4.6 × 0.4 in)
+
+  - shield_base_for_DS18B20_probe_6mm: 116 × 116 × 10 mm (4.6 × 4.6 × 0.4 in)'
+i18n:
+  fr:
+    name: Abri anti-rayonnement pour capteurs de station météo – pile de lamelles
+      pour DHT22 et DS18B20
+    summary: Abri passif contre le soleil et la pluie pour capteurs de température.
+      5 fichiers, tiges M4 non incluses.
+  de:
+    name: Strahlungsschutz für Wetterstations-Sensoren – Lamellenstapel für DHT22
+      und DS18B20
+    summary: Passiver Schutz vor Sonne und Regen für Temperatursensoren. 5 Dateien,
+      M4-Gewindestangen nicht enthalten.
+  es:
+    name: Escudo de radiación pasivo para estación meteorológica – láminas para DHT22
+      y DS18B20
+    summary: Protección pasiva contra el sol y la lluvia para sensores de temperatura.
+      5 archivos; la varilla roscada M4 no está incluida.
+  zh:
+    name: 气象站传感器被动式防辐射罩 – 适用DHT22和DS18B20的百叶堆叠结构
+    summary: 为温度传感器遮挡阳光和雨水的被动式防护罩。共5个文件,M4螺杆需自备。
+  ja:
+    name: 気象観測用センサーの受動型放射シールド – DHT22・DS18B20対応のルーバー積層構造
+    summary: 日差しと雨から温度センサーを守る受動型シールド。5ファイル入り、M4ねじ棒は付属しません。
+  ar:
+    name: درع إشعاع سلبي لمستشعرات محطة الطقس – أكوام شرائح لـ DHT22 وDS18B20
+    summary: حماية سلبية من الشمس والمطر لمستشعرات الحرارة. 5 ملفات، القضبان المسننة
+      M4 غير مرفقة.
+cults_id: Q3JlYXRpb24vcGFzc2l2ZS1yYWRpYXRpb24tc2hpZWxkLWZvci13ZWF0aGVyLXN0YXRpb24tc2Vuc29ycy1sb3V2ZXItc3RhY2stZm9yLWRodDIyLWFu
+cults_url: https://cults3d.com/en/3d-model/gadget/passive-radiation-shield-for-weather-station-sensors-louver-stack-for-dht22-an
+published_at: '2026-10-13T20:02:51Z'
+license_code: cults_pu
+assets_confirmed:
+- 6
+- 5
+commercial_url: https://cults3d.com/en/3d-model/gadget/passive-radiation-shield-for-weather-station-sensors-louver-stack-for-dht22-an-advancedurbandesignlaborator1
