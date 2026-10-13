@@ -1,0 +1,184 @@
+slug: card-deck-box
+design: designs/deck_box.scad
+variants:
+- file: deck_box_tcg_100_sleeved_base.stl
+  params:
+    card_w: 66
+    card_h: 91
+    cards: 100
+    part: base
+  checks:
+  - type: bbox
+    expect:
+    - 71.8
+    - 70.8
+    - 72.4
+    tol: 0.3
+- file: deck_box_tcg_100_sleeved_cap.stl
+  params:
+    card_w: 66
+    card_h: 91
+    cards: 100
+    part: cap
+  checks:
+  - type: bbox
+    expect:
+    - 77.2
+    - 76.2
+    - 24.4
+    tol: 0.3
+- file: deck_box_tcg_60_sleeved_base.stl
+  params:
+    card_w: 66
+    card_h: 91
+    cards: 60
+    part: base
+  checks:
+  - type: bbox
+    expect:
+    - 71.8
+    - 44.8
+    - 72.4
+    tol: 0.3
+- file: deck_box_tcg_60_sleeved_cap.stl
+  params:
+    card_w: 66
+    card_h: 91
+    cards: 60
+    part: cap
+  checks:
+  - type: bbox
+    expect:
+    - 77.2
+    - 50.2
+    - 24.4
+    tol: 0.3
+- file: deck_box_mini_euro_60_sleeved_base.stl
+  params:
+    card_w: 47
+    card_h: 71
+    cards: 60
+    part: base
+  checks:
+  - type: bbox
+    expect:
+    - 52.8
+    - 44.8
+    - 52.4
+    tol: 0.3
+- file: deck_box_mini_euro_60_sleeved_cap.stl
+  params:
+    card_w: 47
+    card_h: 71
+    cards: 60
+    part: cap
+  checks:
+  - type: bbox
+    expect:
+    - 58.2
+    - 50.2
+    - 24.4
+    tol: 0.3
+- file: deck_box_tarot_60_sleeved_base.stl
+  params:
+    card_w: 73
+    card_h: 123
+    cards: 60
+    part: base
+  checks:
+  - type: bbox
+    expect:
+    - 78.8
+    - 44.8
+    - 104.4
+    tol: 0.3
+- file: deck_box_tarot_60_sleeved_cap.stl
+  params:
+    card_w: 73
+    card_h: 123
+    cards: 60
+    part: cap
+  checks:
+  - type: bbox
+    expect:
+    - 84.2
+    - 50.2
+    - 24.4
+    tol: 0.3
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 70
+render_colors:
+- '#3B3F6B'
+- '#8C1C2B'
+cover_badge: Base + sliding cap · 4 card sizes · no supports
+print_settings:
+- No supports (both parts print open side up)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PLA or PETG
+name: Card Deck Box for Sleeved Cards – TCG 100 & 60, Mini Euro, Tarot (Snug Cap, No Supports)
+price: 3.99
+currency: USD
+category: Game
+subcategory: ''
+tags:
+- deck box
+- card box
+- tcg
+- mtg
+- commander
+- board game
+- tabletop
+- card storage
+- tarot
+- d&d
+- sleeved cards
+- no supports
+description: 'Keep your deck safe in a box made for sleeved cards. A snug base with a sliding cap, a thumb
+  notch to lift the stack, and four sizes sized from real card dimensions.
+
+
+  **Included (8 files = 4 boxes, each a base and a cap)**
+
+  - Standard TCG / poker (66 x 91 mm sleeved), 100 cards (Commander-size)
+
+  - Standard TCG / poker (66 x 91 mm sleeved), 60 cards
+
+  - Mini Euro (47 x 71 mm sleeved), 60 cards
+
+  - Tarot (73 x 123 mm sleeved), 60 cards
+
+
+  **Print settings**
+
+  - No supports: both parts print open side up
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PLA or PETG
+
+
+  **Sized to real-world standards**
+
+  - Inner space = sleeved card + 1 mm play. Each sleeved card is counted as 0.65 mm thick, so double-sleeved
+  decks need a larger count
+
+  - Cap fits over the base with 0.3 mm gap per side (friction fit, no glue)
+
+
+  Perfect for Magic, Pokemon, board game and D&D spell-card decks.
+
+  '
+i18n:
+  fr:
+    name: Boîte à deck pour cartes protégées – TCG 100 et 60, mini Euro, tarot
+    summary: Boîte à deck avec couvercle coulissant et encoche pour les doigts. 4 tailles de cartes sous
+      pochette, 8 fichiers, sans supports.
+  de:
+    name: Deckbox für gesleevte Karten – TCG 100 und 60, Mini Euro, Tarot
+    summary: Deckbox mit Schiebedeckel und Daumenmulde. 4 Kartenformate mit Hüllen, 8 Dateien, ohne Stützen.

@@ -1,0 +1,44 @@
+name: Crear figura con Meshy
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug: {description: "slug (ej. ronin-samurai)", required: true}
+      name: {description: "título del producto", required: true}
+      prompt: {description: "prompt para Meshy (en inglés, personaje ORIGINAL)", required: true}
+      height: {description: "alto en mm", default: "90"}
+      price: {description: "precio USD", default: "5.99"}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cults-publish
+  cancel-in-progress: false
+
+jobs:
+  figura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Generar figura
+        env:
+          MESHY_API_KEY: ${{ secrets.MESHY_API_KEY }}
+          F_SLUG: ${{ inputs.slug }}
+          F_NAME: ${{ inputs.name }}
+          F_PROMPT: ${{ inputs.prompt }}
+          F_HEIGHT: ${{ inputs.height }}
+          F_PRICE: ${{ inputs.price }}
+        run: python tools/meshy.py --slug "$F_SLUG" --name "$F_NAME" --prompt "$F_PROMPT" --height "$F_HEIGHT" --price "$F_PRICE"
+      - name: Guardar en la cola
+        env:
+          F_SLUG: ${{ inputs.slug }}
+        run: |
+          git config user.name "cults-bot"
+          git config user.email "cults-bot@users.noreply.github.com"
+          git add -A queue figures
+          git diff --cached --quiet || (git commit -m "Figura Meshy: $F_SLUG" && git push)

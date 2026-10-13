@@ -236,7 +236,7 @@ def verification_block(report):
 
 def build(item_path: pathlib.Path, out: pathlib.Path) -> dict:
     item = yaml.safe_load(item_path.read_text())
-    design = ROOT / item["design"]
+    design = ROOT / item["design"] if item.get("design") else None  # figures from tools/meshy.py have no .scad
     out = out / item["slug"]
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)
@@ -244,7 +244,10 @@ def build(item_path: pathlib.Path, out: pathlib.Path) -> dict:
     files, report = [], []
     for v in item["variants"]:
         stl = out / v["file"]
-        run(["openscad", "-q", "-o", str(stl), *scad_defs(v.get("params", {})), str(design)])
+        if v.get("source"):  # prebuilt mesh (Meshy figure): copied untouched, so the shape stays as generated
+            shutil.copy(ROOT / v["source"], stl)
+        else:
+            run(["openscad", "-q", "-o", str(stl), *scad_defs(v.get("params", {})), str(design)])
         mesh = trimesh.load(stl)
         ext = [round(float(x), 1) for x in mesh.extents]
         ok = bool(mesh.is_watertight)

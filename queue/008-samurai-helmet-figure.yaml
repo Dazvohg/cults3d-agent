@@ -1,0 +1,89 @@
+slug: samurai-helmet-figure
+design: designs/samurai_helmet.scad
+variants:
+- file: samurai_helmet_80mm_with_crest.stl
+  params:
+    size: 80
+    crest: true
+  checks:
+  - type: bbox
+    expect:
+    - 128
+    - 128
+    - 74
+    tol: 0.6
+- file: samurai_helmet_80mm_plain.stl
+  params:
+    size: 80
+    crest: false
+- file: samurai_helmet_60mm_mini.stl
+  params:
+    size: 60
+    crest: true
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 70
+render_colors:
+- '#2B2B30'
+- '#8C1C2B'
+cover_badge: Original samurai kabuto · 3 versions · no supports
+print_settings:
+- No supports, prints upright
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- Matte black, dark red or silver PLA
+name: Samurai Helmet Desk Figure – Kabuto with Crescent Crest (3 Sizes, No Supports)
+price: 5.99
+currency: USD
+category: Art
+subcategory: ''
+tags:
+- samurai
+- kabuto
+- helmet
+- japan
+- desk decor
+- figure
+- bushido
+- warrior
+- home decor
+- shelf
+- no supports
+- original design
+description: 'A stylised samurai kabuto (helmet) for your desk, shelf or game table. Dome bowl, five flared
+  neck-guard tiers, a face opening and a crescent crest, on a round base. 100 % original design, no licensed
+  characters.
+
+
+  **Included (3 files)**
+
+  - 80 mm with crescent crest
+
+  - 80 mm plain
+
+  - 60 mm mini with crest
+
+
+  **Print settings**
+
+  - No supports, prints upright
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - Matte black, dark red or silver PLA looks great
+
+
+  Paint it, or print it in silk metallic PLA as is.
+
+  '
+i18n:
+  fr:
+    name: Casque de samouraï kabuto – figurine de bureau avec croissant (3 tailles)
+    summary: Kabuto stylisé de samouraï pour bureau ou étagère. 3 versions, sans supports.
+  de:
+    name: Samurai-Helm Kabuto – Schreibtischfigur mit Mondsichel (3 Größen)
+    summary: Stilisierter Samurai-Kabuto für Schreibtisch oder Regal. 3 Versionen, ohne Stützen.
