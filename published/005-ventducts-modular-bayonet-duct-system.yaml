@@ -1,0 +1,418 @@
+slug: ventducts-modular-bayonet-duct-system
+design: designs/vent_duct.scad
+variants:
+- file: ventducts_100mm_straight_100mm.stl
+  params:
+    part: straight
+    nominal: 100
+    body_len: 100
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 99.4
+    - 99.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 94.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 136.8
+    expect: 100.2
+    tol: 0.2
+    count: 1
+- file: ventducts_100mm_straight_50mm.stl
+  params:
+    part: straight
+    nominal: 100
+    body_len: 50
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 99.4
+    - 99.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 94.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 86.8
+    expect: 100.2
+    tol: 0.2
+    count: 1
+- file: ventducts_100mm_end_cap.stl
+  params:
+    part: cap
+    nominal: 100
+  checks:
+  - type: hole
+    z: 3.8
+    expect: 100.2
+    tol: 0.2
+    count: 1
+- file: ventducts_125mm_straight_100mm.stl
+  params:
+    part: straight
+    nominal: 125
+    body_len: 100
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 124.4
+    - 124.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 119.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 136.8
+    expect: 125.2
+    tol: 0.2
+    count: 1
+- file: ventducts_125mm_straight_50mm.stl
+  params:
+    part: straight
+    nominal: 125
+    body_len: 50
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 124.4
+    - 124.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 119.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 86.8
+    expect: 125.2
+    tol: 0.2
+    count: 1
+- file: ventducts_125mm_end_cap.stl
+  params:
+    part: cap
+    nominal: 125
+  checks:
+  - type: hole
+    z: 3.8
+    expect: 125.2
+    tol: 0.2
+    count: 1
+- file: ventducts_150mm_straight_100mm.stl
+  params:
+    part: straight
+    nominal: 150
+    body_len: 100
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 149.4
+    - 149.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 144.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 136.8
+    expect: 150.2
+    tol: 0.2
+    count: 1
+- file: ventducts_150mm_straight_50mm.stl
+  params:
+    part: straight
+    nominal: 150
+    body_len: 50
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 149.4
+    - 149.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 144.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 86.8
+    expect: 150.2
+    tol: 0.2
+    count: 1
+- file: ventducts_150mm_end_cap.stl
+  params:
+    part: cap
+    nominal: 150
+  checks:
+  - type: hole
+    z: 3.8
+    expect: 150.2
+    tol: 0.2
+    count: 1
+- file: ventducts_reducer_100mm_male_to_125mm_socket.stl
+  params:
+    part: reducer
+    nominal: 100
+    nominal_s: 125
+    body_len: 10
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 99.4
+    - 99.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 94.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 58.9
+    expect: 125.2
+    tol: 0.2
+    count: 1
+- file: ventducts_reducer_125mm_male_to_150mm_socket.stl
+  params:
+    part: reducer
+    nominal: 125
+    nominal_s: 150
+    body_len: 10
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 124.4
+    - 124.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 119.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 58.9
+    expect: 150.2
+    tol: 0.2
+    count: 1
+- file: ventducts_reducer_100mm_male_to_150mm_socket.stl
+  params:
+    part: reducer
+    nominal: 100
+    nominal_s: 150
+    body_len: 10
+  checks:
+  - type: outer
+    z: 0.8
+    expect:
+    - 99.4
+    - 99.4
+    tol: 0.15
+  - type: hole
+    z: 15
+    expect: 94.6
+    tol: 0.2
+    count: 1
+  - type: hole
+    z: 71.4
+    expect: 150.2
+    tol: 0.2
+    count: 1
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 65
+render_colors:
+- '#5B7C99'
+- '#E8E2D6'
+cover_badge: 3 sizes · twist-lock · 12 parts · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 4 walls, 15 % infill
+- PETG or ASA
+name: VentDucts Modular Twist-Lock Duct System – 100, 125 and 150 mm (4, 5, 6 in)
+  Straight, Reducer and Cap
+price: 4.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- duct
+- ventilation
+- bayonet
+- twist lock
+- grow tent
+- duct fan
+- modular
+- workshop
+- 3d printer enclosure
+- no supports
+description: 'A modular twist-lock duct system. Every part has a male spigot on one
+  end and a socket on the other, so you push them together and twist about 30 degrees
+  to lock. Build your own ducting run for a grow tent, a workshop fan, a 3D-printer
+  enclosure or a small extractor.
+
+
+  **Included (12 files, 3 sizes)**
+
+
+  - Sizes 100 mm (4 in), 125 mm (5 in) and 150 mm (6 in)
+
+  - Straight part, 100 mm of tube between the ends (166 mm tall in total)
+
+  - Short straight part, 50 mm of tube
+
+  - End cap that locks onto any socket of its size
+
+  - Three reducers: 100 mm male to 125 mm socket, 125 to 150 and 100 to 150
+
+
+  **Print settings**
+
+
+  - No supports: print standing, male end down, as oriented
+
+  - 0.2 mm layers, 4 walls, 15 % infill
+
+  - PETG or ASA for warm air. PLA softens around 55 C
+
+
+  **How the sizes work**
+
+
+  - The male spigot is the nominal size minus 0.6 mm, so it slides INTO a duct or
+  fan outlet of that inside diameter. Measure yours first: 100, 125 and 150 mm are
+  the usual metric sizes, but flexible ducts vary
+
+  - The socket is 0.4 mm bigger all around than the spigot, with three lugs and three
+  L-shaped grooves
+
+  - If your duct is a different size, message me the measurement and I can make the
+  set for it
+
+
+  **Good to know**
+
+
+  - There are no elbows in this set: for a turn, join two parts with a flexible duct.
+  Elbows would need supports and I only list what prints cleanly
+
+  - The twist-lock holds the parts together but it is not airtight. Seal the joints
+  with aluminium tape if you need that
+
+  - Not for dryer exhaust, flues or any hot or combustible exhaust
+
+  - Fit depends on your printer. If the parts are tight, scale the lugs or sand them
+  lightly
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - ventducts_100mm_straight_100mm: 5 h 00 min, 157 g, no supports
+
+  - ventducts_100mm_straight_50mm: 3 h 36 min, 113 g, no supports
+
+  - ventducts_100mm_end_cap: 1 h 57 min, 57 g, no supports
+
+  - ventducts_125mm_straight_100mm: 6 h 02 min, 197 g, no supports
+
+  - ventducts_125mm_straight_50mm: 4 h 32 min, 141 g, no supports
+
+  - ventducts_125mm_end_cap: 2 h 38 min, 76 g, no supports
+
+  - ventducts_150mm_straight_100mm: 7 h 23 min, 237 g, no supports
+
+  - ventducts_150mm_straight_50mm: 5 h 18 min, 169 g, no supports
+
+  - ventducts_150mm_end_cap: 3 h 17 min, 99 g, no supports
+
+  - ventducts_reducer_100mm_male_to_125mm_socket: 3 h 57 min, 116 g, no supports
+
+  - ventducts_reducer_125mm_male_to_150mm_socket: 4 h 47 min, 142 g, no supports
+
+  - ventducts_reducer_100mm_male_to_150mm_socket: 5 h 58 min, 169 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - ventducts_100mm_straight_100mm: 106.6 × 106.6 × 166 mm (4.2 × 4.2 × 6.5 in)
+
+  - ventducts_100mm_straight_50mm: 106.6 × 106.6 × 116 mm (4.2 × 4.2 × 4.6 in)
+
+  - ventducts_100mm_end_cap: 106.6 × 106.6 × 33 mm (4.2 × 4.2 × 1.3 in)
+
+  - ventducts_125mm_straight_100mm: 131.6 × 131.6 × 166 mm (5.2 × 5.2 × 6.5 in)
+
+  - ventducts_125mm_straight_50mm: 131.6 × 131.6 × 116 mm (5.2 × 5.2 × 4.6 in)
+
+  - ventducts_125mm_end_cap: 131.6 × 131.6 × 33 mm (5.2 × 5.2 × 1.3 in)
+
+  - ventducts_150mm_straight_100mm: 156.6 × 156.6 × 166 mm (6.2 × 6.2 × 6.5 in)
+
+  - ventducts_150mm_straight_50mm: 156.6 × 156.6 × 116 mm (6.2 × 6.2 × 4.6 in)
+
+  - ventducts_150mm_end_cap: 156.6 × 156.6 × 33 mm (6.2 × 6.2 × 1.3 in)
+
+  - ventducts_reducer_100mm_male_to_125mm_socket: 131.6 × 131.6 × 88.1 mm (5.2 × 5.2
+  × 3.5 in)
+
+  - ventducts_reducer_125mm_male_to_150mm_socket: 156.6 × 156.6 × 88.1 mm (6.2 × 6.2
+  × 3.5 in)
+
+  - ventducts_reducer_100mm_male_to_150mm_socket: 156.6 × 156.6 × 100.6 mm (6.2 ×
+  6.2 × 4.0 in)'
+i18n:
+  fr:
+    name: VentDucts – système de gaine modulaire à baïonnette 100, 125 et 150 mm
+    summary: 'Gaines à verrouillage par rotation : droit, réducteur et bouchon en
+      3 diamètres. Sans support.'
+  de:
+    name: VentDucts – modulares Bajonett-Rohrsystem 100, 125 und 150 mm
+    summary: 'Steckbare Lüftungsrohre mit Drehverschluss: gerade, Reduzierstück und
+      Kappe in 3 Größen. Ohne Stützen.'
+  es:
+    name: VentDucts conductos modulares con bayoneta – 100, 125 y 150 mm, rectos,
+      reductores y tapas
+    summary: 'Conductos que se traban con un giro: tramos rectos, reductores y tapas
+      en 3 diámetros. Se imprimen sin soportes.'
+  zh:
+    name: VentDucts 模块化旋锁风管系统 – 100、125、150毫米(4、5、6英寸)直管、变径管和堵盖
+    summary: 旋转锁紧式风管:直管、变径管和堵盖,提供3种直径。无需支撑即可打印。
+  ja:
+    name: VentDucts モジュラー式ツイストロックダクトシステム – 100・125・150mm(4・5・6インチ)ストレート、レデューサー、キャップ
+    summary: 回して固定するダクトパーツ。ストレート、レデューサー、キャップを3種類の径で収録。サポートなしで印刷できます。
+  ar:
+    name: VentDucts نظام مجاري هواء معياري بقفل دوراني – 100 و125 و150 مم (4 و5 و6
+      بوصات) مستقيم ومخفض وغطاء
+    summary: 'مجاري هواء تُقفل بالتدوير: قطع مستقيمة ومخفضات وأغطية بثلاثة أقطار.
+      تُطبع بدون دعامات.'
+cults_id: Q3JlYXRpb24vdmVudGR1Y3RzLW1vZHVsYXItdHdpc3QtbG9jay1kdWN0LXN5c3RlbS0xMDAtMTI1LWFuZC0xNTAtbW0tNC01LTYtaW4tc3RyYQ
+cults_url: https://cults3d.com/en/3d-model/gadget/ventducts-modular-twist-lock-duct-system-100-125-and-150-mm-4-5-6-in-stra
+published_at: '2026-10-16T17:31:26Z'
+license_code: cults_pu
+assets_confirmed:
+- 2
+- 4
+commercial_url: https://cults3d.com/en/3d-model/gadget/ventducts-modular-twist-lock-duct-system-100-125-and-150-mm-4-5-6-in-stra-advancedurbandesignlaborator1
