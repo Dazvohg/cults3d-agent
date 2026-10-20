@@ -117,11 +117,12 @@ render_colors:
 - '#8C1C2B'
 cover_badge: Base + sliding cap · 4 card sizes · no supports
 print_settings:
-- No supports (both parts print open side up)
+- No supports
 - 0.2 mm layers
 - 3 walls, 15 % infill
 - PLA or PETG
-name: Card Deck Box for Sleeved Cards – TCG 100 & 60, Mini Euro, Tarot (Snug Cap, No Supports)
+name: Card Deck Box for Sleeved Cards – TCG 100 & 60, Mini Euro, Tarot (Snug Cap,
+  No Supports)
 price: 3.99
 currency: USD
 category: Game
@@ -139,8 +140,9 @@ tags:
 - d&d
 - sleeved cards
 - no supports
-description: 'Keep your deck safe in a box made for sleeved cards. A snug base with a sliding cap, a thumb
-  notch to lift the stack, and four sizes sized from real card dimensions.
+description: 'Keep your deck safe in a box made for sleeved cards. A snug base with
+  a sliding cap, a thumb notch to lift the stack, and four sizes sized from real card
+  dimensions.
 
 
   **Included (8 files = 4 boxes, each a base and a cap)**
@@ -165,20 +167,69 @@ description: 'Keep your deck safe in a box made for sleeved cards. A snug base w
 
   **Sized to real-world standards**
 
-  - Inner space = sleeved card + 1 mm play. Each sleeved card is counted as 0.65 mm thick, so double-sleeved
-  decks need a larger count
+  - Inner space = sleeved card + 1 mm play. Each sleeved card is counted as 0.65 mm
+  thick, so double-sleeved decks need a larger count
 
   - Cap fits over the base with 0.3 mm gap per side (friction fit, no glue)
 
 
   Perfect for Magic, Pokemon, board game and D&D spell-card decks.
 
-  '
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - deck_box_tcg_100_sleeved_base: 2 h 04 min, 67 g, no supports
+
+  - deck_box_tcg_100_sleeved_cap: 1 h 00 min, 33 g, no supports
+
+  - deck_box_tcg_60_sleeved_base: 1 h 38 min, 52 g, no supports
+
+  - deck_box_tcg_60_sleeved_cap: 47 min, 25 g, no supports
+
+  - deck_box_mini_euro_60_sleeved_base: 1 h 00 min, 31 g, no supports
+
+  - deck_box_mini_euro_60_sleeved_cap: 39 min, 20 g, no supports
+
+  - deck_box_tarot_60_sleeved_base: 2 h 32 min, 77 g, no supports
+
+  - deck_box_tarot_60_sleeved_cap: 50 min, 27 g, no supports
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - deck_box_tcg_100_sleeved_base: 71.8 × 70.8 × 72.4 mm (2.8 × 2.8 × 2.9 in)
+
+  - deck_box_tcg_100_sleeved_cap: 77.2 × 76.2 × 24.4 mm (3.0 × 3.0 × 1.0 in)
+
+  - deck_box_tcg_60_sleeved_base: 71.8 × 44.8 × 72.4 mm (2.8 × 1.8 × 2.9 in)
+
+  - deck_box_tcg_60_sleeved_cap: 77.2 × 50.2 × 24.4 mm (3.0 × 2.0 × 1.0 in)
+
+  - deck_box_mini_euro_60_sleeved_base: 52.8 × 44.8 × 52.4 mm (2.1 × 1.8 × 2.1 in)
+
+  - deck_box_mini_euro_60_sleeved_cap: 58.2 × 50.2 × 24.4 mm (2.3 × 2.0 × 1.0 in)
+
+  - deck_box_tarot_60_sleeved_base: 78.8 × 44.8 × 104.4 mm (3.1 × 1.8 × 4.1 in)
+
+  - deck_box_tarot_60_sleeved_cap: 84.2 × 50.2 × 24.4 mm (3.3 × 2.0 × 1.0 in)'
 i18n:
   fr:
     name: Boîte à deck pour cartes protégées – TCG 100 et 60, mini Euro, tarot
-    summary: Boîte à deck avec couvercle coulissant et encoche pour les doigts. 4 tailles de cartes sous
-      pochette, 8 fichiers, sans supports.
+    summary: Boîte à deck avec couvercle coulissant et encoche pour les doigts. 4
+      tailles de cartes sous pochette, 8 fichiers, sans supports.
   de:
     name: Deckbox für gesleevte Karten – TCG 100 und 60, Mini Euro, Tarot
-    summary: Deckbox mit Schiebedeckel und Daumenmulde. 4 Kartenformate mit Hüllen, 8 Dateien, ohne Stützen.
+    summary: Deckbox mit Schiebedeckel und Daumenmulde. 4 Kartenformate mit Hüllen,
+      8 Dateien, ohne Stützen.
+cults_id: Q3JlYXRpb24vY2FyZC1kZWNrLWJveC1mb3Itc2xlZXZlZC1jYXJkcy10Y2ctMTAwLTYwLW1pbmktZXVyby10YXJvdC1zbnVnLWNhcC1uby1z
+cults_url: https://cults3d.com/en/3d-model/game/card-deck-box-for-sleeved-cards-tcg-100-60-mini-euro-tarot-snug-cap-no-s
+published_at: '2026-10-20T18:05:29Z'
+license_code: cults_pu
+assets_confirmed:
+- 9
+- 5
+commercial_url: https://cults3d.com/en/3d-model/game/card-deck-box-for-sleeved-cards-tcg-100-60-mini-euro-tarot-snug-cap-no-s-advancedurbandesignlaborator1
