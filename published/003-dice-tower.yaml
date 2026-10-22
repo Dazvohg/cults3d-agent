@@ -1,0 +1,122 @@
+slug: dice-tower
+design: designs/dice_tower.scad
+variants:
+- file: dice_tower_tall_3_ramps.stl
+  params:
+    ramps: 3
+  checks:
+  - type: bbox
+    expect:
+    - 76
+    - 112
+    - 192
+    tol: 0.3
+- file: dice_tower_compact_2_ramps.stl
+  params:
+    ramps: 2
+  checks:
+  - type: bbox
+    expect:
+    - 76
+    - 112
+    - 146
+    tol: 0.3
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 70
+render_colors:
+- '#3B3F6B'
+- '#8C1C2B'
+cover_badge: Zig-zag ramps · rolling tray · d20-safe gap
+print_settings:
+- Supports needed on 2 of 2 files
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PLA or PETG
+name: Dice Tower with Rolling Tray – 2 and 3 Ramp Versions, d20-Safe, D&D and Board
+  Games
+price: 4.99
+currency: USD
+category: Game
+subcategory: ''
+tags:
+- dice tower
+- dice
+- dnd
+- rpg
+- tabletop
+- board game
+- pathfinder
+- rolling tray
+- gaming accessory
+- d20
+- wargame
+description: 'A dice tower that actually works for big dice. Every ramp leaves a 31
+  mm gap, so a d20 (up to 29 mm) never jams, and the dice land in a rolling tray with
+  a rim.
+
+
+  **Included (2 files)**
+
+  - Tall tower, 3 ramps (76 x 112 x 192 mm)
+
+  - Compact tower, 2 ramps (76 x 112 x 146 mm)
+
+
+  **Print settings**
+
+  - Ramps are 45 degrees and the exit window is a gable, so support needs are minimal
+  (see the slicer notes below)
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PLA or PETG
+
+
+  **Sized to real-world standards**
+
+  - Chamber 70 x 36 mm, gap 31 mm vs d20 23-29 mm
+
+  - Footprint fits a 220 mm bed
+
+
+  Great for D&D, Pathfinder, board games and wargames.
+
+
+  **Slicer-verified** (PrusaSlicer, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 15 % infill,
+  PLA):
+
+  - dice_tower_tall_3_ramps: 6 h 11 min, 180 g, supports needed
+
+  - dice_tower_compact_2_ramps: 4 h 46 min, 139 g, supports needed
+
+  - Each file is also included as an oriented, ready-to-slice .3mf (opens in Bambu
+  Studio, OrcaSlicer and PrusaSlicer).
+
+
+  **Sizes** (W × D × H):
+
+  - dice_tower_tall_3_ramps: 76 × 112 × 192 mm (3.0 × 4.4 × 7.6 in)
+
+  - dice_tower_compact_2_ramps: 76 × 112 × 146 mm (3.0 × 4.4 × 5.7 in)'
+i18n:
+  fr:
+    name: Tour à dés avec piste de lancer – 2 et 3 rampes, pour d20, D&D et jeux de
+      société
+    summary: Tour à dés avec rampes à 45° et piste de réception. 2 versions, sans
+      supports.
+  de:
+    name: Würfelturm mit Würfelschale – 2 und 3 Rampen, d20-tauglich, D&D und Brettspiele
+    summary: Würfelturm mit 45°-Rampen und Auffangschale. 2 Versionen, ohne Stützen.
+cults_id: Q3JlYXRpb24vZGljZS10b3dlci13aXRoLXJvbGxpbmctdHJheS0yLWFuZC0zLXJhbXAtdmVyc2lvbnMtZDIwLXNhZmUtZC1kLWFuZC1ib2FyZC1nYQ
+cults_url: https://cults3d.com/en/3d-model/game/dice-tower-with-rolling-tray-2-and-3-ramp-versions-d20-safe-d-d-and-board-ga
+published_at: '2026-10-22T18:05:01Z'
+license_code: cults_pu
+assets_confirmed:
+- 3
+- 5
+commercial_url: https://cults3d.com/en/3d-model/game/dice-tower-with-rolling-tray-2-and-3-ramp-versions-d20-safe-d-d-and-board-ga-advancedurbandesignlaborator1
