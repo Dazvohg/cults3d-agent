@@ -1,0 +1,145 @@
+slug: christmas-cookie-cutters-5
+design: designs/cookie_cutter.scad
+variants:
+- file: cookie_cutter_christmas_tree_75mm.stl
+  params:
+    kind: tree
+    size: 75
+  checks:
+  - type: bbox
+    expect:
+    - 70.39
+    - 85.4
+    - 16.0
+    tol: 0.1
+- file: cookie_cutter_star_75mm.stl
+  params:
+    kind: star
+    size: 75
+  checks:
+  - type: bbox
+    expect:
+    - 81.72
+    - 78.23
+    - 16.0
+    tol: 0.1
+- file: cookie_cutter_bell_75mm.stl
+  params:
+    kind: bell
+    size: 75
+  checks:
+  - type: bbox
+    expect:
+    - 77.9
+    - 78.63
+    - 16.0
+    tol: 0.1
+- file: cookie_cutter_gingerbread_person_85mm.stl
+  params:
+    kind: person
+    size: 85
+  checks:
+  - type: bbox
+    expect:
+    - 90.28
+    - 97.08
+    - 16.0
+    tol: 0.1
+- file: cookie_cutter_bauble_80mm.stl
+  params:
+    kind: bauble
+    size: 80
+  checks:
+  - type: bbox
+    expect:
+    - 77.58
+    - 85.59
+    - 16.0
+    tol: 0.1
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 40
+- 70
+render_colors:
+- '#B5232B'
+- '#E8E2D6'
+cover_badge: 5 Christmas cutters · tree · star · bell · gingerbread · bauble
+print_settings:
+- No supports (flange on the bed)
+- 0.2 mm layers
+- 3 walls (the part is mostly walls, infill does not matter)
+- PETG or PLA
+name: Christmas Cookie Cutter Set – Tree, Star, Bell, Gingerbread Person & Bauble
+  (5 Cutters)
+price: 2.49
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- cookie cutter
+- christmas
+- xmas
+- gingerbread
+- baking
+- christmas cookies
+- holiday baking
+- fondant cutter
+- no supports
+- kitchen
+description: 'Five Christmas cookie cutters in one file pack: tree, star, bell, gingerbread
+  person and round bauble. Each has a wide pressing flange so it is comfortable to
+  push into dough.
+
+
+  **Included (5 files)**
+
+
+  - Christmas tree, 75 mm tall
+
+  - Star, 75 mm
+
+  - Bell, 75 mm
+
+  - Gingerbread person, 85 mm
+
+  - Round bauble with cap, 80 mm
+
+
+  **Print settings**
+
+
+  - No supports: print with the flange on the bed (as oriented)
+
+  - 0.2 mm layers, 3 walls
+
+  - Cutting wall 1.2 mm, flange 4 mm wide, total height 16 mm
+
+
+  **Sizes**
+
+
+  - The numbers above are the cookie size inside the cutter; the outer size including
+  wall and flange is about 10 mm larger
+
+  - The 16 mm height cuts through typical 5-10 mm rolled dough
+
+
+  **Food contact:** 3D printed plastic has tiny gaps between layers where bacteria
+  can stay. Use these for cutting dough only (briefly, then wash by hand), not as
+  a long-term food container. Dust the cutter with flour first.
+
+  '
+i18n:
+  fr:
+    name: Emporte-pièces de Noël – sapin, étoile, cloche, bonhomme pain d’épices et
+      boule (5)
+    summary: Cinq emporte-pièces de Noël avec large collerette pour appuyer facilement.
+      Sans support.
+  de:
+    name: Weihnachts-Ausstechformen – Baum, Stern, Glocke, Lebkuchenmann und Kugel
+      (5 Stück)
+    summary: Fünf Weihnachts-Ausstechformen mit breitem Druckrand. Ohne Stützen druckbar.
+temporada: navidad
