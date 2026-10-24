@@ -1,6 +1,3 @@
-
-# Traducciones extra (español, chino simplificado, japonés, árabe) por slug. publish.py las suma al producto si faltan.
-# Hechas con IA, sin revisión de hablantes nativos: conviene revisarlas, sobre todo el árabe.
 hex-desk-organizer:
   es:
     name: Organizador de escritorio hexagonal – portalápices modular de panal (1, 3, 5 y 7 celdas)
@@ -287,10 +284,94 @@ can-animal-lid-pack:
   ar:
     name: أغطية علب بحيوانات – قطة وضفدع وخفاش ودب (3 مقاسات للعلب، بدون دعامات)
     summary: غطاء يُثبَّت بالضغط للعلب بوجه حيوان في الأعلى. أربعة حيوانات وثلاثة مقاسات للعلب (202 و200 و204)، 12 ملف STL. يُطبع بدون دعامات.
-
-
-
-
-
-
-
+figure-display-risers-plinths:
+  es:
+    name: Escalones y bases para exhibir figuras – 3 escalonados, 3 redondas y 1 hexagonal
+    summary: 'Siete piezas para exhibir figuras de acción y estatuillas: escalones de varios niveles y bases redondas o hexagonales con bisel. Se imprimen sin soportes.'
+  zh:
+    name: 手办展示台阶与底座 – 3款阶梯、3款圆形和1款六边形
+    summary: 7款适用于手办和小雕像的展示件:多层阶梯展示台,以及带倒角的圆形和六边形底座。无需支撑即可打印。
+  ja:
+    name: フィギュア展示用ステップ&台座 – 階段3種・円形3種・六角形1種
+    summary: アクションフィギュアや小さな像を飾るための7点セット。段差のあるステップ台と、面取り付きの円形・六角形の台座。サポートなしで印刷できます。
+  ar:
+    name: درجات وقواعد لعرض المجسمات – 3 مدرّجة و3 دائرية و1 سداسية
+    summary: 'سبع قطع لعرض مجسمات الأكشن والتماثيل الصغيرة: منصات متدرجة وقواعد دائرية أو سداسية بحواف مشطوفة. تُطبع بدون دعامات.'
+football-trophy-ball-and-cleat:
+  es:
+    name: Trofeos de fútbol – pelota y botín con base y placa personalizable (sin soportes)
+    summary: Trofeo de pelota en dos mitades con pernos y trofeo de botín, cada uno con base y placa grabada (campeón, MVP o en blanco). 8 archivos STL, sin soportes.
+  zh:
+    name: 足球奖杯 – 足球和球鞋造型,附底座与可定制铭牌(无需支撑)
+    summary: 分两半打印的足球奖杯(带定位销)和球鞋奖杯,均配底座与雕刻铭牌(冠军、MVP或空白)。共8个STL文件,无需支撑。
+  ja:
+    name: サッカートロフィー – ボールとスパイクの台座・プレート付き(サポート不要)
+    summary: ピン付きの2分割ボールトロフィーとスパイクトロフィー。それぞれ台座と刻印プレート(チャンピオン、MVP、無地)付き。STLファイル8点、サポート不要。
+  ar:
+    name: كؤوس كرة القدم – كرة وحذاء مع قاعدة ولوحة قابلة للتخصيص (بدون دعامات)
+    summary: كأس على شكل كرة من نصفين مع مسامير وكأس على شكل حذاء، لكل منهما قاعدة ولوحة محفورة (بطل أو أفضل لاعب أو فارغة). 8 ملفات STL بدون دعامات.
+key-tag-set-labels-luggage:
+  es:
+    name: Llaveros con etiquetas – HOME, CAR, OFFICE, numerados y etiqueta de equipaje (sin soportes)
+    summary: '14 etiquetas planas para llaves y bolsos: rectangulares con texto en relieve, redondas numeradas, hexagonal y etiqueta de equipaje. Se imprimen sin soportes, sin logos.'
+  zh:
+    name: 钥匙牌套装 – HOME、CAR、OFFICE、编号款和行李牌(无需支撑)
+    summary: 14款钥匙和包包用平板挂牌:带凸起文字的长方形、带数字的圆形、六边形和行李牌。无需支撑即可打印,无任何品牌标志。
+  ja:
+    name: ラベル付きキーホルダーセット – HOME・CAR・OFFICE、番号入り、荷物タグ(サポート不要)
+    summary: 鍵やバッグ用のフラットなタグ14点:凸文字の長方形、番号入りの円形、六角形、荷物タグ。サポート不要で印刷でき、ロゴは入っていません。
+  ar:
+    name: طقم ميداليات مفاتيح بعلامات – HOME وCAR وOFFICE ومرقمة وبطاقة حقائب (بدون دعامات)
+    summary: '14 بطاقة مسطحة للمفاتيح والحقائب: مستطيلة بنص بارز ودائرية مرقمة وسداسية وبطاقة أمتعة. تُطبع بدون دعامات ودون أي شعارات.'
+led-tealight-candle-holders-geometric:
+  es:
+    name: Portavelas LED geométricos – celosía de rombos, ranuras y copa facetada (38 y 43 mm, sin soportes)
+    summary: 'Tres portavelas originales para velas LED tipo tealight en dos tamaños: celosía de rombos, ranuras verticales y copa facetada con giro. Seis STL que se imprimen sin soportes. Solo para velas LED sin llama.'
+  zh:
+    name: 几何LED茶蜡烛台 – 菱形格栅、竖槽与扭转切面杯(38和43毫米,无需支撑)
+    summary: 三款原创LED茶蜡烛台,提供两种尺寸:菱形格栅、竖向开槽和扭转切面杯。共6个STL文件,无需支撑即可打印。仅适用于无火焰LED蜡烛。
+  ja:
+    name: 幾何学LEDティーライトホルダー – ひし形格子・スリット・ファセットカップ(38mm・43mm、サポート不要)
+    summary: LEDティーライト用のオリジナルホルダー3種を2サイズで。ひし形格子、縦スリット、ねじれたファセットカップ。STLは6点、サポートなしで印刷できます。炎の出ないLEDキャンドル専用です。
+  ar:
+    name: حاملات شموع LED هندسية – شبك معيّن وفتحات وكوب مُسطّح (38 و43 مم، بدون دعامات)
+    summary: 'ثلاثة حاملات أصلية لشموع LED الصغيرة بحجمين: شبك معيّن وفتحات عمودية وكوب ملتوي الأوجه. ستة ملفات STL تُطبع بدون دعامات. مخصصة لشموع LED التي لا تحتوي على لهب فقط.'
+tcg-card-storage-set:
+  es:
+    name: Set de almacenamiento para cartas coleccionables – caja, soporte y vitrina (sin soportes)
+    summary: Caja con tapa para mazo (cartas con funda de 60 o 100 unidades), soporte de exhibición inclinado y vitrina de carta única. 10 archivos STL, se imprime sin soportes. Medí tus cartas antes de imprimir.
+  zh:
+    name: 收藏卡牌收纳套装 – 卡盒、展示架和单卡展示盒(无需支撑)
+    summary: 带盖牌盒(可装60或100张套袋卡牌)、斜靠展示架和单卡展示盒。共10个STL文件,无需支撑即可打印。打印前请先测量您的卡牌尺寸。
+  ja:
+    name: トレーディングカード収納セット – デッキケース、スタンド、単品ケース(サポート不要)
+    summary: ふた付きデッキケース(スリーブ入り60枚または100枚)、斜め置きディスプレイスタンド、1枚用ケース。STLファイル10点、サポート不要。印刷前にカードのサイズをご確認ください。
+  ar:
+    name: طقم تخزين بطاقات التجميع – علبة وحامل وعلبة عرض لبطاقة واحدة (بدون دعامات)
+    summary: علبة بغطاء للمجموعة (60 أو 100 بطاقة مع الأغلفة) وحامل عرض مائل وعلبة لبطاقة واحدة. 10 ملفات STL وتُطبع بدون دعامات. قِس بطاقاتك قبل الطباعة.
+samurai-desk-set:
+  es:
+    name: Set de escritorio samurái – casco, soporte para katana y bandeja decorativa (sin soportes)
+    summary: Casco decorativo de estilo samurái, soporte de escritorio para mini katanas y abrecartas en tres anchos de ranura, y bandeja decorativa. 5 archivos STL, sin soportes.
+  zh:
+    name: 武士桌面套装 – 头盔、刀架和装饰托盘(无需支撑)
+    summary: 武士风格装饰头盔、适合迷你武士刀和拆信刀的桌面刀架(三种槽宽)以及装饰托盘。共5个STL文件,无需支撑即可打印。
+  ja:
+    name: 侍デスクセット – 兜、刀掛け、飾りトレイ(サポート不要)
+    summary: 侍風の飾り兜、ミニ刀やレターオープナー用の卓上刀掛け(溝幅3種)、装飾トレイ。STLファイル5点、サポート不要で印刷できます。
+  ar:
+    name: طقم مكتب الساموراي – خوذة وحامل سيف وصينية للزينة (بدون دعامات)
+    summary: خوذة زخرفية بطراز الساموراي وحامل مكتب للسيوف الصغيرة وفتّاحات الرسائل بثلاثة عروض للفتحة وصينية زينة. 5 ملفات STL وتُطبع بدون دعامات.
+compact-radiation-shield-bme280-sht31:
+  es:
+    name: Escudo antirradiación compacto para sensores BME280, SHT31 y AHT20 – pila de láminas de 80 mm
+    summary: Escudo pasivo contra sol y lluvia para placas de temperatura y humedad I2C en estaciones meteorológicas ESP32. 5 archivos, sin soportes. Varillas M3 no incluidas.
+  zh:
+    name: 紧凑型辐射屏蔽罩 – 适用于BME280、SHT31、AHT20传感器板(80毫米百叶堆叠)
+    summary: 适用于ESP32气象站的I2C温湿度传感器板的被动遮阳防雨罩。共5个文件,无需支撑,M3螺纹杆需自备。
+  ja:
+    name: BME280・SHT31・AHT20用コンパクト放射シールド – 80mmルーバースタック
+    summary: ESP32気象ステーションのI2C温湿度センサーボードを日差しと雨から守るパッシブシールド。ファイル5点、サポート不要、M3ねじ棒は別途必要です。
+  ar:
+    name: درع إشعاع مدمج للوحات BME280 وSHT31 وAHT20 – حزمة شرائح 80 مم
+    summary: درع سلبي يحمي لوحات حساسات الحرارة والرطوبة I2C من الشمس والمطر في محطات الطقس ESP32. 5 ملفات بدون دعامات. أعمدة M3 غير مرفقة.
