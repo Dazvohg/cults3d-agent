@@ -1,0 +1,24 @@
+{
+  "metodo": "introspeccion",
+  "creationsBatch_args": [
+    "selected",
+    "safe",
+    "madeWithAi",
+    "onlyFree",
+    "onlyPriced",
+    "onlyDiscounted",
+    "onlyCommercial",
+    "categorySlugEn",
+    "submittedAfter",
+    "submittedBefore",
+    "licenseCodes",
+    "usages",
+    "ids",
+    "sort",
+    "direction",
+    "limit",
+    "offset"
+  ],
+  "sort_values": [],
+  "pruebas": {}
+}
