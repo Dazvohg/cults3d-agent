@@ -1,0 +1,16 @@
+home pagos: 500
+home gratis: 300
+gadget pagos: 500
+gadget gratis: 300
+tool pagos: 500
+tool gratis: 300
+game pagos: 89
+game gratis: 300
+various pagos: 500
+various gratis: 300
+fashion pagos: 500
+fashion gratis: 300
+jewelry pagos: 500
+jewelry gratis: 300
+architecture pagos: 500
+architecture gratis: 300

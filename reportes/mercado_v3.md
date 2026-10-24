@@ -21,17 +21,17 @@ Sobre 291 diseños analizados. Los orgánicos son el único grupo comparable con
 
 | nombre | días | USD | descargas | vistas | likes |
 |---|---|---|---|---|---|
-| CHIMNEY DROP | MODULAR CANDY ADVENT CALENDAR | 7 | 11.23 | 845 | 25600 | 177 |
-| Matera Infinita Co-Pilot - Customizable | 14 | 8.00 | 752 | 44442 | 111 |
+| CHIMNEY DROP | MODULAR CANDY ADVENT CALENDAR | 7 | 11.23 | 845 | 25614 | 177 |
+| Matera Infinita Co-Pilot - Customizable | 14 | 8.00 | 752 | 44446 | 111 |
 | Doggystyle Ghosts - Don't walk in on the ghost! | 30 | 3.71 | 675 | 9877 | 72 |
 | GHOST WITH BIG MELONS The Curvy Ghost | 30 | 4.45 | 468 | 9725 | 77 |
-| D3LTA - Full 3D printed RC car Kit | 28 | 50.58 | 405 | 53414 | 417 |
+| D3LTA - Full 3D printed RC car Kit | 28 | 50.58 | 405 | 53416 | 417 |
 | Mood Ghost | 42 | 15.00 | 390 | 19786 | 61 |
-| LITTLE CHEF RAT HAIR HEADBAND 👨‍🍳🐀 | 25 | 5.61 | 384 | 15351 | 78 |
+| LITTLE CHEF RAT HAIR HEADBAND 👨‍🍳🐀 | 25 | 5.61 | 384 | 15355 | 78 |
 | Old Timer Ghost – The Haunted Pensioner | 24 | 2.25 | 218 | 4142 | 15 |
 | Cute Flexi Bear 🐻 + Cute Flexi Maker Access | 21 | 4.35 | 212 | 1296 | 6 |
 | Twin Ghost Candle Holder – Tealight Candle | 30 | 2.97 | 200 | 2283 | 18 |
-| Mayan Pyramid Rotating Storage | Hidden Compartment Box | De | 35 | 3.37 | 198 | 7943 | 105 |
+| Mayan Pyramid Rotating Storage | Hidden Compartment Box | De | 35 | 3.37 | 198 | 7944 | 105 |
 | Grandma Ghost — the spookiest granny in town! | 21 | 2.25 | 182 | 3482 | 12 |
 | Spooky Middle Finger Ghost Tea Candle Holder | 30 | 1.98 | 168 | 2747 | 15 |
 | NM4 | 40 | 10.12 | 166 | 3653 | 85 |
@@ -84,5 +84,5 @@ Estacionales (para planificar el año que viene, no para ahora): death, spooky, 
 
 | nombre | días | USD | descargas | vistas |
 |---|---|---|---|---|
-| Matera Infinita Co-Pilot - Customizable | 14 | 8.00 | 752 | 44442 |
-| 🚗 Watering Can with Side Hook for Cars | 74 | 6.25 | 182 | 6020 |
+| Matera Infinita Co-Pilot - Customizable | 14 | 8.00 | 752 | 44446 |
+| 🚗 Watering Can with Side Hook for Cars | 74 | 6.25 | 182 | 6021 |
