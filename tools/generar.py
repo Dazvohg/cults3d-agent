@@ -40,7 +40,10 @@ def main():
     csv = ROOT / "nichos_sin_cubrir.csv"
     if not csv.exists():
         raise SystemExit("Falta nichos_sin_cubrir.csv: corré antes `python agente.py priorizar`.")
-    nichos = pd.read_csv(csv)
+    try:
+        nichos = pd.read_csv(csv)
+    except pd.errors.EmptyDataError:   # priorizar no encontró nichos: archivo vacío
+        nichos = pd.DataFrame(columns=["tag"])
 
     existentes = {yaml.safe_load(p.read_text(encoding="utf-8"))["slug"]
                   for p in list((ROOT / "queue").glob("*.yaml")) + list((ROOT / "published").glob("*.yaml"))}
