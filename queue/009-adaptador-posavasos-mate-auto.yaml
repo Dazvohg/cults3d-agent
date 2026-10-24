@@ -1,0 +1,113 @@
+slug: adaptador-posavasos-mate-auto
+design: designs/mate_cupholder.scad
+variants:
+- file: adaptador_posavasos_mate_plug_72mm.stl
+  params:
+    plug: 72
+  checks:
+  - type: bbox
+    expect:
+    - 91.2
+    - 91.2
+    - 115.0
+    tol: 0.5
+- file: adaptador_posavasos_mate_plug_66mm.stl
+  params:
+    plug: 66
+  checks:
+  - type: bbox
+    expect:
+    - 91.2
+    - 91.2
+    - 118.75
+    tol: 0.5
+- file: adaptador_posavasos_mate_plug_78mm.stl
+  params:
+    plug: 78
+  checks:
+  - type: bbox
+    expect:
+    - 91.2
+    - 91.2
+    - 111.25
+    tol: 0.5
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 30
+- 40
+render_colors:
+- '#2B2B2B'
+- '#C8A15A'
+cover_badge: Mate en el auto · posavasos 66 / 72 / 78 mm · mates de 8 cm
+print_settings:
+- No supports (prints upright as oriented)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- 'PETG or ASA: a car in the sun softens PLA'
+name: Adaptador de Posavasos para Mate – Car Cup Holder Mate Holder for Stanley, Hudson and Coleman Mates
+price: 2.99
+currency: USD
+category: Gadget
+subcategory: ''
+commercial: false
+tags:
+- matera para auto
+- mate
+- yerba mate
+- car cup holder
+- cup holder adapter
+- mate holder
+- stanley mate
+- argentine mate
+- uruguayan mate
+- car accessory
+- no supports
+- matero
+description: 'Keep your mate upright in the car. A tapered plug drops into the car cup holder and a wider well on top holds a steel mate, so it does not tip over in curves.
+
+
+  **Adaptador de posavasos para mate:** el mate queda firme en el auto. Entra en el posavasos y arriba sostiene mates de acero de 8 cm (Stanley, Hudson, Coleman).
+
+
+  **Included (3 files, pick your cup holder size)**
+
+
+  - Plug 72 mm (most common cup holders)
+
+  - Plug 66 mm (narrow cup holders)
+
+  - Plug 78 mm (wide cup holders)
+
+
+  Each plug is 3 mm narrower at the bottom and has 4 slits so it flexes a little and grips. On top: mate well 86 mm wide and 45 mm deep with 3 drain holes.
+
+
+  **Check first**
+
+
+  Measure the top of your car cup holder: pick the plug equal to it or up to 2 mm smaller. Mate up to 84 mm at the bottom (Stanley and Hudson steel mates are 80 mm, according to their published sizes).
+
+
+  **Print settings**
+
+
+  - No supports: prints upright as oriented (gentle flare and pointed roof inside the plug)
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG or ASA. A car in the sun softens PLA
+
+
+  **Honest note:** brand names only describe compatibility; this is not an official accessory. Do not drink hot mate while driving.
+
+  '
+i18n:
+  fr:
+    name: Adaptateur de porte-gobelet pour maté – voiture, compatible maté Stanley, Hudson et Coleman
+    summary: Adaptateur pour porte-gobelet de voiture, 3 tailles (66, 72, 78 mm), sans supports.
+  de:
+    name: Becherhalter-Adapter für Mate im Auto – passend für Stanley-, Hudson- und Coleman-Mates
+    summary: Adapter für den Auto-Becherhalter in 3 Größen (66, 72, 78 mm), ohne Stützen.

@@ -1,0 +1,120 @@
+slug: matera-escritorio-mate-termo-stanley
+design: designs/matera_escritorio.scad
+variants:
+- file: matera_escritorio_stanley_1L_1.4L_mate_80mm.stl
+  params:
+    part: stanley
+  checks:
+  - type: bbox
+    expect:
+    - 205
+    - 107
+    - 70
+    tol: 0.5
+- file: matera_escritorio_termo_85-88mm_hudson_mate_80mm.stl
+  params:
+    part: slim
+  checks:
+  - type: bbox
+    expect:
+    - 198
+    - 100
+    - 70
+    tol: 0.5
+- file: matera_escritorio_stanley_mate_grande_hasta_94mm.stl
+  params:
+    part: big_mate
+  checks:
+  - type: bbox
+    expect:
+    - 216
+    - 107
+    - 70
+    tol: 0.5
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 210
+render_colors:
+- '#E9E4DA'
+- '#2F4F3A'
+cover_badge: Termo + mate · Stanley 1 L / 1,4 L · Hudson · Coleman · sin soportes
+print_settings:
+- No supports (prints as oriented)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PETG or PLA; about 190 g
+name: Matera de Escritorio – Mate and Thermos Desk Holder for Stanley 1 L / 1.4 L, Hudson and Coleman
+price: 3.99
+currency: USD
+category: Home
+subcategory: ''
+commercial: false
+tags:
+- matera
+- mate
+- yerba mate
+- termo
+- thermos holder
+- mate holder
+- stanley thermos
+- argentine mate
+- uruguayan mate
+- desk organizer
+- no supports
+- matero
+description: 'A desk and table holder for your mate and thermos, so they stop tipping over next to the keyboard. One piece, no supports, flat bottom.
+
+
+  **Matera de escritorio:** sostiene el termo y el mate juntos en el escritorio o la mesa. Una sola pieza, sin soportes.
+
+
+  **Included (3 files, pick the one that fits your gear)**
+
+
+  - Stanley version: thermos well 97 mm (Stanley Classic 1 L and 1.4 L, about 90-94 mm) + mate well 86 mm (Stanley, Hudson and Coleman steel mates, about 80 mm)
+
+  - Slim version: thermos well 90 mm (Hudson 1 L and other 84-88 mm thermoses) + mate well 86 mm
+
+  - Big mate version: Stanley thermos well + mate well 97 mm for wider gourds and "camionero" mates up to about 94 mm
+
+
+  **Details**
+
+
+  - Thermos well 70 mm deep with an open slot at the back for the side handle of the Stanley 1.4 L
+
+  - Mate well 45 mm deep with 3 drain holes, so a wet mate does not sit in water
+
+  - Groove on the bridge to rest the bombilla or a spoon
+
+
+  **Check your gear first**
+
+
+  Measure your thermos and mate at the widest part of the bottom 7 cm. Thermos up to 94 mm (Stanley version) or 88 mm (Slim). Mate up to 84 mm, or up to 94 mm with the Big mate version. Sizes are taken from the manufacturers'' published measurements (Stanley 1 L / 1.4 L about 9 cm, Hudson 1 L 8.5 cm, Stanley and Hudson mates 8 cm).
+
+
+  **Print settings**
+
+
+  - No supports, prints as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - PETG or PLA, about 190 g; footprint 205 x 107 mm (big mate version 216 mm: check your bed)
+
+
+  **Honest note:** brand names are only used to describe compatibility; this is not an official accessory of any brand.
+
+  '
+i18n:
+  fr:
+    name: Support de bureau pour maté et thermos – compatible Stanley 1 L / 1,4 L, Hudson et Coleman
+    summary: Support une pièce pour thermos et maté, sans supports. 3 versions selon la taille.
+  de:
+    name: Schreibtischhalter für Mate und Thermoskanne – passend für Stanley 1 L / 1,4 L, Hudson, Coleman
+    summary: Einteiliger Halter für Thermoskanne und Mate, ohne Stützen. 3 Größenvarianten.
