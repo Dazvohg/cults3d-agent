@@ -1,0 +1,1 @@
+No pude consultar el esquema de la API: TypeError("'NoneType' object is not subscriptable"). Sigo en modo offline.

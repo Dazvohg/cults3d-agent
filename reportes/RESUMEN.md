@@ -6,8 +6,8 @@
 |---|---|
 | Diseños analizados | 291 |
 | Con al menos 1 venta | 291 |
-| Ventas totales (descargas pagas) | 126,051 |
-| Ingreso estimado total (USD) | 1,862,517.81 |
+| Ventas totales (descargas pagas) | 126,056 |
+| Ingreso estimado total (USD) | 1,862,617.81 |
 | Precio mediano (USD) | 13.49 |
 | Ventas por día (mediana) | 8.039 |
 | Diseños con IP ajena (excluir) | 122 |

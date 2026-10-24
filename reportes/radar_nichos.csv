@@ -1,0 +1,41 @@
+termino,resultados,organicos,demanda_v_dia,dl_dia,precio,conv,oportunidad,veredicto
+matera,1,1,3174.1,53.71,8.0,1.7,2885.52,SIN SEÑAL
+mate,5,2,1627.7,28.09,7.12,2.4,1356.41,SIN SEÑAL
+bambu,2,2,303.3,4.4,13.62,3.2,252.79,SIN SEÑAL
+tealight,4,4,201.2,11.13,3.34,7.1,143.68,APOSTAR
+radiation shield,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+weather station,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+bme280,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+sht31,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+home assistant,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+raspberry pi case,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+esp32 enclosure,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+esp32 case,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+security camera mount,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+doorbell mount,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+anemometer,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+rain gauge,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+replacement foot,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+replacement knob,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+vacuum adapter,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+hose adapter,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+seed starter,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+irrigation,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+dht22,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+ds18b20,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+termo,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+plant label,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+nozzle holder,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+filament spool holder,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+ender 3,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+workshop organizer,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+screwdriver holder,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+cable management,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+meteorology,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+agro,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+sensor shield,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+stevenson screen,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+arduino,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+esp32,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+agriculture,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
+precision farming,0,0,0.0,0.0,0.0,0.0,0.0,SIN DATOS
