@@ -143,18 +143,29 @@ def main():
     REP.mkdir(exist_ok=True)
     api, tiene_query = None, False
     if not a.offline:
-        from analizador_v2 import Api, load_env
-        api = Api(*load_env())
-        info = esquema(api)
-        tiene_query = "query" in info["creationsBatch_args"] or "search" in info["creationsBatch_args"]
-        if a.schema:
-            return
-        if not tiene_query:
-            print("La API no expone búsqueda por texto en creationsBatch: paso a modo offline con el último análisis.")
+        try:
+            from analizador_v2 import Api, load_env
+            api = Api(*load_env())
+            info = esquema(api)
+            tiene_query = "query" in info["creationsBatch_args"] or "search" in info["creationsBatch_args"]
+            if a.schema:
+                return
+            if not tiene_query:
+                print("La API no expone búsqueda por texto en creationsBatch: paso a modo offline con el último análisis.")
+                a.offline = True
+        except (Exception, SystemExit) as e:  # noqa: BLE001  (Api.q termina con SystemExit ante errores)
+            msg = f"No pude consultar el esquema de la API: {e!r}. Sigo en modo offline."
+            print(msg)
+            (REP / "radar_error.txt").write_text(msg, encoding="utf-8")
             a.offline = True
     filas = []
     for s in semillas():
-        df = buscar_offline(s) if a.offline else buscar_api(api, s, tiene_query)
+        try:
+            df = buscar_offline(s) if a.offline else buscar_api(api, s, tiene_query)
+        except (Exception, SystemExit) as e:  # noqa: BLE001
+            print(f"  {s}: error {e!r}; uso la muestra offline")
+            (REP / "radar_error.txt").write_text(f"{s}: {e!r}", encoding="utf-8")
+            df = buscar_offline(s)
         filas.append(puntuar(s, df))
     res = pd.DataFrame(filas).sort_values("oportunidad", ascending=False)
     res.to_csv(REP / "radar_nichos.csv", index=False)
