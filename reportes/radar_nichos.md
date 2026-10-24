@@ -4,8 +4,8 @@ Demanda = vistas/día mediana de los 20 orgánicos mejor posicionados. Competenc
 
 | término | resultados | orgánicos | vistas/día | desc./día | USD | conv. % | oportunidad | veredicto |
 |---|---|---|---|---|---|---|---|---|
-| matera | 1 | 1 | 3174.1 | 53.71 | 8.0 | 1.7 | 2885.52 | SIN SEÑAL |
-| mate | 5 | 2 | 1627.7 | 28.09 | 7.12 | 2.4 | 1356.41 | SIN SEÑAL |
+| matera | 1 | 1 | 3174.4 | 53.71 | 8.0 | 1.7 | 2885.84 | SIN SEÑAL |
+| mate | 5 | 2 | 1627.9 | 28.09 | 7.12 | 2.4 | 1356.57 | SIN SEÑAL |
 | bambu | 2 | 2 | 303.3 | 4.4 | 13.62 | 3.2 | 252.79 | SIN SEÑAL |
 | tealight | 4 | 4 | 201.2 | 11.13 | 3.34 | 7.1 | 143.68 | APOSTAR |
 | radiation shield | 0 | 0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | SIN DATOS |
