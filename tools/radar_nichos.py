@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
-"""Radar de nichos: busca qué se BUSCA y está mal cubierto, en vez de copiar lo que descarga el top.
+"""Radar de nichos v4: encuentra nichos funcionales con demanda y poca competencia.
 
-Por qué: el top 500 por descargas muestra ganadores con audiencia propia, IP o novedad viral. Un recién llegado
-no compite ahí. Las dos ventas reales vinieron de un nicho técnico (escudo para sensores). Este radar prueba
-términos concretos (semillas) y mide para cada uno:
-  - DEMANDA   : vistas/día de los 20 resultados orgánicos mejor posicionados (sin IP, sin Art, sin audiencia propia)
-  - COMPETENCIA: cuántos resultados orgánicos hay y cuánto cobran
-  - OPORTUNIDAD = demanda / (1 + resultados orgánicos / 10)   (mucha demanda, pocos competidores)
-Marca cada término como APOSTAR / PROBAR / EVITAR y lista qué ya cubrimos.
+Qué descubrimos (esquema real de la API, 24/10/2026): creationsBatch NO tiene búsqueda por texto. Acepta
+categorySlugEn, onlyFree, onlyPriced, submittedAfter/Before, sort, direction, limit y offset.
+El top 500 general es 85 % Art, por eso no veía nada funcional. Solución: bajar muestras POR CATEGORÍA funcional
+(Home, Gadget, Tool, Game, Various...) pagas y gratis, y analizarlas acá:
+  1. Mide cada semilla de specs/semillas_nichos.txt (demanda, competencia paga, competencia gratis, precio).
+  2. DESCUBRE etiquetas con buena demanda aunque no estén en la lista de semillas.
+Excluye IP ajena, Art, audiencia propia (conversión > 20 %) y diseños de menos de 14 días.
 
 Modos:
-  python tools/radar_nichos.py            consulta la API de Cults (necesita CULTS_USERNAME / CULTS_API_KEY)
-  python tools/radar_nichos.py --offline  usa reportes/cults3d_mercado.xlsx (menos preciso, sirve para probar)
-  python tools/radar_nichos.py --schema   solo guarda los argumentos reales de creationsBatch (reportes/schema_creationsBatch.json)
-Semillas: specs/semillas_nichos.txt (una por línea, # comentarios). Se amplía sola con tags de nuestras ventas.
-Salida: reportes/radar_nichos.md y reportes/radar_nichos.csv
-Es descriptivo: la API no da búsquedas ni volumen de consultas; el ranking de resultados es un proxy de demanda.
+  python tools/radar_nichos.py            baja las muestras de la API (CULTS_USERNAME / CULTS_API_KEY) y las guarda en reportes/cults3d_funcional.csv
+  python tools/radar_nichos.py --offline  usa lo ya guardado (reportes/cults3d_funcional.csv o cults3d_mercado.xlsx)
+  python tools/radar_nichos.py --schema   solo guarda los argumentos de creationsBatch
+Salida: reportes/radar_nichos.md, reportes/radar_nichos.csv, reportes/radar_descubiertos.csv, reportes/radar_error.txt si algo falla.
+Es descriptivo: no hay volumen de búsquedas; vistas/día de los mejores resultados es un proxy de demanda.
 """
 import argparse
+import datetime as dt
 import json
 import re
 import sys
@@ -30,10 +30,15 @@ sys.path.insert(0, str(Path(__file__).parent))
 ROOT = Path(__file__).resolve().parent.parent
 REP = ROOT / "reportes"
 SEMILLAS = ROOT / "specs" / "semillas_nichos.txt"
+CACHE = REP / "cults3d_funcional.csv"
 TOP_N = 20
 CONV_AUDIENCIA = 0.20
+DIAS = 180
+POR_CATEGORIA = 500
+CATEGORIAS = ["home", "gadget", "tool", "game", "various", "fashion", "jewelry", "architecture"]
 FIELDS = """identifier name(locale: EN) publishedAt price(currency: USD) { value }
   downloadsCount likesCount viewsCount tags(locale: EN) category { name(locale: EN) }"""
+ESTACIONAL = ("halloween", "spooky", "ghost", "christmas", "xmas", "advent", "easter", "valentine", "pumpkin", "witch", "skull", "death")
 
 
 def semillas():
@@ -41,7 +46,7 @@ def semillas():
     if SEMILLAS.exists():
         out = [l.strip() for l in SEMILLAS.read_text(encoding="utf-8").splitlines() if l.strip() and not l.startswith("#")]
     p = REP / "ventas_propias.xlsx"
-    if p.exists():  # tags de lo que ya vendió: vecinos de lo único que funciona
+    if p.exists():  # tags de lo que ya vendió
         try:
             x = pd.read_excel(p, sheet_name="por_diseno")
             if "ventas" in x.columns and "tags" in x.columns:
@@ -63,50 +68,71 @@ def es_ip(texto):
     return any(re.search(rf"(?<![a-z0-9]){re.escape(k)}(?![a-z0-9])", t) for k in IP_TERMS)
 
 
-def limpiar(df):
-    """Filtra IP, Art y audiencia propia; calcula tasas diarias."""
-    if df.empty:
-        return df
+def preparar(df):
+    """Agrega tasas diarias, conversión y marca de IP."""
     df = df.copy()
     df["dias"] = (pd.Timestamp.now(tz="UTC") - pd.to_datetime(df["publicado"], utc=True)).dt.days.clip(lower=1)
     df["v_dia"] = df["vistas"] / df["dias"]
     df["dl_dia"] = df["descargas"] / df["dias"]
     df["conv"] = df["descargas"] / df["vistas"].clip(lower=1)
-    ip = df.apply(lambda r: es_ip(f"{r['nombre']} {r['tags']}"), axis=1)
-    return df[~ip & (df["categoria"] != "Art") & (df["conv"] <= CONV_AUDIENCIA) & (df["dias"] >= 14)]
+    df["tags"] = df["tags"].fillna("")
+    df["ip"] = df.apply(lambda r: es_ip(f"{r['nombre']} {r['tags']}"), axis=1)
+    df["gratis"] = df["precio"].fillna(0) <= 0
+    return df
+
+
+def organicos(df):
+    return df[~df["ip"] & ~df["gratis"] & (df["categoria"] != "Art") & (df["conv"] <= CONV_AUDIENCIA) & (df["dias"] >= 14)]
+
+
+def coincide(df, termino):
+    t = re.escape(termino.lower())
+    return df[df["nombre"].str.lower().str.contains(t) | df["tags"].str.lower().str.contains(t)]
 
 
 def puntuar(termino, df):
-    org = limpiar(df)
+    m = coincide(df, termino)
+    org = organicos(m)
+    gratis = int((m["gratis"] & ~m["ip"]).sum())
     if org.empty:
-        return dict(termino=termino, resultados=0, organicos=0, demanda_v_dia=0, dl_dia=0, precio=0, conv=0, oportunidad=0, veredicto="SIN DATOS")
+        return dict(termino=termino, pagos=len(m[~m["gratis"]]), organicos=0, gratis=gratis, demanda_v_dia=0, dl_dia=0,
+                    precio=0, conv=0, oportunidad=0, veredicto="SIN DATOS")
     top = org.sort_values("v_dia", ascending=False).head(TOP_N)
     dem = float(top["v_dia"].median())
     opp = dem / (1 + len(org) / 10)
     if len(org) < 3:
-        ver = "SIN SEÑAL"
+        ver = "POCOS DATOS"
     elif dem >= 15 and len(org) <= 60:
         ver = "APOSTAR"
     elif dem >= 5:
         ver = "PROBAR"
     else:
         ver = "EVITAR"
-    return dict(termino=termino, resultados=len(df), organicos=len(org), demanda_v_dia=round(dem, 1),
+    return dict(termino=termino, pagos=len(m[~m["gratis"]]), organicos=len(org), gratis=gratis, demanda_v_dia=round(dem, 1),
                 dl_dia=round(float(top["dl_dia"].median()), 2), precio=round(float(top["precio"].median()), 2),
                 conv=round(float(top["conv"].median()) * 100, 1), oportunidad=round(opp, 2), veredicto=ver)
 
 
-def _probe(api, args):
-    """Prueba una consulta mínima; devuelve (ok, mensaje)."""
-    try:
-        api.q(f'{{ creationsBatch({args}, limit: 1) {{ results {{ identifier }} }} }}')
-        return True, "ok"
-    except (Exception, SystemExit) as e:  # noqa: BLE001  (Api.q termina con SystemExit ante errores)
-        return False, str(e)[:300]
+def descubrir(df):
+    """Etiquetas con >= 3 orgánicos pagos, ordenadas por descargas/día; muestra también cuántos gratis hay."""
+    from analizador_v2 import TAGS_GENERICOS
+    org = organicos(df).copy()
+    org["tag"] = org["tags"].str.lower().str.split(r"\s*,\s*")
+    ex = org.explode("tag")
+    ex = ex[(ex["tag"].fillna("") != "") & ~ex["tag"].isin(TAGS_GENERICOS)]
+    g = ex.groupby("tag").agg(organicos=("nombre", "nunique"), dl_dia=("dl_dia", "median"), v_dia=("v_dia", "median"),
+                              precio=("precio", "median")).reset_index()
+    g = g[g["organicos"] >= 3]
+    libres = df[df["gratis"] & ~df["ip"]].copy()
+    libres["tag"] = libres["tags"].str.lower().str.split(r"\s*,\s*")
+    nl = libres.explode("tag").groupby("tag")["nombre"].nunique()
+    g["gratis"] = g["tag"].map(nl).fillna(0).astype(int)
+    g["estacional"] = g["tag"].apply(lambda t: any(k in t for k in ESTACIONAL))
+    g["oportunidad"] = (g["v_dia"] / (1 + g["organicos"] / 10)).round(2)
+    return g.sort_values("oportunidad", ascending=False)
 
 
 def esquema(api):
-    """Averigua qué acepta creationsBatch. Primero introspección; si está apagada, prueba directa."""
     info = {"metodo": "", "creationsBatch_args": [], "sort_values": [], "pruebas": {}}
     try:
         sch = api.q("{ __schema { queryType { name fields { name args { name } } } } }").get("__schema")
@@ -116,47 +142,61 @@ def esquema(api):
             info["creationsBatch_args"] = [x["name"] for x in cb["args"]]
     except (Exception, SystemExit) as e:  # noqa: BLE001
         info["pruebas"]["introspeccion"] = str(e)[:300]
-    if not info["creationsBatch_args"]:
-        info["metodo"] = "prueba_directa"
-        for arg in ("query", "search"):
-            ok, msg = _probe(api, f'{arg}: "mate"')
-            info["pruebas"][arg] = msg
-            if ok:
-                info["creationsBatch_args"].append(arg)
-        for srt in ("BY_VIEWS", "BY_DOWNLOADS", "BY_PUBLICATION", "BY_LIKES"):
-            ok, msg = _probe(api, f"sort: {srt}")
-            if ok:
-                info["sort_values"].append(srt)
     (REP / "schema_creationsBatch.json").write_text(json.dumps(info, indent=2, ensure_ascii=False), encoding="utf-8")
     print("creationsBatch:", info)
     return info
 
 
-def buscar_api(api, termino, tiene_query, maximo=100, arg="query"):
-    if not tiene_query:
-        return pd.DataFrame()
+def _fila(r):
+    return dict(nombre=r["name"], publicado=r["publishedAt"], precio=(r["price"] or {}).get("value", 0),
+                descargas=r["downloadsCount"], likes=r["likesCount"], vistas=r["viewsCount"],
+                tags=", ".join(r.get("tags") or []), categoria=(r.get("category") or {}).get("name", ""))
+
+
+def bajar(api, slug, gratis, maximo):
+    desde = (dt.datetime.utcnow() - dt.timedelta(days=DIAS)).strftime("%Y-%m-%dT00:00:00+00:00")
+    filtro = "onlyFree: true" if gratis else "onlyPriced: true"
     rows, off = [], 0
     while off < maximo:
-        t = termino.replace('"', "")
-        qq = f'{{ creationsBatch({arg}: "{t}", onlyPriced: true, limit: 100, offset: {off}) {{ results {{ {FIELDS} }} }} }}'
-        res = api.q(qq)["creationsBatch"]["results"]
-        rows += res
+        q = (f'{{ creationsBatch(sort: BY_DOWNLOADS, {filtro}, categorySlugEn: "{slug}", submittedAfter: "{desde}", '
+             f'limit: 100, offset: {off}) {{ results {{ {FIELDS} }} }} }}')
+        res = api.q(q)["creationsBatch"]["results"]
+        rows += [_fila(r) for r in res]
         if len(res) < 100:
             break
         off += 100
-        time.sleep(0.5)
-    return pd.DataFrame([dict(nombre=r["name"], publicado=r["publishedAt"], precio=(r["price"] or {}).get("value", 0),
-                              descargas=r["downloadsCount"], likes=r["likesCount"], vistas=r["viewsCount"],
-                              tags=", ".join(r.get("tags") or []), categoria=(r.get("category") or {}).get("name", ""))
-                         for r in rows])
+        time.sleep(0.7)
+    return rows
 
 
-def buscar_offline(termino):
-    d = pd.read_excel(REP / "cults3d_mercado.xlsx", sheet_name="disenos")
-    m = d[d["nombre"].str.lower().str.contains(re.escape(termino.lower())) | d["tags"].fillna("").str.lower().str.contains(re.escape(termino.lower()))]
-    pub = pd.Timestamp.now(tz="UTC") - pd.to_timedelta(m["dias_online"], unit="D")
-    return pd.DataFrame(dict(nombre=m["nombre"], publicado=pub, precio=m["precio_usd"], descargas=m["descargas"],
-                             likes=m["likes"], vistas=m["vistas"], tags=m["tags"].fillna(""), categoria=m["categoria"]))
+def muestra_api(api):
+    filas, log = [], []
+    for slug in CATEGORIAS:
+        for gratis, maximo in ((False, POR_CATEGORIA), (True, 300)):
+            try:
+                r = bajar(api, slug, gratis, maximo)
+                filas += r
+                log.append(f"{slug} {'gratis' if gratis else 'pagos'}: {len(r)}")
+            except (Exception, SystemExit) as e:  # noqa: BLE001
+                log.append(f"{slug} {'gratis' if gratis else 'pagos'}: ERROR {str(e)[:120]}")
+    print("\n".join(log))
+    (REP / "radar_log.txt").write_text("\n".join(log), encoding="utf-8")
+    return pd.DataFrame(filas).drop_duplicates(subset=["nombre", "publicado"]) if filas else pd.DataFrame()
+
+
+def cargar_offline():
+    partes = []
+    if CACHE.exists():
+        partes.append(pd.read_csv(CACHE))
+    x = REP / "cults3d_mercado.xlsx"
+    if x.exists():
+        d = pd.read_excel(x, sheet_name="disenos")
+        pub = pd.Timestamp.now(tz="UTC") - pd.to_timedelta(d["dias_online"], unit="D")
+        partes.append(pd.DataFrame(dict(nombre=d["nombre"], publicado=pub, precio=d["precio_usd"], descargas=d["descargas"],
+                                        likes=d["likes"], vistas=d["vistas"], tags=d["tags"].fillna(""), categoria=d["categoria"])))
+    if not partes:
+        sys.exit("No hay datos: corré sin --offline o subí reportes/cults3d_mercado.xlsx")
+    return pd.concat(partes).drop_duplicates(subset=["nombre"])
 
 
 def main():
@@ -165,42 +205,45 @@ def main():
     ap.add_argument("--schema", action="store_true")
     a = ap.parse_args()
     REP.mkdir(exist_ok=True)
-    api, tiene_query = None, False
+    modo = "datos guardados"
+    df = None
     if not a.offline:
         try:
             from analizador_v2 import Api, load_env
             api = Api(*load_env())
-            info = esquema(api)
-            tiene_query = next((x for x in ("query", "search") if x in info["creationsBatch_args"]), "")
+            esquema(api)
             if a.schema:
                 return
-            if not tiene_query:
-                print("La API no expone búsqueda por texto en creationsBatch: paso a modo offline con el último análisis.")
-                a.offline = True
-        except (Exception, SystemExit) as e:  # noqa: BLE001  (Api.q termina con SystemExit ante errores)
-            msg = f"No pude consultar el esquema de la API: {e!r}. Sigo en modo offline."
-            print(msg)
-            (REP / "radar_error.txt").write_text(msg, encoding="utf-8")
-            a.offline = True
-    filas = []
-    for s in semillas():
-        try:
-            df = buscar_offline(s) if a.offline else buscar_api(api, s, bool(tiene_query), arg=tiene_query or "query")
+            df = muestra_api(api)
+            if len(df) >= 50:
+                df.to_csv(CACHE, index=False, encoding="utf-8")
+                modo = f"muestra por categoría funcional bajada de Cults ({len(df)} diseños)"
+            else:
+                (REP / "radar_error.txt").write_text(f"La API devolvió solo {len(df)} diseños; ver reportes/radar_log.txt", encoding="utf-8")
+                df = None
         except (Exception, SystemExit) as e:  # noqa: BLE001
-            print(f"  {s}: error {e!r}; uso la muestra offline")
-            (REP / "radar_error.txt").write_text(f"{s}: {e!r}", encoding="utf-8")
-            df = buscar_offline(s)
-        filas.append(puntuar(s, df))
-    res = pd.DataFrame(filas).sort_values("oportunidad", ascending=False)
+            (REP / "radar_error.txt").write_text(f"No pude consultar la API: {e!r}", encoding="utf-8")
+            print("Error de la API:", e)
+    if df is None:
+        df = cargar_offline()
+    df = preparar(df)
+    res = pd.DataFrame([puntuar(s, df) for s in semillas()]).sort_values("oportunidad", ascending=False)
     res.to_csv(REP / "radar_nichos.csv", index=False)
-    md = [f"# Radar de nichos – {pd.Timestamp.now():%d/%m/%Y} ({'offline: muestra del top' if a.offline else 'búsqueda directa en Cults'})\n",
-          "Demanda = vistas/día mediana de los 20 orgánicos mejor posicionados. Competencia = orgánicos encontrados. "
-          "Oportunidad = demanda / (1 + competencia/10).\n",
-          "| término | resultados | orgánicos | vistas/día | desc./día | USD | conv. % | oportunidad | veredicto |", "|---|---|---|---|---|---|---|---|---|"]
+    desc = descubrir(df)
+    desc.to_csv(REP / "radar_descubiertos.csv", index=False)
+    org = organicos(df)
+    md = [f"# Radar de nichos – {pd.Timestamp.now():%d/%m/%Y}\n", f"Fuente: {modo}. Diseños: {len(df)}; orgánicos copiables: {len(org)}.\n",
+          "Demanda = vistas/día mediana de los 20 orgánicos mejor posicionados. Oportunidad = demanda / (1 + orgánicos/10).\n",
+          "## Semillas medidas\n",
+          "| término | pagos | orgánicos | gratis | vistas/día | desc./día | USD | conv. % | oportunidad | veredicto |", "|---|---|---|---|---|---|---|---|---|---|"]
     for _, r in res.iterrows():
-        md.append(f"| {r['termino']} | {r['resultados']} | {r['organicos']} | {r['demanda_v_dia']} | {r['dl_dia']} | {r['precio']} | {r['conv']} | {r['oportunidad']} | {r['veredicto']} |")
+        md.append(f"| {r['termino']} | {r['pagos']} | {r['organicos']} | {r['gratis']} | {r['demanda_v_dia']} | {r['dl_dia']} | {r['precio']} | {r['conv']} | {r['oportunidad']} | {r['veredicto']} |")
+    md += ["\n## Etiquetas descubiertas (no estacionales, >= 3 orgánicos pagos)\n",
+           "| etiqueta | orgánicos | gratis | vistas/día | desc./día | USD | oportunidad |", "|---|---|---|---|---|---|---|"]
+    for _, r in desc[~desc["estacional"]].head(30).iterrows():
+        md.append(f"| {r['tag']} | {r['organicos']} | {r['gratis']} | {r['v_dia']:.0f} | {r['dl_dia']:.1f} | {r['precio']:.2f} | {r['oportunidad']} |")
     (REP / "radar_nichos.md").write_text("\n".join(md), encoding="utf-8")
-    print("\n".join(md))
+    print("\n".join(md[:25]))
 
 
 if __name__ == "__main__":
