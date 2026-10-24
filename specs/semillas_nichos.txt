@@ -1,0 +1,41 @@
+# Una idea de nicho por línea (términos que alguien escribiría en el buscador). El radar las mide solas.
+# Sensores / IoT / estación meteorológica (nicho que ya vendió)
+radiation shield
+weather station
+bme280
+sht31
+esp32 case
+esp32 enclosure
+raspberry pi case
+home assistant
+anemometer
+rain gauge
+dht22
+ds18b20
+# Cámaras y seguridad
+security camera mount
+doorbell mount
+# Repuestos y adaptadores con medida exacta
+replacement knob
+replacement foot
+vacuum adapter
+hose adapter
+# Huerta y riego
+irrigation
+seed starter
+plant label
+# Argentina / mate
+mate
+matera
+termo
+# Impresoras 3D (accesorios para quien ya imprime)
+filament spool holder
+nozzle holder
+bambu
+ender 3
+# Herramientas y taller
+workshop organizer
+screwdriver holder
+# Hogar funcional
+tealight
+cable management
