@@ -55,6 +55,14 @@ jobs:
       - name: 1. Analizar el mercado (500 pagos + 200 gratis, últimos 90 días)
         run: python agente.py analizar
 
+      - name: 1b. Análisis de mercado v3 (orgánicos, sin IP ni audiencia propia)
+        continue-on-error: true
+        run: python tools/mercado_v3.py
+
+      - name: 1c. Radar de nichos (busca términos concretos; guarda también los argumentos reales de la API)
+        continue-on-error: true
+        run: python tools/radar_nichos.py
+
       - name: 2. Revisar tus ventas
         # si todavía no hay ventas o la API cambia ese campo, el análisis sigue igual
         continue-on-error: true
@@ -94,7 +102,7 @@ jobs:
           python tools/resumen_semanal.py --nuevos "${{ steps.verificar.outputs.nuevos }}" \
                                           --rechazados "${{ steps.verificar.outputs.rechazados }}"
           cat reportes/RESUMEN.md >> "$GITHUB_STEP_SUMMARY"
-          for f in cults3d_mercado.xlsx ventas_propias.xlsx nichos_para_disenar.csv nichos_sin_cubrir.csv; do
+          for f in mercado_v3.md mercado_v3_tags.csv cults3d_mercado.xlsx ventas_propias.xlsx nichos_para_disenar.csv nichos_sin_cubrir.csv; do
             if [ -f "$f" ]; then cp "$f" reportes/; fi
           done
           true
