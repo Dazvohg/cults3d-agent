@@ -1,0 +1,194 @@
+slug: led-tealight-candle-holders-geometric
+design: designs/tealight_holders.scad
+variants:
+- file: tealight_lattice_38mm.stl
+  params:
+    part: lattice
+    tl: 38
+  checks:
+  - type: bbox
+    expect:
+    - 47
+    - 47
+    - 56
+    tol: 0.15
+  - type: hole
+    z: 5
+    expect: 41.0
+    tol: 0.15
+- file: tealight_slots_38mm.stl
+  params:
+    part: slots
+    tl: 38
+  checks:
+  - type: bbox
+    expect:
+    - 47
+    - 47
+    - 50
+    tol: 0.15
+  - type: hole
+    z: 5
+    expect: 41.0
+    tol: 0.15
+- file: tealight_faceted_38mm.stl
+  params:
+    part: faceted
+    tl: 38
+  checks:
+  - type: bbox
+    expect:
+    - 53
+    - 53
+    - 30
+    tol: 0.15
+  - type: hole
+    z: 10
+    expect: 41.0
+    tol: 0.15
+- file: tealight_lattice_43mm.stl
+  params:
+    part: lattice
+    tl: 43
+  checks:
+  - type: bbox
+    expect:
+    - 52
+    - 52
+    - 56
+    tol: 0.15
+  - type: hole
+    z: 5
+    expect: 46.0
+    tol: 0.15
+- file: tealight_slots_43mm.stl
+  params:
+    part: slots
+    tl: 43
+  checks:
+  - type: bbox
+    expect:
+    - 52
+    - 52
+    - 50
+    tol: 0.15
+  - type: hole
+    z: 5
+    expect: 46.0
+    tol: 0.15
+- file: tealight_faceted_43mm.stl
+  params:
+    part: faceted
+    tl: 43
+  checks:
+  - type: bbox
+    expect:
+    - 58
+    - 58
+    - 30
+    tol: 0.15
+  - type: hole
+    z: 10
+    expect: 46.0
+    tol: 0.15
+render_colors:
+- '#F2E7D5'
+- '#3B2F2F'
+cover_badge: 3 designs x 2 sizes · LED tea lights · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 10 % infill
+- White or translucent PLA
+name: Geometric LED Tealight Candle Holders – Diamond Lattice, Slots and Faceted Cup (38 & 43 mm, No Supports)
+price: 2.99
+currency: USD
+category: Home
+subcategory: ''
+tags:
+- tealight
+- tealight holder
+- candle holder
+- candle
+- led candle
+- home decor
+- geometric
+- table decor
+- lantern
+- no supports
+- autumn decor
+description: 'Warm, glowing decor for your shelf or table: three original holders for flameless LED tea
+  lights. A diamond-lattice holder, a vertical-slot holder and a low faceted cup, each in two sizes. Plain
+  geometric shapes with no logos.
+
+
+
+  **LED tea lights only. Do not use a real flame or a hot candle: PLA softens and can burn.**
+
+
+
+  **Included (6 STL files)**
+
+
+
+  - Diamond lattice holder, 56 mm tall (three staggered rows of diamond windows)
+
+
+  - Vertical slot holder, 50 mm tall (12 narrow pointed slots)
+
+
+  - Faceted twisted cup, 30 mm tall
+
+
+  - Each in two sizes: 38 mm (the common LED tea light) and 43 mm (large LED tea lights)
+
+
+
+  **Print settings**
+
+
+
+  - No supports: print upright with the open end up; the diamond windows and the slots have 45 degree
+  pointed tops
+
+
+  - 0.2 mm layers, 3 walls, 10 % infill
+
+
+  - White, natural or translucent PLA lets the most light through; a darker colour gives crisp shadows
+
+
+
+  **Notes**
+
+
+
+  - The pocket is 3 mm wider than the tea light (41 mm for the 38 mm size, 46 mm for the 43 mm size).
+  Measure your own tea light before printing
+
+
+  - Every pocket has a 3 mm floor; the light sits at the bottom and shines through the windows or slots,
+  or from the top in the faceted cup
+
+
+  - Works for autumn, winter and Christmas decor, weddings and everyday shelf styling
+
+  '
+commercial: false
+i18n:
+  fr:
+    name: Photophores géométriques pour bougies LED – treillis, fentes et coupe à facettes (38 et 43 mm)
+    summary: 'Trois photophores originaux pour bougies chauffe-plat LED, en deux tailles : treillis en
+      losanges, fentes verticales et coupe facettée. 6 fichiers STL, impression sans support. Bougies
+      LED uniquement.'
+  de:
+    name: Geometrische LED-Teelichthalter – Rautengitter, Schlitze und Facettenschale (38 und 43 mm)
+    summary: 'Drei originelle Halter für LED-Teelichter in zwei Größen: Rautengitter, senkrechte Schlitze
+      und facettierte Schale. 6 STL-Dateien, ohne Stützen druckbar. Nur für LED-Teelichter.'
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 60

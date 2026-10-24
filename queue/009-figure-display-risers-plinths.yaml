@@ -1,0 +1,176 @@
+slug: figure-display-risers-plinths
+design: designs/figure_display.scad
+variants:
+- file: riser_3_step_150.stl
+  params:
+    part: riser
+    steps: 3
+    tread: 40
+    rise: 18
+    w: 150
+  checks:
+  - type: bbox
+    expect:
+    - 150
+    - 120
+    - 54
+    tol: 0.15
+- file: riser_3_step_200.stl
+  params:
+    part: riser
+    steps: 3
+    tread: 40
+    rise: 18
+    w: 200
+  checks:
+  - type: bbox
+    expect:
+    - 200
+    - 120
+    - 54
+    tol: 0.15
+- file: riser_4_step_150.stl
+  params:
+    part: riser
+    steps: 4
+    tread: 40
+    rise: 16
+    w: 150
+  checks:
+  - type: bbox
+    expect:
+    - 150
+    - 160
+    - 64
+    tol: 0.15
+- file: plinth_round_60.stl
+  params:
+    part: plinth_round
+    d: 60
+    h: 14
+  checks:
+  - type: bbox
+    expect:
+    - 60
+    - 60
+    - 14
+    tol: 0.2
+- file: plinth_round_80.stl
+  params:
+    part: plinth_round
+    d: 80
+    h: 14
+  checks:
+  - type: bbox
+    expect:
+    - 80
+    - 80
+    - 14
+    tol: 0.2
+- file: plinth_round_100.stl
+  params:
+    part: plinth_round
+    d: 100
+    h: 14
+  checks:
+  - type: bbox
+    expect:
+    - 100
+    - 100
+    - 14
+    tol: 0.2
+- file: plinth_hex_90.stl
+  params:
+    part: plinth_hex
+    d: 90
+    h: 14
+  checks:
+  - type: bbox
+    expect:
+    - 90
+    - 77.94
+    - 14
+    tol: 0.2
+render_colors:
+- '#2F2F34'
+- '#C9A24A'
+cover_badge: 3 risers · 3 round plinths · hex plinth · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- PLA is fine
+name: Action Figure Display Risers & Plinths – Stepped Shelf Risers and Round/Hex Bases for 15 cm Figures
+price: 2.99
+currency: USD
+category: Home
+subcategory: ''
+tags:
+- display stand
+- action figure
+- figure stand
+- riser
+- display riser
+- plinth
+- shelf display
+- collectible display
+- model display
+- step riser
+- no supports
+description: 'Give your action figures, models and collectibles a proper stage. A set of stepped risers
+  and plinths for shelves and desks, sized for 15 cm (6 in) figures. Plain surfaces, so they suit any
+  figure or collection.
+
+
+  **Included (7 STL files)**
+
+
+  - 3-step riser, 150 mm wide (steps 40 mm deep, 18 mm rise)
+
+  - 3-step riser, 200 mm wide
+
+  - 4-step riser, 150 mm wide (16 mm rise)
+
+  - Round plinths: 60, 80 and 100 mm
+
+  - Hexagonal plinth: 90 mm across corners
+
+
+  **Print settings**
+
+
+  - No supports: everything prints flat on its base
+
+  - 0.2 mm layers, 3 walls, 15 % infill (the risers are solid shapes, so use low infill to save filament)
+
+  - PLA is fine; add a thin sheet of felt or cork underneath if you want a non-slip base
+
+
+  **Notes**
+
+
+  - Each step is 40 mm deep, enough for the feet of a typical 15 cm figure; check your own figure''s feet
+  before printing the large riser
+
+  - The plinths have a 45 degree top chamfer and a fine decorative groove
+
+  - These are plain display pieces, not tied to any brand or character
+
+  '
+i18n:
+  fr:
+    name: Gradins et socles d'exposition pour figurines – 15 cm
+    summary: Trois gradins et quatre socles (ronds et hexagonal) pour exposer des figurines de 15 cm sur
+      une étagère. 7 fichiers STL, impression sans support.
+  de:
+    name: Podeste und Sockel für Actionfiguren – 15 cm
+    summary: Drei Stufenpodeste und vier Sockel (rund und sechseckig) zum Ausstellen von 15-cm-Figuren
+      im Regal. 7 STL-Dateien, ohne Stützen druckbar.
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 60
+commercial: false

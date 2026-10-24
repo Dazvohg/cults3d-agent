@@ -1,0 +1,223 @@
+slug: key-tag-set-labels-luggage
+design: designs/key_tags.scad
+variants:
+- file: tag_rect_home.stl
+  params:
+    part: tag_rect
+    label: HOME
+  checks:
+  - type: bbox
+    expect: &id001
+    - 60
+    - 28
+    - 4
+    tol: 0.1
+- file: tag_rect_blank.stl
+  params:
+    part: tag_rect
+    label: ''
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_rect_car.stl
+  params:
+    part: tag_rect
+    label: CAR
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_rect_office.stl
+  params:
+    part: tag_rect
+    label: OFFICE
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_rect_shed.stl
+  params:
+    part: tag_rect
+    label: SHED
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_rect_spare.stl
+  params:
+    part: tag_rect
+    label: SPARE
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_rect_mail.stl
+  params:
+    part: tag_rect
+    label: MAIL
+  checks:
+  - type: bbox
+    expect: *id001
+    tol: 0.1
+- file: tag_round_blank.stl
+  params:
+    part: tag_round
+    label: ''
+  checks:
+  - type: bbox
+    expect: &id002
+    - 36
+    - 36
+    - 4
+    tol: 0.1
+- file: tag_round_1.stl
+  params:
+    part: tag_round
+    label: '1'
+  checks:
+  - type: bbox
+    expect: *id002
+    tol: 0.1
+- file: tag_round_2.stl
+  params:
+    part: tag_round
+    label: '2'
+  checks:
+  - type: bbox
+    expect: *id002
+    tol: 0.1
+- file: tag_round_3.stl
+  params:
+    part: tag_round
+    label: '3'
+  checks:
+  - type: bbox
+    expect: *id002
+    tol: 0.1
+- file: tag_round_4.stl
+  params:
+    part: tag_round
+    label: '4'
+  checks:
+  - type: bbox
+    expect: *id002
+    tol: 0.1
+- file: tag_hex_blank.stl
+  params:
+    part: tag_hex
+    label: ''
+  checks:
+  - type: bbox
+    expect:
+    - 40
+    - 34.64
+    - 4
+    tol: 0.1
+- file: luggage_tag.stl
+  params:
+    part: luggage
+    label: ''
+  checks:
+  - type: bbox
+    expect:
+    - 95
+    - 60
+    - 3
+    tol: 0.1
+render_colors:
+- '#E07A1F'
+- '#2B2B2B'
+cover_badge: 14 key tags · labels · numbers · luggage tag · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 15-20 % infill
+- PLA or PETG
+name: Key Tag Set – Labeled Keychains (HOME, CAR, OFFICE, SHED), Numbered Tags and Luggage Tag
+price: 2.99
+currency: USD
+category: Gadget
+subcategory: ''
+tags:
+- keychain
+- key tag
+- key label
+- key organizer
+- luggage tag
+- bag tag
+- name tag
+- key holder
+- id tag
+- color coding
+- no supports
+description: 'Color-code your keys, bags and gear with a set of flat, original key tags. Each tag has
+  a key ring hole and a raised border; the text is raised 1 mm so it reads well in a two-colour print.
+  Plain shapes with no logos, so they suit any home, workshop or small business.
+
+
+
+  **Included (14 STL files)**
+
+
+
+  - Rectangular key tags, 60 x 28 x 4 mm: HOME, CAR, OFFICE, SHED, SPARE, MAIL and a blank one
+
+
+  - Round key tags, 36 mm: numbers 1, 2, 3 and 4, plus a blank one
+
+
+  - Hexagonal blank tag, 40 mm across corners
+
+
+  - Luggage / bag tag, 95 x 60 x 3 mm: a 4 x 24 mm strap slot and a 1 mm recess (62 x 40 mm) for a printed
+  or handwritten name card
+
+
+
+  **Print settings**
+
+
+
+  - No supports: every tag prints flat on the bed with the text facing up
+
+
+  - 0.2 mm layers, 3 walls, 15-20 % infill
+
+
+  - PLA or PETG; for two-colour text, change filament at the layer where the text starts (the raised text
+  starts at 3 mm)
+
+
+
+  **Notes**
+
+
+
+  - The key ring hole is 5 mm; it fits a standard split ring. Measure your own ring before printing a
+  large batch
+
+
+  - Blank tags are for a permanent marker, a paint pen or a sticker
+
+
+  - These tags do not include names, logos or characters of any brand
+
+  '
+i18n:
+  fr:
+    name: Porte-clés étiquettes – HOME, CAR, OFFICE, numérotés et étiquette de bagage
+    summary: '14 étiquettes plates pour clés et sacs : rectangulaires avec texte en relief, rondes numérotées,
+      hexagonale et étiquette de bagage. Impression sans support, sans logo.'
+  de:
+    name: Schlüsselanhänger-Set – beschriftet (HOME, CAR, OFFICE), nummeriert und Kofferanhänger
+    summary: '14 flache Anhänger für Schlüssel und Taschen: rechteckig mit erhabenem Text, rund mit Zahlen,
+      sechseckig und Gepäckanhänger. Ohne Stützen druckbar, ohne Logos.'
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 60
+commercial: false

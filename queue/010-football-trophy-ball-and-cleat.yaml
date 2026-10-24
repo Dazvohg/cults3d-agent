@@ -1,0 +1,175 @@
+slug: football-trophy-ball-and-cleat
+design: designs/trophy.scad
+variants:
+- file: ball_half.stl
+  params:
+    part: ball_half
+  checks:
+  - type: bbox
+    expect:
+    - 60
+    - 60
+    - 30
+    tol: 0.1
+- file: ball_pins.stl
+  parts: 3
+  params:
+    part: ball_pins
+  checks:
+  - type: bbox
+    expect:
+    - 18
+    - 19.9
+    - 9
+    tol: 0.2
+- file: ball_plinth_champion.stl
+  params:
+    part: base_ball
+    label: CHAMPION
+  checks:
+  - type: bbox
+    expect:
+    - 120
+    - 100
+    - 16
+    tol: 0.1
+- file: ball_plinth_mvp.stl
+  params:
+    part: base_ball
+    label: MVP
+  checks:
+  - type: bbox
+    expect:
+    - 120
+    - 100
+    - 16
+    tol: 0.1
+- file: ball_plinth_blank.stl
+  params:
+    part: base_ball
+    label: ''
+  checks:
+  - type: bbox
+    expect:
+    - 120
+    - 100
+    - 16
+    tol: 0.1
+- file: cleat_boot.stl
+  params:
+    part: boot
+  checks:
+  - type: bbox
+    expect:
+    - 121
+    - 64
+    - 16
+    tol: 0.1
+- file: boot_plinth_top_scorer.stl
+  params:
+    part: base_boot
+    label: TOP SCORER
+  checks:
+  - type: bbox
+    expect:
+    - 140
+    - 60
+    - 16
+    tol: 0.1
+- file: boot_plinth_blank.stl
+  params:
+    part: base_boot
+    label: ''
+  checks:
+  - type: bbox
+    expect:
+    - 140
+    - 60
+    - 16
+    tol: 0.1
+render_colors:
+- '#D4AF37'
+- '#2B2B2B'
+cover_badge: ball + cleat trophies · plaque text or blank · no supports
+print_settings:
+- No supports
+- 0.2 mm layers
+- 3 walls, 10-15 % infill
+- Gold or silk PLA, or paint
+name: Football Trophy Set – Ball and Cleat Plinths with Engraved Plaque (CHAMPION, MVP, TOP SCORER or
+  Blank)
+price: 3.99
+currency: USD
+category: Home
+subcategory: ''
+tags:
+- football trophy
+- soccer trophy
+- trophy
+- football gift
+- soccer gift
+- award
+- cleat
+- football
+- sports award
+- desk trophy
+- no supports
+description: 'A football (soccer) trophy you can print and paint gold: a ball with engraved panels on
+  a plinth, and a football cleat on its own plinth. Both plinths come with an engraved name plate text,
+  or blank. For club prizes, kids'' leagues, office five-a-side or a gift. Original shapes, with no award
+  names, logos or likenesses.
+
+
+  **Included (8 STL files)**
+
+
+  - Ball: two hemispheres (print the file twice) that make a 60 mm ball, with engraved pentagon panels,
+  plus 3 alignment pins
+
+  - Ball plinth in 3 versions: CHAMPION, MVP and blank
+
+  - Cleat (football boot) silhouette, 16 mm thick, with studs and 2 locating tabs
+
+  - Boot plinth in 2 versions: TOP SCORER and blank
+
+
+  **Print settings**
+
+
+  - No supports: the ball halves print dome-up on their flat face, the boot prints lying on its side,
+  the plinths print as they are
+
+  - 0.2 mm layers, 3 walls, 10-15 % infill
+
+  - Gold or silk PLA looks great; or print in any colour and spray paint
+
+  - Glue the two ball halves together with the pins; the ball sits 5 mm deep in the plinth dish, the boot
+  plugs into the plinth slots
+
+
+  **Notes**
+
+
+  - The assembled ball is 60 mm across; the ball plinth is 120 x 100 x 16 mm and the boot plinth 140 x
+  60 x 16 mm
+
+  - Text is engraved 1.2 mm deep; use the blank plinth to add your own label, vinyl or sticker
+
+  '
+i18n:
+  fr:
+    name: Trophées de football – ballon et crampon sur socle, plaque gravée ou vierge
+    summary: Un ballon à panneaux gravés et un crampon sur socle, avec plaque CHAMPION, MVP, TOP SCORER
+      ou vierge. 8 fichiers STL, impression sans support, formes originales.
+  de:
+    name: Fußball-Trophäen – Ball und Fußballschuh auf Sockel, Gravur oder blanko
+    summary: Ein Ball mit gravierten Feldern und ein Fußballschuh auf Sockel, mit Plakette CHAMPION, MVP,
+      TOP SCORER oder blanko. 8 STL-Dateien, ohne Stützen druckbar, eigene Formen.
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 60
+commercial: false
