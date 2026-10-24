@@ -1,0 +1,169 @@
+display_rotate:
+- 0
+- 0
+- 0
+render_angles:
+- 35
+- 70
+render_colors:
+- '#F2F2EE'
+- '#3A4A5A'
+currency: USD
+category: Gadget
+subcategory: ''
+slug: compact-radiation-shield-bme280-sht31
+design: designs/compact_shield.scad
+variants:
+- file: compact_shield_louver_plate_print_3.stl
+  params:
+    part: plate
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 3.4
+    tol: 0.1
+    count: 3
+  - type: bbox
+    expect:
+    - 80
+    - 80
+    - 23.13
+    tol: 0.3
+- file: compact_shield_cap_roof_print_1.stl
+  params:
+    part: cap
+  checks:
+  - type: hole
+    z: 1.5
+    expect: 3.4
+    tol: 0.1
+    count: 3
+  - type: bbox
+    expect:
+    - 80
+    - 80
+    - 37.63
+    tol: 0.3
+- file: compact_shield_spacers_x12_print_1.stl
+  params:
+    part: spacers
+  parts: 12
+  checks:
+  - type: hole
+    z: 3
+    expect: 3.4
+    tol: 0.1
+    count: 12
+- file: compact_shield_base_small_13x18_board.stl
+  params:
+    part: base_s
+  checks:
+  - type: bbox
+    expect:
+    - 80
+    - 80
+    - 9
+    tol: 0.3
+- file: compact_shield_base_medium_18x26_board.stl
+  params:
+    part: base_m
+  checks:
+  - type: bbox
+    expect:
+    - 80
+    - 80
+    - 9
+    tol: 0.3
+cover_badge: Compact louver stack · BME280 / SHT31 / AHT20 bases · M3 rods · no supports
+print_settings:
+- No supports (every part prints as oriented)
+- 0.2 mm layers
+- 3 walls, 15 % infill
+- White or light grey ASA or PETG outdoors; PLA deforms in the sun
+name: Compact Radiation Shield for BME280, SHT31 and AHT20 Sensor Boards – 80 mm Louver Stack for ESP32 Weather Stations
+price: 2.49
+tags:
+- radiation shield
+- weather station
+- bme280
+- sht31
+- aht20
+- bmp280
+- esp32
+- home assistant
+- esphome
+- stevenson screen
+- solar shield
+- no supports
+commercial: false
+description: 'A small passive solar radiation shield for the I2C temperature, humidity and pressure boards people hang outside on ESP32, ESP8266 and Raspberry Pi weather stations. Three louver plates and a roof stack on three M3 rods, so sun and rain stay off the board while air still flows through and the reading follows the air instead of the sun.
+
+
+  **Included (5 files)**
+
+
+  - Louver plate: print 3 (the file holds 1 plate)
+
+  - Cap (roof): print 1
+
+  - Spacers: 12 sleeves on one plate, print 1
+
+  - Base for small breakout boards: pocket 13.5 x 18 mm (GY-BME280, GY-BMP280, AHT20 type modules)
+
+  - Base for larger boards: pocket 18.5 x 26 mm (Adafruit-size SHT31 / BME280 boards, many SHT4x boards)
+
+
+  Both bases have a cable slot through the floor and two slits for a zip tie that holds the board down.
+
+
+  **Check your board first**
+
+
+  Boards from different sellers vary by a millimetre or two. Measure yours: it must be no bigger than the pocket of the base you pick, and no more than about 7 mm tall including the chips.
+
+
+  **You also need**
+
+
+  - 3 x M3 threaded rod, 60 mm
+
+  - 6 x M3 nuts and 6 x M3 washers
+
+  - 2 small zip ties
+
+
+  **Print settings**
+
+
+  - No supports: every part prints as oriented
+
+  - 0.2 mm layers, 3 walls, 15 % infill
+
+  - Print in white or light grey ASA or PETG. Dark or plain PLA absorbs sun and softens outdoors
+
+  - Whole kit: about 4 hours of printing and 90 g of filament
+
+
+  **Dimensions**
+
+
+  - 80 mm wide, about 70 mm tall once stacked
+
+  - Plate pitch 10 mm, cones at 46 degrees, 28 mm central chimney
+
+  - Rod holes 3.4 mm for M3
+
+
+  Also available: the large version for DHT22 and DS18B20 probes (116 mm).
+
+
+  **Honest note:** this is a passive louver design. It reduces solar heating of the board, but it has not been measured against a reference thermometer, so do not use it for certified measurements. Mount it in open air, away from walls and roofs.
+
+  '
+i18n:
+  fr:
+    name: Abri anti-rayonnement compact pour cartes BME280, SHT31 et AHT20 – pile de lamelles de 80 mm
+    summary: Abri passif contre le soleil et la pluie pour cartes de température I2C. 5 fichiers, tiges M3 non incluses.
+  de:
+    name: Kompakter Strahlungsschutz für BME280-, SHT31- und AHT20-Platinen – 80-mm-Lamellenstapel
+    summary: Passiver Schutz vor Sonne und Regen für I2C-Temperatursensoren. 5 Dateien, M3-Gewindestangen nicht enthalten.
