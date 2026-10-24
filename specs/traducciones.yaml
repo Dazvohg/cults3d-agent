@@ -375,3 +375,29 @@ compact-radiation-shield-bme280-sht31:
   ar:
     name: درع إشعاع مدمج للوحات BME280 وSHT31 وAHT20 – حزمة شرائح 80 مم
     summary: درع سلبي يحمي لوحات حساسات الحرارة والرطوبة I2C من الشمس والمطر في محطات الطقس ESP32. 5 ملفات بدون دعامات. أعمدة M3 غير مرفقة.
+matera-escritorio-mate-termo-stanley:
+  es:
+    name: Matera de escritorio – porta termo y mate para Stanley 1 L / 1,4 L, Hudson y Coleman (sin soportes)
+    summary: Sostiene el termo y el mate juntos en el escritorio o la mesa. 3 versiones según el tamaño de tu termo y tu mate. Una sola pieza, sin soportes, con desagüe para el mate.
+  zh:
+    name: 桌面马黛茶杯与保温瓶支架 – 适用于Stanley 1升/1.4升、Hudson和Coleman(无需支撑)
+    summary: 把保温瓶和马黛茶杯一起放在桌上。按尺寸提供3个版本,一体打印,无需支撑。
+  ja:
+    name: デスク用マテ茶&サーモスホルダー – Stanley 1L/1.4L・Hudson・Coleman対応(サポート不要)
+    summary: サーモスとマテカップを机の上にまとめて置けるホルダー。サイズ別に3種類、一体成形でサポート不要。
+  ar:
+    name: حامل مكتبي للمتة والترمس – متوافق مع ستانلي 1 لتر و1.4 لتر وهدسون وكولمان (بدون دعامات)
+    summary: يحمل الترمس وكوب المتة معًا على المكتب. ثلاث نسخ حسب المقاس، قطعة واحدة بدون دعامات.
+adaptador-posavasos-mate-auto:
+  es:
+    name: Adaptador de posavasos para mate – matera para auto, mates Stanley, Hudson y Coleman (sin soportes)
+    summary: 'El mate queda firme en el auto: entra en el posavasos y arriba sostiene mates de acero de 8 cm. 3 tamaños de posavasos (66, 72 y 78 mm). Sin soportes.'
+  zh:
+    name: 车载杯架马黛茶杯适配器 – 适用于Stanley、Hudson和Coleman马黛茶杯(无需支撑)
+    summary: 插入汽车杯架,上方稳稳托住8厘米的不锈钢马黛茶杯。3种杯架尺寸(66、72、78毫米),无需支撑。
+  ja:
+    name: 車のカップホルダー用マテ茶アダプター – Stanley・Hudson・Colemanのマテカップ対応(サポート不要)
+    summary: 車のカップホルダーに差し込み、8cmのステンレス製マテカップをしっかり固定。3サイズ(66・72・78mm)、サポート不要。
+  ar:
+    name: محوّل حامل الأكواب للمتة في السيارة – لأكواب ستانلي وهدسون وكولمان (بدون دعامات)
+    summary: يدخل في حامل الأكواب في السيارة ويثبت كوب المتة الفولاذي بقطر 8 سم. ثلاثة مقاسات (66 و72 و78 مم)، بدون دعامات.
