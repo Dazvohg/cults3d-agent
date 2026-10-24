@@ -38,6 +38,7 @@ POR_CATEGORIA = 500
 CATEGORIAS = ["home", "gadget", "tool", "game", "various", "fashion", "jewelry", "architecture"]
 FIELDS = """identifier name(locale: EN) publishedAt price(currency: USD) { value }
   downloadsCount likesCount viewsCount tags(locale: EN) category { name(locale: EN) }"""
+CREADOR = " creator { nick }"   # si la API no lo acepta, se baja sin creador
 ESTACIONAL = ("halloween", "spooky", "ghost", "christmas", "xmas", "advent", "easter", "valentine", "pumpkin", "witch", "skull", "death")
 
 
@@ -62,10 +63,15 @@ def semillas():
     return res
 
 
+IP_EXTRA = ["green lantern", "ork", "orks", "elvis", "gta", "gta 6", "vice city", "playmobil", "kinder", "frieren", "lego",
+            "boca juniors", "river plate", "peñarol", "penarol", "club nacional", "racing club", "independiente", "san lorenzo",
+            "real madrid", "barcelona", "messi", "copa do mundo", "fifa", "nfl", "nba", "hot wheels", "stlflix"]
+
+
 def es_ip(texto):
     from analizador_v2 import IP_TERMS
     t = texto.lower()
-    return any(re.search(rf"(?<![a-z0-9]){re.escape(k)}(?![a-z0-9])", t) for k in IP_TERMS)
+    return any(re.search(rf"(?<![a-z0-9]){re.escape(k)}(?![a-z0-9])", t) for k in list(IP_TERMS) + IP_EXTRA)
 
 
 def preparar(df):
@@ -86,8 +92,8 @@ def organicos(df):
 
 
 def coincide(df, termino):
-    t = re.escape(termino.lower())
-    return df[df["nombre"].str.lower().str.contains(t) | df["tags"].str.lower().str.contains(t)]
+    t = rf"(?<![a-z0-9]){re.escape(termino.lower())}(?![a-z0-9])"   # palabra completa: "mate" no cuenta "ultimate"
+    return df[df["nombre"].str.lower().str.contains(t, regex=True) | df["tags"].str.lower().str.contains(t, regex=True)]
 
 
 def puntuar(termino, df):
@@ -120,9 +126,16 @@ def descubrir(df):
     org["tag"] = org["tags"].str.lower().str.split(r"\s*,\s*")
     ex = org.explode("tag")
     ex = ex[(ex["tag"].fillna("") != "") & ~ex["tag"].isin(TAGS_GENERICOS)]
-    g = ex.groupby("tag").agg(organicos=("nombre", "nunique"), dl_dia=("dl_dia", "median"), v_dia=("v_dia", "median"),
-                              precio=("precio", "median")).reset_index()
-    g = g[g["organicos"] >= 3]
+    if "creador" not in ex.columns:
+        ex["creador"] = ""
+    ex["creador"] = ex["creador"].fillna("")
+    g = ex.groupby("tag").agg(organicos=("nombre", "nunique"), creadores=("creador", "nunique"), dl_dia=("dl_dia", "median"),
+                              v_dia=("v_dia", "median"), precio=("precio", "median")).reset_index()
+    tiene_creador = ex["creador"].str.len().gt(0).any()
+    # un solo creador con 3 diseños que comparten etiquetas no es un nicho
+    g = g[(g["organicos"] >= 5) & ((g["creadores"] >= 3) if tiene_creador else True)]
+    if not tiene_creador:
+        g["creadores"] = "–"
     libres = df[df["gratis"] & ~df["ip"]].copy()
     libres["tag"] = libres["tags"].str.lower().str.split(r"\s*,\s*")
     nl = libres.explode("tag").groupby("tag")["nombre"].nunique()
@@ -150,16 +163,18 @@ def esquema(api):
 def _fila(r):
     return dict(nombre=r["name"], publicado=r["publishedAt"], precio=(r["price"] or {}).get("value", 0),
                 descargas=r["downloadsCount"], likes=r["likesCount"], vistas=r["viewsCount"],
-                tags=", ".join(r.get("tags") or []), categoria=(r.get("category") or {}).get("name", ""))
+                tags=", ".join(r.get("tags") or []), categoria=(r.get("category") or {}).get("name", ""),
+                creador=(r.get("creator") or {}).get("nick", ""))
 
 
-def bajar(api, slug, gratis, maximo):
+def bajar(api, slug, gratis, maximo, campos=None):
+    campos = campos or FIELDS + CREADOR
     desde = (dt.datetime.utcnow() - dt.timedelta(days=DIAS)).strftime("%Y-%m-%dT00:00:00+00:00")
     filtro = "onlyFree: true" if gratis else "onlyPriced: true"
     rows, off = [], 0
     while off < maximo:
         q = (f'{{ creationsBatch(sort: BY_DOWNLOADS, {filtro}, categorySlugEn: "{slug}", submittedAfter: "{desde}", '
-             f'limit: 100, offset: {off}) {{ results {{ {FIELDS} }} }} }}')
+             f'limit: 100, offset: {off}) {{ results {{ {campos} }} }} }}')
         res = api.q(q)["creationsBatch"]["results"]
         rows += [_fila(r) for r in res]
         if len(res) < 100:
@@ -174,7 +189,15 @@ def muestra_api(api):
     for slug in CATEGORIAS:
         for gratis, maximo in ((False, POR_CATEGORIA), (True, 300)):
             try:
-                r = bajar(api, slug, gratis, maximo)
+                try:
+                    r = bajar(api, slug, gratis, maximo)
+                except (Exception, SystemExit) as e:  # noqa: BLE001
+                    if "creator" not in str(e).lower():
+                        raise
+                    global CREADOR
+                    CREADOR = ""
+                    log.append("la API no acepta creator { nick }: sigo sin creador")
+                    r = bajar(api, slug, gratis, maximo, FIELDS)
                 filas += r
                 log.append(f"{slug} {'gratis' if gratis else 'pagos'}: {len(r)}")
             except (Exception, SystemExit) as e:  # noqa: BLE001
@@ -238,10 +261,14 @@ def main():
           "| término | pagos | orgánicos | gratis | vistas/día | desc./día | USD | conv. % | oportunidad | veredicto |", "|---|---|---|---|---|---|---|---|---|---|"]
     for _, r in res.iterrows():
         md.append(f"| {r['termino']} | {r['pagos']} | {r['organicos']} | {r['gratis']} | {r['demanda_v_dia']} | {r['dl_dia']} | {r['precio']} | {r['conv']} | {r['oportunidad']} | {r['veredicto']} |")
-    md += ["\n## Etiquetas descubiertas (no estacionales, >= 3 orgánicos pagos)\n",
-           "| etiqueta | orgánicos | gratis | vistas/día | desc./día | USD | oportunidad |", "|---|---|---|---|---|---|---|"]
+    techo = org.groupby("categoria")["dl_dia"].describe(percentiles=[.5, .9])[["count", "50%", "90%"]]
+    md += ["\n## Techo del mercado por categoría (orgánicos pagos)\n", "| categoría | diseños | desc./día mediana | desc./día p90 |", "|---|---|---|---|"]
+    for cat, r in techo.iterrows():
+        md.append(f"| {cat} | {int(r['count'])} | {r['50%']:.2f} | {r['90%']:.2f} |")
+    md += ["\n## Etiquetas descubiertas (no estacionales, >= 5 orgánicos pagos de >= 3 creadores)\n",
+           "| etiqueta | orgánicos | creadores | gratis | vistas/día | desc./día | USD | oportunidad |", "|---|---|---|---|---|---|---|---|"]
     for _, r in desc[~desc["estacional"]].head(30).iterrows():
-        md.append(f"| {r['tag']} | {r['organicos']} | {r['gratis']} | {r['v_dia']:.0f} | {r['dl_dia']:.1f} | {r['precio']:.2f} | {r['oportunidad']} |")
+        md.append(f"| {r['tag']} | {r['organicos']} | {r['creadores']} | {r['gratis']} | {r['v_dia']:.0f} | {r['dl_dia']:.1f} | {r['precio']:.2f} | {r['oportunidad']} |")
     (REP / "radar_nichos.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md[:25]))
 
