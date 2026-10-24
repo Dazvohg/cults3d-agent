@@ -6,8 +6,8 @@
 |---|---|
 | Diseños analizados | 291 |
 | Con al menos 1 venta | 291 |
-| Ventas totales (descargas pagas) | 126,035 |
-| Ingreso estimado total (USD) | 1,862,293.89 |
+| Ventas totales (descargas pagas) | 126,051 |
+| Ingreso estimado total (USD) | 1,862,517.81 |
 | Precio mediano (USD) | 13.49 |
 | Ventas por día (mediana) | 8.039 |
 | Diseños con IP ajena (excluir) | 122 |
@@ -30,8 +30,10 @@
 Ninguno esta semana.
 
 
-## Cola de publicación (3 productos; los primeros 5)
+## Cola de publicación (7 productos; los primeros 5)
 
 - 001-christmas-cookie-cutters-5.yaml: Christmas Cookie Cutter Set – Tree, Star, Bell, Gingerbread Person & Bauble (5 Cutters) (USD 2.49)
 - 002-snowflake-ornaments-12.yaml: Snowflake Christmas Ornaments – Set of 10 Unique Designs, Fast Print (USD 1.99)
 - 003-compact-radiation-shield-bme280-sht31.yaml: Compact Radiation Shield for BME280, SHT31 and AHT20 Sensor Boards – 80 mm Louver Stack for ESP32 Weather Stations (USD 2.49)
+- 004-figure-display-risers-plinths.yaml: Action Figure Display Risers & Plinths – Stepped Shelf Risers and Round/Hex Bases for 15 cm Figures (USD 2.99)
+- 005-football-trophy-ball-and-cleat.yaml: Football Trophy Set – Ball and Cleat Plinths with Engraved Plaque (CHAMPION, MVP, TOP SCORER or Blank) (USD 3.99)
